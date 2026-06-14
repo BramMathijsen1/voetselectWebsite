@@ -157,24 +157,22 @@ p {
 
 /* Primary CTA — solid green */
 .btn-primary {
-  background: var(--color-green);
+  background: var(--color-blue);
   color: var(--color-white);
 }
 .btn-primary:hover {
-  background: #18674d;
+  background: var(--color-green);
 }
 
 /* Outline button on hero — light, turns green on hover */
 .btn-outline {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--color-blue);
   color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(2px);
+  border-color: var(--color-blue);
 }
 .btn-outline:hover {
   background: var(--color-green);
   border-color: var(--color-green);
-  color: var(--color-white);
 }
 
 /* Card "Lees meer" buttons — blue, green on hover (matches PDF) */
@@ -349,15 +347,17 @@ p {
 }
 
 @media (min-width: 1000px) {
+  .menu-icon { display: none; }
+
   /* Circle center sits at the viewport's top-right corner,
      so the top and right edges clip it — only the bottom-left arc is visible */
   .primary-nav {
     position: fixed;
     inset: auto;
-    top: -350px;
-    right: -350px;
-    width: 700px;
-    height: 700px;
+    top: -400px;
+    right: -400px;
+    width: 800px;
+    height: 800px;
     border-radius: 50%;
     background: var(--color-green);
 
@@ -705,9 +705,14 @@ body.menu-open {
    ============================================ */
 
 .site-footer {
-  background: var(--color-green);
+  background: var(--color-blue);
   color: var(--color-white);
   padding-top: 56px;
+}
+
+.footer-logo-wrap {
+  text-align: center;
+  padding-bottom: 40px;
 }
 
 .site-footer h6 {
