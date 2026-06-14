@@ -56,6 +56,7 @@
       <div class="hero-actions">
         <a class="btn btn-outline" href="#">Lees meer</a>
         <a class="btn btn-primary" href="#">Maak een afspraak</a>
+        <button type="button" class="btn btn-quiz" data-open-quiz>Waar heeft u last van?</button>
       </div>
     </div>
   </section>
@@ -224,6 +225,120 @@
     <p>&copy; <span id="year"></span> VoetSelect Podotherapie. Alle rechten voorbehouden.</p>
   </div>
 </footer>
+
+<!-- QUIZ MODAL -->
+<div class="quiz-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="quizHeading">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="quizClose" aria-label="Quiz sluiten">&times;</button>
+    <div class="quiz-deco" aria-hidden="true"></div>
+
+    <!-- Vraag 1 -->
+    <div class="quiz-step is-active" id="quizStep1">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 1 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--1"></div></div>
+      </div>
+      <h3 id="quizHeading" class="quiz-question">Waar heeft u pijn of klachten?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Voet">Voet</button>
+        <button type="button" class="quiz-option" data-value="Enkel">Enkel</button>
+        <button type="button" class="quiz-option" data-value="Knie">Knie</button>
+        <button type="button" class="quiz-option" data-value="Heup of rug">Heup of rug</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep2" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <!-- Vraag 2 -->
+    <div class="quiz-step" id="quizStep2">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 2 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--2"></div></div>
+      </div>
+      <h3 class="quiz-question">Hoe lang heeft u deze klachten al?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Minder dan 2 weken">Minder dan 2 weken</button>
+        <button type="button" class="quiz-option" data-value="2 tot 6 weken">2 tot 6 weken</button>
+        <button type="button" class="quiz-option" data-value="Langer dan 6 weken">Langer dan 6 weken</button>
+        <button type="button" class="quiz-option" data-value="Al meer dan een jaar">Al meer dan een jaar</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="quizStep1">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep3" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <!-- Vraag 3 -->
+    <div class="quiz-step" id="quizStep3">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 3 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--3"></div></div>
+      </div>
+      <h3 class="quiz-question">Wanneer zijn de klachten het ergst?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="'s Ochtends bij het opstaan">'s Ochtends bij het opstaan</button>
+        <button type="button" class="quiz-option" data-value="Na lang lopen of staan">Na lang lopen of staan</button>
+        <button type="button" class="quiz-option" data-value="Tijdens het sporten">Tijdens het sporten</button>
+        <button type="button" class="quiz-option" data-value="De hele dag door">De hele dag door</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="quizStep2">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizForm" disabled>Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <!-- Afspraak form -->
+    <div class="quiz-step" id="quizForm">
+      <h3 class="quiz-question">Maak een afspraak</h3>
+      <p class="quiz-form-intro">Op basis van uw antwoorden maken wij graag een afspraak voor u.</p>
+      <div class="quiz-summary" id="quizSummary" aria-live="polite"></div>
+      <form class="quiz-form" id="appointmentForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="fname" name="naam" required autocomplete="name" placeholder="Uw volledige naam">
+          </div>
+          <div class="form-field">
+            <label for="femail">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="femail" name="email" required autocomplete="email" placeholder="uw@email.nl">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fphone">Telefoonnummer</label>
+            <input type="tel" id="fphone" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
+          </div>
+          <div class="form-field">
+            <label for="fdate">Gewenste datum</label>
+            <input type="date" id="fdate" name="datum">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="fnotes">Opmerkingen</label>
+          <textarea id="fnotes" name="opmerkingen" rows="3" placeholder="Eventuele extra informatie..."></textarea>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-prev="quizStep3">Terug</button>
+          <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Bevestiging -->
+    <div class="quiz-step" id="quizSuccess">
+      <div class="quiz-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="10,26 20,36 38,14"/>
+        </svg>
+      </div>
+      <h3 class="quiz-question">Aanvraag verstuurd!</h3>
+      <p>Bedankt voor uw aanvraag. Wij nemen zo snel mogelijk contact met u op om een afspraak in te plannen.</p>
+      <button type="button" class="btn btn-primary" id="quizDoneBtn">Sluiten</button>
+    </div>
+
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
