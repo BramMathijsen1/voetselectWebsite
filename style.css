@@ -146,9 +146,9 @@ p {
   font-weight: 700;
   font-size: 14px;
   border: 2px solid transparent;
-  transition: background-color var(--transition-fast),
-              color var(--transition-fast),
-              border-color var(--transition-fast),
+  transition: background-color 0.65s ease,
+              color 0.65s ease,
+              border-color 0.65s ease,
               transform var(--transition-fast);
   cursor: pointer;
 }
@@ -348,6 +348,7 @@ p {
 
 @media (min-width: 1000px) {
   .menu-icon { display: none; }
+  .menu-toggle { font-size: 20px; }
 
   /* Circle center sits at the viewport's top-right corner,
      so the top and right edges clip it — only the bottom-left arc is visible */
@@ -368,8 +369,8 @@ p {
 
     display: flex;
     align-items: flex-end;
-    justify-content: flex-start;
-    padding: 0 0 160px 110px;
+    justify-content: flex-end;
+    padding: 0 450px 160px 0;
     pointer-events: none;
     z-index: 100;
   }
@@ -396,7 +397,7 @@ p {
   .primary-nav ul {
     flex-direction: column;
     gap: 14px;
-    text-align: left;
+    text-align: right;
   }
 
   .primary-nav a {
@@ -782,6 +783,320 @@ body.menu-open {
   margin: 0;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.65);
+}
+
+/* ============================================
+   Page hero (subpages)
+   ============================================ */
+
+.page-hero {
+  background: var(--color-blue);
+  position: relative;
+}
+
+.page-hero-inner {
+  padding-top: 56px;
+  padding-bottom: 72px;
+  max-width: 760px;
+}
+
+.page-hero-inner h1 {
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.page-hero-inner .eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.page-hero-lead {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  line-height: 26px;
+  margin: 0;
+  max-width: 540px;
+}
+
+.page-hero-curve {
+  display: block;
+  line-height: 0;
+}
+
+.page-hero-curve svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+@media (min-width: 1000px) {
+  .page-hero-inner { padding-top: 72px; padding-bottom: 88px; }
+  .page-hero-curve svg { height: 80px; }
+}
+
+/* ============================================
+   Tarieven page — Vergoedingen intro
+   ============================================ */
+
+.vergoedingen {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vergoedingen-deco {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.vergoedingen-deco--gold {
+  width: 320px;
+  height: 320px;
+  background: var(--color-gold);
+  opacity: 0.2;
+  right: -80px;
+  top: -80px;
+}
+
+.vergoedingen-deco--sage {
+  width: 200px;
+  height: 200px;
+  background: var(--color-sage);
+  opacity: 0.3;
+  right: 200px;
+  bottom: -60px;
+}
+
+.vergoedingen-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.vergoedingen-content h2 { color: var(--color-text); }
+
+.vergoedingen-content a:not(.btn) {
+  color: var(--color-green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ============================================
+   Tarieven page — Price list
+   ============================================ */
+
+.tarieven-section {
+  background: var(--color-terracotta);
+  padding-top: 64px;
+  padding-bottom: 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tarieven-section::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  top: -150px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.tarieven-eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.tarieven-heading {
+  color: var(--color-white);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tarieven-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.tarief-item {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.tarief-naam {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.tarief-prijs {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-green);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tarieven-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.tarieven-btn {
+  min-width: 200px;
+}
+
+@media (max-width: 600px) {
+  .tarief-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+/* ============================================
+   Tarieven page — Waarom Voetselect
+   ============================================ */
+
+.waarom {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.waarom-intro {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.waarom-intro h2 { color: var(--color-text); }
+
+.waarom-grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .waarom-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.waarom-card {
+  text-align: center;
+}
+
+.waarom-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--color-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.waarom-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-white);
+}
+
+.waarom-card h3 {
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   Tarieven page — Behandelt onder meer
+   ============================================ */
+
+.behandeling {
+  background: var(--color-sage);
+  padding-top: 72px;
+  padding-bottom: 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.behandeling-deco {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.behandeling-deco--green {
+  width: 300px;
+  height: 300px;
+  background: var(--color-green);
+  opacity: 0.12;
+  left: -100px;
+  top: -80px;
+}
+
+.behandeling-deco--terracotta {
+  width: 260px;
+  height: 260px;
+  border: 3px solid var(--color-terracotta);
+  opacity: 0.3;
+  right: -80px;
+  bottom: -80px;
+}
+
+.behandeling-eyebrow {
+  text-align: center;
+}
+
+.behandeling-heading {
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.behandeling-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 640px) {
+  .behandeling-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+.behandeling-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 22px;
+}
+
+.behandeling-list li::before {
+  content: '';
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-green);
+  margin-top: 6px;
 }
 
 /* ============================================
