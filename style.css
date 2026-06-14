@@ -349,26 +349,27 @@ p {
 }
 
 @media (min-width: 1000px) {
-  /* Hamburger stays — opens a compact circle dropdown instead of full screen */
+  /* Circle center sits at the viewport's top-right corner,
+     so the top and right edges clip it — only the bottom-left arc is visible */
   .primary-nav {
     position: fixed;
     inset: auto;
-    top: 0;
-    right: 0;
-    width: 480px;
-    height: 480px;
+    top: -350px;
+    right: -350px;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
     background: var(--color-green);
 
-    /* Reset mobile clip-path; use scale instead */
     clip-path: none;
     transform: scale(0);
-    transform-origin: top right;
+    transform-origin: center; /* center = viewport top-right corner */
     transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 
     display: flex;
     align-items: flex-end;
-    padding: 0 0 90px 80px;
+    justify-content: flex-start;
+    padding: 0 0 160px 110px;
     pointer-events: none;
     z-index: 100;
   }
