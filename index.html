@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoetSelect Podotherapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img">
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span class="menu-label">Menu</span>
+      <span class="menu-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-hidden="true">
+      <div class="primary-nav-circle" aria-hidden="true"></div>
+      <div class="primary-nav-inner">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Behandelingen</a></li>
+          <li><a href="#">Over ons</a></li>
+          <li><a href="#">Tarieven</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="img/hero-wide.jpg" alt="Nike sneaker met gele markeringslijnen voor een voetmeting">
+      <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+
+    <div class="hero-content container">
+      <h1>Zorg voor uw voeten,<br>door specialisten die luisteren</h1>
+      <p>Bij VoetSelect Podotherapie staan persoonlijke aandacht en deskundige behandeling centraal. Van klachten tot preventie &mdash; wij denken met u mee.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#">Maak een afspraak</a>
+        <a class="btn btn-outline" href="#">Lees meer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro container">
+    <div class="intro-grid">
+      <div class="intro-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
+          <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+        </svg>
+      </div>
+      <div class="intro-text">
+        <p class="eyebrow">Welkom bij VoetSelect</p>
+        <h2>Het lijkt me leuk om te werken met ge&iuml;llustreerde iconen</h2>
+        <p>En gekleurde blokken op de achtergrond, maar altijd ook afgewisseld met lekker veel wit zodat het ook clean en professioneel blijft.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN-SHOE STAPPENPLAN -->
+  <section class="stappenplan container">
+    <div class="stappenplan-grid">
+      <div class="stappenplan-media">
+        <img src="img/stappenplan.jpg" alt="We meten direct in je eigen schoen">
+      </div>
+      <div class="stappenplan-text">
+        <p class="eyebrow">In-shoe meting</p>
+        <h2>Wij meten direct in uw eigen schoen</h2>
+        <p>Met een in-shoe meting brengen we de druk onder uw voet in kaart, terwijl u uw eigen schoenen draagt. Zo zien we precies hoe uw voet beweegt in de praktijk &mdash; de basis voor een zool of advies dat echt aansluit op uw dagelijks leven.</p>
+        <ol class="stappenplan-steps">
+          <li>Intakegesprek en klachtenanalyse</li>
+          <li>In-shoe meting tijdens lopen en staan</li>
+          <li>Bespreking van de resultaten</li>
+          <li>Advies op maat of aanmeten van zolen</li>
+        </ol>
+        <a class="btn btn-primary" href="#">Maak een afspraak</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE CARDS -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
+              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+            </svg>
+          </div>
+          <h3>Podotherapie</h3>
+          <p>Onderzoek en behandeling van voet- en houdingsklachten, afgestemd op uw situatie.</p>
+          <a class="btn btn-card" href="#">Lees meer</a>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
+              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+            </svg>
+          </div>
+          <h3>Zooltherapie</h3>
+          <p>Op maat gemaakte zolen die klachten verminderen en uw houding ondersteunen.</p>
+          <a class="btn btn-card" href="#">Lees meer</a>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
+              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+            </svg>
+          </div>
+          <h3>Sportpodotherapie</h3>
+          <p>Specialistische zorg gericht op sporters, om klachten te verhelpen en te voorkomen.</p>
+          <a class="btn btn-card" href="#">Lees meer</a>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
+              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+            </svg>
+          </div>
+          <h3>Kindervoeten</h3>
+          <p>Tijdige signalering en begeleiding bij groei- en houdingsafwijkingen bij kinderen.</p>
+          <a class="btn btn-card" href="#">Lees meer</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ILLUSTRATION / ACCENT SECTION -->
+  <section class="accent-section container">
+    <div class="accent-grid">
+      <div class="accent-circle accent-circle--sage" aria-hidden="true"></div>
+      <div class="accent-text">
+        <h2>Bij ons bent u in goede handen</h2>
+        <p>Onze podotherapeuten werken nauw samen met huisartsen, fysiotherapeuten en orthopeden voor een compleet behandeltraject.</p>
+        <a class="btn btn-primary" href="#">Maak een afspraak</a>
+      </div>
+      <div class="accent-circle accent-circle--orange" aria-hidden="true"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="footer-col footer-brand">
+      <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img logo-img--footer">
+      <p class="footer-hours">
+        <strong>Openingstijden</strong><br>
+        Maandag t/m vrijdag<br>
+        09:00 &ndash; 17:30 uur
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h6>Contact</h6>
+      <p>
+        <a href="tel:+31628874712">+31 6 28874712</a><br>
+        <a href="tel:0735478816">(073) 547 88 16</a><br>
+        <a href="mailto:info@voetselect.nl">info@voetselect.nl</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h6>Adres Schijndel</h6>
+      <p>
+        Akkerstraat 8<br>
+        5482 HJ Schijndel
+      </p>
+      <p class="footer-note">
+        <strong>Let op!</strong> Navigeer naar Akkerstraat 8, 5482 HJ. De praktijk bevindt zich aan de achterzijde van dit adres, bij de gevel met blauwe deuren.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h6>Informatie</h6>
+      <ul class="footer-links">
+        <li><a href="#">Veel gestelde vragen</a></li>
+        <li><a href="#">Privacyverklaring</a></li>
+        <li><a href="#">Algemene voorwaarden</a></li>
+        <li><a href="#">MDR-Conformiteit verklaring</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom container">
+    <p>&copy; <span id="year"></span> VoetSelect Podotherapie. Alle rechten voorbehouden.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
