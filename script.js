@@ -58,12 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
     quizStep3: 'Ergst moment',
   };
 
-  const state = { answers: {} };
+  const state = { answers: {}, captchaAnswer: 0 };
 
   function showStep(id) {
     overlay.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('is-active'));
     document.getElementById(id).classList.add('is-active');
-    if (id === 'quizForm') buildSummary();
+    if (id === 'quizForm') { buildSummary(); generateCaptcha(); }
     overlay.querySelector('.quiz-modal').scrollTop = 0;
   }
 
@@ -82,6 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('menu-open');
+  }
+
+  function generateCaptcha() {
+    const a = Math.floor(Math.random() * 9) + 1;
+    const b = Math.floor(Math.random() * 9) + 1;
+    state.captchaAnswer = a + b;
+    document.getElementById('captchaQuestion').textContent = `Wat is ${a} + ${b}?`;
+    document.getElementById('fcaptcha').value = '';
+    document.getElementById('fcaptcha').classList.remove('is-invalid');
   }
 
   function buildSummary() {
@@ -133,6 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.toggle('is-invalid', !filled);
       if (!filled) valid = false;
     });
+
+    const captchaEl = document.getElementById('fcaptcha');
+    const captchaCorrect = parseInt(captchaEl.value, 10) === state.captchaAnswer;
+    captchaEl.classList.toggle('is-invalid', !captchaCorrect);
+    if (!captchaCorrect) valid = false;
 
     if (!valid) return;
 

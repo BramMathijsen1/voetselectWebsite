@@ -1421,6 +1421,27 @@ body.menu-open {
 
 .form-field textarea { resize: vertical; }
 
+.captcha-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.captcha-question {
+  background: #e8ece9;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.captcha-wrap input {
+  max-width: 120px;
+}
+
 /* Success screen */
 .quiz-success-icon {
   width: 64px;

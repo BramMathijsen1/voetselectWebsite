@@ -318,6 +318,13 @@
           <label for="fnotes">Opmerkingen</label>
           <textarea id="fnotes" name="opmerkingen" rows="3" placeholder="Eventuele extra informatie..."></textarea>
         </div>
+        <div class="form-field">
+          <label for="fcaptcha">Beveiliging <span aria-hidden="true">*</span></label>
+          <div class="captcha-wrap">
+            <span class="captcha-question" id="captchaQuestion"></span>
+            <input type="text" id="fcaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
+          </div>
+        </div>
         <div class="quiz-nav">
           <button type="button" class="quiz-back" data-prev="quizStep3">Terug</button>
           <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
