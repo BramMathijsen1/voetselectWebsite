@@ -222,6 +222,18 @@ p {
 }
 
 /* Menu toggle (mobile-first) */
+.menu-label {
+  min-width: 4ch;
+  text-align: center;
+  display: inline-block;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.menu-label.is-switching {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
 .menu-toggle {
   display: flex;
   align-items: center;
@@ -463,9 +475,22 @@ body.menu-open {
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  gap: 12px;
   margin-top: 24px;
+}
+
+.hero-actions-primary,
+.hero-actions-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero-actions-tools .btn {
+  padding: 10px 22px;
+  font-size: 13px;
 }
 
 /* On larger screens, give the hero text more breathing room */
@@ -1151,25 +1176,27 @@ body.menu-open {
    ============================================ */
 
 .btn-vergoeding {
+  background: transparent;
+  color: #b07a10;
+  border-color: var(--color-gold);
+}
+
+.btn-vergoeding:hover {
   background: var(--color-gold);
   color: var(--color-text);
   border-color: var(--color-gold);
 }
 
-.btn-vergoeding:hover {
-  background: #d49a20;
-  border-color: #d49a20;
-}
-
 .btn-quiz {
-  background: var(--color-terracotta);
-  color: var(--color-white);
+  background: transparent;
+  color: var(--color-terracotta);
   border-color: var(--color-terracotta);
 }
 
 .btn-quiz:hover {
-  background: #b84418;
-  border-color: #b84418;
+  background: var(--color-terracotta);
+  color: var(--color-white);
+  border-color: var(--color-terracotta);
 }
 
 /* ============================================
@@ -1486,6 +1513,31 @@ body.menu-open {
   .quiz-modal { padding: 48px 24px 32px; }
   .quiz-options { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 1000px) {
+  .quiz-overlay {
+    background: rgba(31, 125, 94, 0.82);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .quiz-overlay.is-open {
+    clip-path: circle(150% at 100% 0%);
+  }
+
+  .quiz-modal {
+    transform: scale(0.94);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1) 0.12s;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.18);
+  }
+
+  .quiz-overlay.is-open .quiz-modal {
+    transform: scale(1);
+  }
 }
 
 /* ============================================

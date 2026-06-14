@@ -2,11 +2,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('primaryNav');
   const navLinks = nav.querySelectorAll('a');
+  const label = toggle.querySelector('.menu-label');
 
   const setOpen = (open) => {
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', open);
     document.body.classList.toggle('menu-open', open && window.innerWidth < 1000);
+    if (label) {
+      const next = open ? '✕' : 'Menu';
+      if (label.textContent !== next) {
+        label.classList.add('is-switching');
+        const onEnd = (e) => {
+          if (e.propertyName !== 'opacity') return;
+          label.removeEventListener('transitionend', onEnd);
+          label.textContent = next;
+          label.classList.remove('is-switching');
+        };
+        label.addEventListener('transitionend', onEnd);
+      }
+    }
 
     if (window.innerWidth < 1000) {
       nav.setAttribute('aria-hidden', !open);
