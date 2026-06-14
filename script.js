@@ -167,3 +167,56 @@ document.addEventListener('DOMContentLoaded', () => {
     showStep('quizSuccess');
   });
 }());
+
+// Vergoeding check
+(function () {
+  const overlay = document.getElementById('vergoedingOverlay');
+  if (!overlay) return;
+
+  let selectedInsurer = '';
+
+  function showStep(id) {
+    overlay.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('is-active'));
+    document.getElementById(id).classList.add('is-active');
+    overlay.querySelector('.quiz-modal').scrollTop = 0;
+  }
+
+  function open() {
+    selectedInsurer = '';
+    overlay.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('is-selected'));
+    document.getElementById('vergNextBtn').disabled = true;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    showStep('vergStep1');
+  }
+
+  function close() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+  }
+
+  document.querySelectorAll('[data-open-vergoeding]').forEach(btn => btn.addEventListener('click', open));
+  document.getElementById('vergoedingClose').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+  });
+
+  overlay.querySelectorAll('#vergStep1 .quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      overlay.querySelectorAll('#vergStep1 .quiz-option').forEach(b => b.classList.remove('is-selected'));
+      btn.classList.add('is-selected');
+      selectedInsurer = btn.dataset.value;
+      document.getElementById('vergNextBtn').disabled = false;
+    });
+  });
+
+  document.getElementById('vergNextBtn').addEventListener('click', () => {
+    document.getElementById('vergResultInsurer').textContent = selectedInsurer;
+    showStep('vergResult');
+  });
+
+  document.getElementById('vergBackBtn').addEventListener('click', () => showStep('vergStep1'));
+}());

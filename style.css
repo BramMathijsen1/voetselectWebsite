@@ -1150,6 +1150,17 @@ body.menu-open {
    Quiz button variant
    ============================================ */
 
+.btn-vergoeding {
+  background: var(--color-gold);
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+.btn-vergoeding:hover {
+  background: #d49a20;
+  border-color: #d49a20;
+}
+
 .btn-quiz {
   background: var(--color-terracotta);
   color: var(--color-white);
@@ -1475,4 +1486,47 @@ body.menu-open {
   .quiz-modal { padding: 48px 24px 32px; }
   .quiz-options { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   Vergoeding modal overrides
+   ============================================ */
+
+.quiz-deco--gold {
+  background: var(--color-gold);
+  opacity: 0.12;
+}
+
+.verg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(31, 125, 94, 0.1);
+  color: var(--color-green);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 99px;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+}
+
+.verg-badge svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.verg-tip {
+  background: #f2f5f3;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 4px 0 24px;
+}
+
+.verg-tip p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
 }
