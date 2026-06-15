@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — VoetSelect Podotherapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lib/leaflet/leaflet.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img">
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span class="menu-label">Menu</span>
+      <span class="menu-icon" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-hidden="true">
+      <div class="primary-nav-circle" aria-hidden="true"></div>
+      <div class="primary-nav-inner">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="behandelingen.html">Behandelingen</a></li>
+          <li><a href="#">Aandoeningen</a></li>
+          <li><a href="#">Ons onderzoek</a></li>
+          <li><a href="overons.html">Over ons</a></li>
+          <li><a href="tarieven.html">Tarieven</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--img">
+    <div class="page-hero-media">
+      <img src="img/hero-contact.jpg" alt="Praktijk VoetSelect Podotherapie exterieur">
+    </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow page-hero-eyebrow">Bereikbaarheid</p>
+      <h1>Contact<br>&amp; Route</h1>
+      <p class="page-hero-lead">Heeft u een vraag of wilt u een afspraak maken? Wij zijn er voor u &mdash; via telefoon, e-mail of WhatsApp.</p>
+    </div>
+    <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <!-- QUICK CONTACT CARDS -->
+  <div class="contact-cards-band">
+    <div class="container">
+      <div class="contact-cards-grid">
+
+        <div class="contact-card">
+          <div class="contact-card-icon contact-card-icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <h3>Telefoon</h3>
+          <p>
+            <a href="tel:+31628874712">06 28874712</a><br>
+            <a href="tel:0735478816">(073) 547 88 16</a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon contact-card-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3>E-mail</h3>
+          <p><a href="mailto:info@voetselect.nl">info@voetselect.nl</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon contact-card-icon--terracotta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <h3>Openingstijden</h3>
+          <p>Ma &ndash; vr: 09:00 &ndash; 17:30</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-icon contact-card-icon--whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </div>
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/31628874712?text=Hoi%20VoetSelect%20Podotherapie%2C%20ik%20heb%20een%20vraag:" target="_blank" rel="noopener">Stuur een appje</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ CTA STRIP -->
+  <section class="quiz-cta-strip">
+    <div class="container">
+      <div class="quiz-cta-inner">
+        <div class="quiz-cta-text">
+          <h2>Heeft u klachten aan uw voeten of benen?</h2>
+          <p>Doe onze korte quiz, vertel ons waar u last van heeft en verzoek direct een afspraak.</p>
+        </div>
+        <div class="quiz-cta-actions">
+          <button class="btn btn-secondary" data-open-quiz>Waar heeft u last van?</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM + SIDEBAR -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="contact-form-grid">
+
+        <!-- Form -->
+        <div class="contact-form-card">
+          <h2>Stuur ons een bericht</h2>
+          <p class="contact-form-intro">Vul het formulier in en wij nemen zo spoedig mogelijk contact met u op.</p>
+
+          <div id="contactSuccess" class="contact-success">
+            <div class="contact-success-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="10,26 20,36 38,14"/>
+              </svg>
+            </div>
+            <h3>Bericht verstuurd!</h3>
+            <p>Bedankt voor uw bericht. Wij nemen zo spoedig mogelijk contact met u op.</p>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="contactNaam">Naam <span aria-hidden="true">*</span></label>
+                <input type="text" id="contactNaam" name="naam" required autocomplete="name" placeholder="Uw volledige naam">
+              </div>
+              <div class="form-field">
+                <label for="contactEmail">E-mail <span aria-hidden="true">*</span></label>
+                <input type="email" id="contactEmail" name="email" required autocomplete="email" placeholder="uw@email.nl">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="contactTel">Telefoonnummer</label>
+              <input type="tel" id="contactTel" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
+            </div>
+            <div class="form-field">
+              <label for="contactBericht">Uw vraag of bericht <span aria-hidden="true">*</span></label>
+              <textarea id="contactBericht" name="bericht" rows="5" required placeholder="Waar kunnen wij u mee helpen?"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="contactCaptcha">Beveiliging <span aria-hidden="true">*</span></label>
+              <div class="captcha-wrap">
+                <span class="captcha-question" id="contactCaptchaQ"></span>
+                <input type="text" id="contactCaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Verstuur bericht</button>
+          </form>
+        </div>
+
+        <!-- Sidebar -->
+        <aside>
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon" style="background: var(--color-green);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-sidebar-label">Adres</p>
+              <p class="contact-sidebar-value">
+                Catharinaplein 36<br>
+                (achterzijde Akkerstraat 8)<br>
+                5482 HT Schijndel
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon" style="background: var(--color-green);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-sidebar-label">Telefoon</p>
+              <p class="contact-sidebar-value">
+                <a href="tel:+31628874712">06 28 87 47 12</a><br>
+                <a href="tel:0735478816">(073) 547 88 16</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon" style="background: var(--color-blue);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-sidebar-label">E-mail</p>
+              <p class="contact-sidebar-value"><a href="mailto:info@voetselect.nl">info@voetselect.nl</a></p>
+            </div>
+          </div>
+
+          <div class="contact-sidebar-item">
+            <div class="contact-sidebar-icon" style="background: var(--color-terracotta);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-sidebar-label">Openingstijden</p>
+              <p class="contact-sidebar-value">Maandag t/m vrijdag<br>09:00 &ndash; 17:30 uur</p>
+            </div>
+          </div>
+
+          <a class="wa-btn" href="https://wa.me/31628874712?text=Hoi%20VoetSelect%20Podotherapie%2C%20ik%20heb%20een%20vraag:" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Direct WhatsApp sturen
+          </a>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP + ROUTE -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-section-intro">
+        <p class="eyebrow">Routebeschrijving</p>
+        <h2>Hoe vindt u ons?</h2>
+        <p>Onze praktijk bevindt zich in het centrum van Schijndel. Let op: de ingang is aan de achterzijde van het gebouw.</p>
+      </div>
+
+      <div class="map-grid">
+        <div class="map-embed-wrap">
+          <div id="practiceMap" class="map-leaflet"></div>
+          <div class="map-click-shield" id="mapShield">
+            <span class="map-click-hint">Klik om de kaart te bedienen</span>
+          </div>
+        </div>
+
+        <div class="route-card">
+          <span class="route-eyebrow">Navigatie-tip</span>
+          <h3>Navigeer naar Akkerstraat 8</h3>
+          <ol class="route-steps">
+            <li class="route-step">
+              <span class="route-step-num">1</span>
+              <p class="route-step-text">Stel uw navigatie in op <strong>Akkerstraat 8, 5482 HJ Schijndel</strong>.</p>
+            </li>
+            <li class="route-step">
+              <span class="route-step-num">2</span>
+              <p class="route-step-text">Rij naar de achterzijde van het gebouw via de Akkerstraat.</p>
+            </li>
+            <li class="route-step">
+              <span class="route-step-num">3</span>
+              <p class="route-step-text">Zoek de gevel met de <strong>blauwe deuren</strong> &mdash; dat is de ingang van onze praktijk.</p>
+            </li>
+            <li class="route-step">
+              <span class="route-step-num">4</span>
+              <p class="route-step-text">Er is voldoende <strong>parkeergelegenheid</strong> beschikbaar in de directe omgeving.</p>
+            </li>
+          </ol>
+          <div class="route-alert">
+            <strong>Let op!</strong> Het officiële postadres is Catharinaplein 36, maar de praktijkingang bevindt zich aan de Akkerstraat 8 (achterzijde), bij de blauwe deuren.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo-wrap container">
+    <a href="index.html">
+      <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img logo-img--footer">
+    </a>
+  </div>
+
+  <div class="container footer-grid">
+
+    <div class="footer-col">
+      <h6>Openingstijden</h6>
+      <p class="footer-hours">
+        Maandag t/m vrijdag<br>
+        09:00 &ndash; 17:30 uur
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h6>Contact</h6>
+      <p>
+        <a href="tel:+31628874712">+31 6 28874712</a><br>
+        <a href="tel:0735478816">(073) 547 88 16</a><br>
+        <a href="mailto:info@voetselect.nl">info@voetselect.nl</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h6>Adres Schijndel</h6>
+      <p>
+        Akkerstraat 8<br>
+        5482 HJ Schijndel
+      </p>
+      <p class="footer-note">
+        <strong>Let op!</strong> Navigeer naar Akkerstraat 8, 5482 HJ. De praktijk bevindt zich aan de achterzijde van dit adres, bij de gevel met blauwe deuren.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h6>Informatie</h6>
+      <ul class="footer-links">
+        <li><a href="#">Veel gestelde vragen</a></li>
+        <li><a href="#">Privacyverklaring</a></li>
+        <li><a href="#">Algemene voorwaarden</a></li>
+        <li><a href="#">MDR-Conformiteit verklaring</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom container">
+    <p>&copy; <span id="year"></span> VoetSelect Podotherapie. Alle rechten voorbehouden.</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a class="wa-float" href="https://wa.me/31628874712?text=Hoi%20VoetSelect%20Podotherapie%2C%20ik%20heb%20een%20vraag:" target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp bericht">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- QUIZ MODAL -->
+<div class="quiz-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="quizHeading">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="quizClose" aria-label="Quiz sluiten">&times;</button>
+    <div class="quiz-deco" aria-hidden="true"></div>
+
+    <div class="quiz-step is-active" id="quizStep1">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 1 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--1"></div></div>
+      </div>
+      <h3 id="quizHeading" class="quiz-question">Waar heeft u pijn of klachten?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Voet">Voet</button>
+        <button type="button" class="quiz-option" data-value="Enkel">Enkel</button>
+        <button type="button" class="quiz-option" data-value="Knie">Knie</button>
+        <button type="button" class="quiz-option" data-value="Heup of rug">Heup of rug</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep2" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="quizStep2">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 2 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--2"></div></div>
+      </div>
+      <h3 class="quiz-question">Hoe lang heeft u deze klachten al?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Minder dan 2 weken">Minder dan 2 weken</button>
+        <button type="button" class="quiz-option" data-value="2 tot 6 weken">2 tot 6 weken</button>
+        <button type="button" class="quiz-option" data-value="Langer dan 6 weken">Langer dan 6 weken</button>
+        <button type="button" class="quiz-option" data-value="Al meer dan een jaar">Al meer dan een jaar</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="quizStep1">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep3" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="quizStep3">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 3 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--3"></div></div>
+      </div>
+      <h3 class="quiz-question">Wanneer zijn de klachten het ergst?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="'s Ochtends bij het opstaan">'s Ochtends bij het opstaan</button>
+        <button type="button" class="quiz-option" data-value="Na lang lopen of staan">Na lang lopen of staan</button>
+        <button type="button" class="quiz-option" data-value="Tijdens het sporten">Tijdens het sporten</button>
+        <button type="button" class="quiz-option" data-value="De hele dag door">De hele dag door</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="quizStep2">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizForm" disabled>Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="quizForm">
+      <h3 class="quiz-question">Maak een afspraak</h3>
+      <p class="quiz-form-intro">Op basis van uw antwoorden maken wij graag een afspraak voor u.</p>
+      <div class="quiz-summary" id="quizSummary" aria-live="polite"></div>
+      <form class="quiz-form" id="appointmentForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="fname" name="naam" required autocomplete="name" placeholder="Uw volledige naam">
+          </div>
+          <div class="form-field">
+            <label for="femail">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="femail" name="email" required autocomplete="email" placeholder="uw@email.nl">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fphone">Telefoonnummer</label>
+            <input type="tel" id="fphone" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
+          </div>
+          <div class="form-field">
+            <label for="fdate">Gewenste datum</label>
+            <input type="date" id="fdate" name="datum">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="fnotes">Opmerkingen</label>
+          <textarea id="fnotes" name="opmerkingen" rows="3" placeholder="Eventuele extra informatie..."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="fcaptcha">Beveiliging <span aria-hidden="true">*</span></label>
+          <div class="captcha-wrap">
+            <span class="captcha-question" id="captchaQuestion"></span>
+            <input type="text" id="fcaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-prev="quizStep3">Terug</button>
+          <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="quiz-step" id="quizSuccess">
+      <div class="quiz-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="10,26 20,36 38,14"/>
+        </svg>
+      </div>
+      <h3 class="quiz-question">Aanvraag verstuurd!</h3>
+      <p>Bedankt voor uw aanvraag. Wij nemen zo snel mogelijk contact met u op om een afspraak in te plannen.</p>
+      <button type="button" class="btn btn-primary" id="quizDoneBtn">Sluiten</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- VERGOEDING MODAL -->
+<div class="quiz-overlay" id="vergoedingOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vergoedingHeading">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="vergoedingClose" aria-label="Sluiten">&times;</button>
+    <div class="quiz-deco quiz-deco--gold" aria-hidden="true"></div>
+
+    <div class="quiz-step is-active" id="vergStep1">
+      <h3 id="vergoedingHeading" class="quiz-question">Bij welke zorgverzekeraar bent u verzekerd?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Zilveren Kruis">Zilveren Kruis</button>
+        <button type="button" class="quiz-option" data-value="CZ">CZ</button>
+        <button type="button" class="quiz-option" data-value="VGZ / IZA">VGZ / IZA</button>
+        <button type="button" class="quiz-option" data-value="Menzis">Menzis</button>
+        <button type="button" class="quiz-option" data-value="DSW / Stad Holland">DSW / Stad Holland</button>
+        <button type="button" class="quiz-option" data-value="ONVZ">ONVZ</button>
+        <button type="button" class="quiz-option" data-value="De Friesland">De Friesland</button>
+        <button type="button" class="quiz-option" data-value="Andere verzekeraar">Andere verzekeraar</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-primary quiz-next" id="vergNextBtn" disabled>Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="vergResult">
+      <div class="verg-badge" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,11 8,15 16,6"/></svg>
+        Mogelijk vergoed
+      </div>
+      <h3 class="quiz-question">Vergoeding bij <span id="vergResultInsurer"></span></h3>
+      <p>Podotherapie wordt in Nederland <strong>niet vergoed vanuit de basisverzekering</strong>, maar wel (gedeeltelijk) via een aanvullende verzekering. De exacte vergoeding hangt af van uw pakket &mdash; neem contact op met uw verzekeraar om dit te bevestigen.</p>
+      <div class="verg-tip">
+        <p>Twijfelt u? Bel ons gerust. Wij helpen u graag uitzoeken of uw behandeling vergoed wordt.</p>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" id="vergBackBtn">Terug</button>
+        <a class="btn btn-primary" href="#" data-open-quiz>Maak een afspraak</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="lib/leaflet/leaflet.js"></script>
+<script>
+(function () {
+  // ── Coordinates ──────────────────────────────────────────────────────────
+  // To fine-tune: right-click any spot in Google Maps → "Wat is hier?" to
+  // copy its exact latitude/longitude, then update the values below.
+  var PRACTICE   = [51.617579203358446, 5.43795346489408]; // VoetSelect ingang (Akkerstraat 8)
+  var PARKING_CENTER = [51.617728938226186, 5.43751455212093]; // centrum van de parkeerovaal
+
+  // Polygon points that trace the oval loop road (blauwe pijl op de kaart).
+  // Roughly 90 m long × 40 m wide, oriented NW-SE.
+  var PARKING_OVAL = [
+    // 1st is north
+    [51.61801352815322, 5.437375155903791],
+    [51.61773461193016, 5.437969272920175],
+    [51.6175293088383, 5.437767721116738],
+    [51.61780700263516, 5.437172969275658],
+  ];
+
+  // ── Map init ─────────────────────────────────────────────────────────────
+  var map = L.map('practiceMap', {
+    center: PRACTICE,
+    zoom: 17,
+    scrollWheelZoom: false,
+    zoomControl: true,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19,
+  }).addTo(map);
+
+  // ── Parking oval ─────────────────────────────────────────────────────────
+  L.polygon(PARKING_OVAL, {
+    color:       '#9dc1c9',
+    weight:      3,
+    fillColor:   '#9dc1c9',
+    fillOpacity: 0.25,
+  }).addTo(map).bindPopup(
+    '<strong>Parkeerplaats</strong><br>Rij de ovale lus op achter het gebouw.<br>De praktijkingang is bij de <strong>blauwe deuren</strong>.'
+  );
+
+  // ── Parking P marker ─────────────────────────────────────────────────────
+  var pIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:32px;height:32px;background:#6b9fab;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;font-family:DM Sans,sans-serif;font-weight:800;font-size:16px;color:#fff;line-height:1;">P</div>',
+    iconSize:   [32, 32],
+    iconAnchor: [16, 16],
+  });
+  L.marker(PARKING_CENTER, { icon: pIcon }).addTo(map)
+    .bindPopup('<strong>Parkeerplaats</strong><br>Gratis parkeren, direct achter de praktijk.');
+
+  // ── Practice entrance marker ──────────────────────────────────────────────
+  var entranceIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:36px;height:36px;background:#1f7d5e;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 3px 12px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;"><svg style="transform:rotate(45deg);width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>',
+    iconSize:   [36, 36],
+    iconAnchor: [18, 36],
+    popupAnchor:[0, -38],
+  });
+  L.marker(PRACTICE, { icon: entranceIcon }).addTo(map)
+    .bindPopup(
+      '<div style="width:220px;margin:-14px -20px -14px;">' +
+        '<img src="img/praktijk-ingang.jpg" alt="Ingang VoetSelect Podotherapie"' +
+          ' style="width:100%;height:130px;object-fit:cover;object-position:center;border-radius:10px 10px 0 0;display:block;">' +
+        '<div style="padding:11px 14px;">' +
+          '<strong style="color:#1f7d5e;font-size:13px;">VoetSelect Podotherapie</strong><br>' +
+          '<span style="font-size:12px;color:#444;">Akkerstraat 8, Schijndel</span><br>' +
+          '<em style="font-size:12px;color:#888;">Ingang bij de blauwe deuren</em>' +
+        '</div>' +
+      '</div>',
+      { maxWidth: 240, minWidth: 220 }
+    )
+    .openPopup();
+
+  // ── Driving direction arrow ──────────────────────────────────────────────
+  // Path: come south on Akkerstraat → turn west into the oval entrance → park
+  var ARROW_PATH = [
+    [51.61740264800261, 5.438214711469078],   
+    [51.617539244592486, 5.437869570332338],  
+  ];
+
+  // White backing line — gives the "striped road" effect
+  L.polyline(ARROW_PATH, {
+    color:    '#ffffff',
+    weight:   10,
+    opacity:  0.9,
+    lineJoin: 'round',
+    lineCap:  'round',
+  }).addTo(map);
+
+  // Green dashed stripe on top
+  L.polyline(ARROW_PATH, {
+    color:     '#1f7d5e',
+    weight:    6,
+    dashArray: '14, 9',
+    lineJoin:  'round',
+    lineCap:   'butt',
+  }).addTo(map);
+
+  // Arrowhead at destination, rotated to match the final segment direction
+  function calcBearing(a, b) {
+    var r = Math.PI / 180;
+    var lat1 = a[0] * r, lat2 = b[0] * r, dLon = (b[1] - a[1]) * r;
+    var y = Math.sin(dLon) * Math.cos(lat2);
+    var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+    return (Math.atan2(y, x) / r + 360) % 360;
+  }
+
+  var n = ARROW_PATH.length;
+  var arrowDeg = calcBearing(ARROW_PATH[n - 2], ARROW_PATH[n - 1]);
+
+  var arrowIcon = L.divIcon({
+    className: '',
+    html: '<svg width="26" height="26" viewBox="0 0 24 24" style="display:block;overflow:visible;">' +
+      '<polygon points="12,1 21,20 12,15 3,20" fill="#1f7d5e" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"' +
+      ' transform="rotate(' + arrowDeg.toFixed(1) + ',12,12)"/>' +
+      '</svg>',
+    iconSize:   [26, 26],
+    iconAnchor: [13, 13],
+  });
+  L.marker(ARROW_PATH[n - 1], { icon: arrowIcon }).addTo(map);
+
+  // ── Click shield (enable scroll-zoom on first click) ─────────────────────
+  var shield = document.getElementById('mapShield');
+  if (shield) {
+    shield.addEventListener('click', function () {
+      shield.classList.add('is-unlocked');
+      map.scrollWheelZoom.enable();
+    });
+  }
+}());
+</script>
+</body>
+</html>

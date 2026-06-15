@@ -344,7 +344,7 @@ p {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 .primary-nav a {
   color: var(--color-white);
@@ -382,7 +382,7 @@ p {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    padding: 0 450px 160px 0;
+    padding: 0 450px 130px 0;
     pointer-events: none;
     z-index: 100;
   }
@@ -408,14 +408,14 @@ p {
 
   .primary-nav ul {
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     text-align: right;
   }
 
   .primary-nav a {
     color: var(--color-white);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: -0.01em;
   }
 
@@ -1581,4 +1581,974 @@ body.menu-open {
   margin: 0;
   font-size: 14px;
   color: var(--color-text-muted);
+}
+
+/* ============================================
+   Contact page
+   ============================================ */
+
+/* Quick-contact cards band */
+.contact-cards-band {
+  background: var(--color-sage);
+  padding: 48px 0;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .contact-cards-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+}
+
+.contact-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.contact-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.contact-card-icon--green      { background: var(--color-green); }
+.contact-card-icon--blue       { background: var(--color-blue); }
+.contact-card-icon--terracotta { background: var(--color-terracotta); }
+.contact-card-icon--whatsapp   { background: #25d366; }
+
+.contact-card-icon svg { width: 22px; height: 22px; color: var(--color-white); }
+
+.contact-card h3 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin: 0 0 6px;
+}
+
+.contact-card p, .contact-card a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.contact-card a:hover { color: var(--color-green); }
+
+/* Quiz CTA strip */
+.quiz-cta-strip {
+  background: var(--color-green);
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-cta-strip::before {
+  content: '';
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  right: -100px;
+  top: -120px;
+  pointer-events: none;
+}
+
+.quiz-cta-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .quiz-cta-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+
+.quiz-cta-text h2 { color: var(--color-white); margin-bottom: 6px; }
+.quiz-cta-text p  { color: rgba(255, 255, 255, 0.85); margin: 0; font-size: 16px; }
+
+.quiz-cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Contact form section */
+.contact-form-section { padding: 80px 0; }
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 900px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr 360px;
+    gap: 56px;
+    align-items: start;
+  }
+}
+
+.contact-form-card {
+  background: var(--color-white);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(31, 125, 94, 0.08);
+}
+
+@media (max-width: 600px) {
+  .contact-form-card { padding: 28px 20px; }
+}
+
+.contact-form-card h2 { margin-bottom: 4px; }
+
+.contact-form-intro {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin: 0 0 28px;
+}
+
+.contact-sidebar-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid #eef1ee;
+}
+
+.contact-sidebar-item:first-child { padding-top: 0; }
+.contact-sidebar-item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+.contact-sidebar-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-sidebar-icon svg { width: 18px; height: 18px; color: var(--color-white); }
+
+.contact-sidebar-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin: 0 0 3px;
+}
+
+.contact-sidebar-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.contact-sidebar-value a { color: var(--color-green); text-decoration: none; }
+.contact-sidebar-value a:hover { text-decoration: underline; }
+
+.wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: var(--color-white);
+  border-radius: var(--radius-btn);
+  padding: 13px 24px;
+  font-family: var(--font-base);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 24px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.wa-btn:hover { background: #1da851; transform: translateY(-1px); }
+.wa-btn svg   { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Contact form success state */
+.contact-success {
+  display: none;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.contact-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--color-white);
+}
+
+.contact-success-icon svg { width: 28px; height: 28px; }
+.contact-success h3 { margin-bottom: 8px; }
+.contact-success p  { color: var(--color-text-muted); margin: 0; }
+
+/* Map section */
+.map-section {
+  background: #f2f5f3;
+  padding: 80px 0;
+}
+
+.map-section-intro {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 48px;
+}
+
+.map-section-intro h2 { color: var(--color-text); margin-bottom: 10px; }
+.map-section-intro p  { color: var(--color-text-muted); margin: 0; }
+
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .map-grid { grid-template-columns: 1fr 340px; gap: 40px; }
+}
+
+.map-embed-wrap {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  height: 380px;
+  position: relative;
+}
+
+.map-leaflet { width: 100%; height: 100%; }
+
+@media (min-width: 900px) {
+  .map-embed-wrap { height: 480px; }
+}
+
+.map-embed-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Click-to-interact shield for the Leaflet map */
+.map-click-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(15, 30, 22, 0.28);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  transition: opacity 0.3s ease;
+}
+
+.map-click-shield.is-unlocked {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.map-click-hint {
+  background: rgba(15, 30, 22, 0.85);
+  color: var(--color-white);
+  font-family: var(--font-base);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 99px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Leaflet popup override */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+  font-family: var(--font-base) !important;
+}
+
+.leaflet-popup-content { margin: 14px 16px !important; font-size: 13px; }
+.leaflet-popup-content strong { color: var(--color-green); }
+
+.route-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-card);
+}
+
+.route-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-terracotta);
+  margin: 0 0 6px;
+  display: block;
+}
+
+.route-card h3 { color: var(--color-text); margin-bottom: 14px; }
+
+.route-steps {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.route-step {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.route-step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-green);
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.route-step-text {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.route-alert {
+  background: rgba(213, 84, 32, 0.08);
+  border-left: 3px solid var(--color-terracotta);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-top: 16px;
+}
+
+.route-alert strong { color: var(--color-terracotta); }
+
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 300;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+}
+
+.wa-float svg { width: 30px; height: 30px; color: var(--color-white); }
+
+/* ============================================
+   Over ons page — Team member sections
+   ============================================ */
+
+.team-member-section {
+  padding: 80px 0;
+}
+
+.team-member-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .team-member-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.team-member-photo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+.team-photo-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  box-shadow: 0 24px 64px rgba(31, 125, 94, 0.18);
+}
+
+@media (min-width: 768px) {
+  .team-photo-circle {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+.team-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.team-photo-deco {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.team-photo-deco--gold {
+  width: 96px;
+  height: 96px;
+  background: var(--color-gold);
+  opacity: 0.65;
+  bottom: 8px;
+  right: 8px;
+  z-index: 1;
+}
+
+.team-photo-deco--sage {
+  width: 64px;
+  height: 64px;
+  background: var(--color-sage);
+  opacity: 0.9;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+}
+
+.team-photo-deco--blue {
+  width: 80px;
+  height: 80px;
+  background: var(--color-blue);
+  opacity: 0.75;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+}
+
+.team-photo-deco--terracotta {
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--color-terracotta);
+  background: transparent;
+  opacity: 0.6;
+  bottom: 8px;
+  left: 8px;
+  z-index: 1;
+}
+
+.team-member-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-green);
+  margin: -8px 0 20px;
+}
+
+/* Stats band */
+.team-stats {
+  background: var(--color-green);
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-stats::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  top: -200px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.team-stats--terracotta {
+  background: var(--color-terracotta);
+}
+
+.team-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .team-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.team-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-stat-number {
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .team-stat-number { font-size: 64px; }
+}
+
+.team-stat-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 160px;
+  line-height: 1.45;
+}
+
+/* Over ons CTA section with background image */
+.overons-cta {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 360px;
+}
+
+.overons-cta-media {
+  position: absolute;
+  inset: 0;
+}
+
+.overons-cta-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.overons-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15, 30, 22, 0.78) 0%,
+    rgba(15, 30, 22, 0.55) 60%,
+    rgba(15, 30, 22, 0.25) 100%
+  );
+}
+
+.overons-cta-content {
+  position: relative;
+  z-index: 2;
+  padding: 72px 0;
+  max-width: 520px;
+}
+
+.overons-cta-content h2 {
+  color: var(--color-white);
+  margin-bottom: 14px;
+}
+
+.overons-cta-content p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  line-height: 26px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .overons-cta { min-height: 420px; }
+  .team-member-section { padding: 96px 0; }
+}
+
+/* ============================================
+   Behandelingen page — Treatment cards
+   ============================================ */
+
+.behandeling-cards-section {
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .behandeling-cards-section { padding: 96px 0; }
+}
+
+.behandeling-cards-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px;
+}
+
+.behandeling-cards-intro p {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  line-height: 1.65;
+  margin-top: 12px;
+}
+
+.behandeling-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .behandeling-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+@media (min-width: 1000px) {
+  .behandeling-cards-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.behandeling-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(31, 125, 94, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.behandeling-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(31, 125, 94, 0.13);
+}
+
+.behandeling-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.behandeling-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.behandeling-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.behandeling-card p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.behandeling-card-icon--green  { background: rgba(31, 125, 94, 0.1);  color: var(--color-green); }
+.behandeling-card-icon--blue   { background: rgba(157, 193, 201, 0.25); color: #4d8a96; }
+.behandeling-card-icon--gold   { background: rgba(239, 178, 43, 0.15); color: #b87f0a; }
+.behandeling-card-icon--terra  { background: rgba(213, 84, 32, 0.1);  color: var(--color-terracotta); }
+.behandeling-card-icon--sage   { background: rgba(182, 192, 171, 0.35); color: #5a6e50; }
+
+/* Affiliations band */
+.affiliaties-band {
+  background: var(--color-sage);
+  padding: 56px 0;
+}
+
+.affiliaties-intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.affiliaties-intro h2 {
+  font-size: 20px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.affiliaties-intro p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.affiliaties-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.affiliatie-badge {
+  background: var(--color-white);
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.affiliatie-badge:hover {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.affiliatie-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green);
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.affiliatie-badge:hover .affiliatie-badge-dot {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* ============================================
+   Behandelingen — Gait analysis animation
+   ============================================ */
+
+.gait-anim {
+  margin: 48px 0 56px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.gait-scene {
+  display: flex;
+  align-items: flex-end;
+  height: 150px;
+}
+
+.gait-track {
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+.gait-ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 2px dashed rgba(31, 125, 94, 0.28);
+}
+
+/* Outer div handles horizontal movement */
+.gait-walker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 34px;
+  animation: gait-move 18s linear infinite;
+}
+
+/* Inner div handles direction flip */
+.gait-walker-inner {
+  animation: gait-flip 18s linear infinite;
+}
+
+.gait-walker-inner svg {
+  display: block;
+  width: 34px;
+  height: auto;
+  color: var(--color-green);
+}
+
+/* Limb swing — cross-body walking gait with knee bend */
+.w-arm-l, .w-arm-r, .w-thi-l, .w-thi-r, .w-cal-l, .w-cal-r {
+  transform-box: fill-box;
+}
+
+/* Arms delayed half a step so left arm = forward when right leg = forward */
+.w-arm-l { transform-origin: 100% 0%; animation: w-arm-l 0.88s ease-in-out infinite; animation-delay: -0.44s; }
+.w-arm-r { transform-origin: 0%   0%; animation: w-arm-r 0.88s ease-in-out infinite; animation-delay: -0.44s; }
+
+/* Thighs swing opposite each other */
+.w-thi-l { transform-origin: 100% 0%; animation: w-thi-l 0.88s ease-in-out infinite; }
+.w-thi-r { transform-origin: 0%   0%; animation: w-thi-r 0.88s ease-in-out infinite; }
+
+/* Calves: knee bends mid-swing for ground clearance, extends at touchdown */
+.w-cal-l { transform-origin: 100% 0%; animation: w-cal-l 0.88s ease-in-out infinite; }
+.w-cal-r { transform-origin: 0%   0%; animation: w-cal-r 0.88s ease-in-out infinite; }
+
+@keyframes w-arm-l {
+  0%, 100% { transform: rotate(-16deg); }
+  50%       { transform: rotate(16deg); }
+}
+@keyframes w-arm-r {
+  0%, 100% { transform: rotate(16deg); }
+  50%       { transform: rotate(-16deg); }
+}
+@keyframes w-thi-l {
+  0%, 100% { transform: rotate(-28deg); }
+  50%       { transform: rotate(22deg); }
+}
+@keyframes w-thi-r {
+  0%, 100% { transform: rotate(28deg); }
+  50%       { transform: rotate(-22deg); }
+}
+/* Left calf: bends at 25% (mid-forward-swing), straight at 0% & 50% (stance/touchdown) */
+@keyframes w-cal-l {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  25%            { transform: rotate(-20deg); }
+}
+/* Right calf: same shape but offset — bends at 75% (its mid-forward-swing) */
+@keyframes w-cal-r {
+  0%, 50%, 100% { transform: rotate(0deg); }
+  75%            { transform: rotate(-20deg); }
+}
+
+/* Smooth left-right-left traversal */
+@keyframes gait-move {
+  0%        { left: 0;                   animation-timing-function: ease-in-out; }
+  40%       { left: calc(100% - 34px);   animation-timing-function: linear; }
+  55%       { left: calc(100% - 34px);   animation-timing-function: ease-in-out; }
+  95%       { left: 0;                   animation-timing-function: linear; }
+  100%      { left: 0; }
+}
+
+/* Instant direction flip */
+@keyframes gait-flip {
+  0%, 42%   { transform: scaleX(-1); }
+  43%, 93%  { transform: scaleX(1); }
+  94%, 100% { transform: scaleX(-1); }
+}
+
+/* Therapist panel */
+.gait-right {
+  width: 116px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.gait-right svg {
+  display: block;
+  width: 70px;
+  height: auto;
+  color: var(--color-green);
+  opacity: 0.88;
+}
+
+/* Measurement beam from device */
+.gait-beam {
+  position: absolute;
+  right: 54px;
+  bottom: 22px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to left, rgba(157, 193, 201, 0.95), rgba(157, 193, 201, 0));
+  border-radius: 1px;
+  animation: gait-beam 18s linear infinite;
+}
+
+@keyframes gait-beam {
+  0%, 36%  { width: 0;    opacity: 0; }
+  44%      { width: 90px; opacity: 1; }
+  52%      { width: 90px; opacity: 1; }
+  58%      { width: 0;    opacity: 0; }
+  100%     { width: 0;    opacity: 0; }
+}
+
+/* Small label below */
+.gait-label {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 14px 0 0;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gait-walker, .gait-walker-inner,
+  .w-arm-l, .w-arm-r, .w-thi-l, .w-thi-r, .w-cal-l, .w-cal-r,
+  .gait-beam { animation: none; }
+  .gait-walker { left: 40%; }
 }

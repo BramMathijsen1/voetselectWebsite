@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VoetSelect Podotherapie</title>
+<title>Over Ons — VoetSelect Podotherapie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="logo">
+    <a href="index.html" class="logo">
       <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img">
     </a>
 
@@ -28,7 +28,7 @@
       <div class="primary-nav-circle" aria-hidden="true"></div>
       <div class="primary-nav-inner">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="behandelingen.html">Behandelingen</a></li>
           <li><a href="#">Aandoeningen</a></li>
           <li><a href="#">Ons onderzoek</a></li>
@@ -43,136 +43,198 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-media">
-      <img src="img/hero-wide.jpg" alt="Nike sneaker met gele markeringslijnen voor een voetmeting">
-      <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
-      </svg>
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--img">
+    <div class="page-hero-media">
+      <img src="img/hero-overons.jpg" alt="Persoon wandelt door een groen veld">
     </div>
-
-    <div class="hero-content container">
-      <h1>Zorg voor uw voeten,<br>door specialisten die luisteren</h1>
-      <p>Bij VoetSelect Podotherapie staan persoonlijke aandacht en deskundige behandeling centraal. Van klachten tot preventie &mdash; wij denken met u mee.</p>
-      <div class="hero-actions">
-        <div class="hero-actions-primary">
-          <a class="btn btn-outline" href="#">Lees meer</a>
-          <a class="btn btn-primary" href="#">Maak een afspraak</a>
-        </div>
-        <div class="hero-actions-tools">
-          <button type="button" class="btn btn-quiz" data-open-quiz>Waar heeft u last van?</button>
-          <button type="button" class="btn btn-vergoeding" data-open-vergoeding>Check uw vergoeding</button>
-        </div>
-      </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow page-hero-eyebrow">Over ons</p>
+      <h1>Ons team</h1>
+      <p class="page-hero-lead">Persoonlijk, deskundig en altijd betrokken. Ontmoet de mensen achter VoetSelect.</p>
     </div>
+    <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+    </svg>
   </section>
 
-  <!-- INTRO -->
-  <section class="intro container">
-    <div class="intro-grid">
-      <div class="intro-icon" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-          <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
-        </svg>
-      </div>
-      <div class="intro-text">
-        <p class="eyebrow">Welkom bij VoetSelect</p>
-        <h2>Het lijkt me leuk om te werken met ge&iuml;llustreerde iconen</h2>
-        <p>En gekleurde blokken op de achtergrond, maar altijd ook afgewisseld met lekker veel wit zodat het ook clean en professioneel blijft.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- IN-SHOE STAPPENPLAN -->
-  <section class="stappenplan container">
-    <div class="stappenplan-grid">
-      <div class="stappenplan-media">
-        <img src="img/stappenplan.jpg" alt="We meten direct in je eigen schoen">
-      </div>
-      <div class="stappenplan-text">
-        <p class="eyebrow">In-shoe meting</p>
-        <h2>Wij meten direct in uw eigen schoen</h2>
-        <p>Met een in-shoe meting brengen we de druk onder uw voet in kaart, terwijl u uw eigen schoenen draagt. Zo zien we precies hoe uw voet beweegt in de praktijk &mdash; de basis voor een zool of advies dat echt aansluit op uw dagelijks leven.</p>
-        <ol class="stappenplan-steps">
-          <li>Intakegesprek en klachtenanalyse</li>
-          <li>In-shoe meting tijdens lopen en staan</li>
-          <li>Bespreking van de resultaten</li>
-          <li>Advies op maat of aanmeten van zolen</li>
-        </ol>
-        <a class="btn btn-primary" href="#">Maak een afspraak</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURE CARDS -->
-  <section class="features">
+  <!-- CORINE VOETS -->
+  <section class="team-member-section">
     <div class="container">
-      <div class="features-grid">
+      <div class="team-member-grid">
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
-            </svg>
+        <div class="team-member-photo">
+          <div class="team-photo-circle">
+            <img src="img/corine-voets.jpg" alt="Corine Voets — Podotherapeut en acupuncturist">
           </div>
-          <h3>Podotherapie</h3>
-          <p>Onderzoek en behandeling van voet- en houdingsklachten, afgestemd op uw situatie.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
+          <div class="team-photo-deco team-photo-deco--gold" aria-hidden="true"></div>
+          <div class="team-photo-deco team-photo-deco--sage" aria-hidden="true"></div>
+        </div>
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
-            </svg>
-          </div>
-          <h3>Zooltherapie</h3>
-          <p>Op maat gemaakte zolen die klachten verminderen en uw houding ondersteunen.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
-            </svg>
-          </div>
-          <h3>Sportpodotherapie</h3>
-          <p>Specialistische zorg gericht op sporters, om klachten te verhelpen en te voorkomen.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
-            </svg>
-          </div>
-          <h3>Kindervoeten</h3>
-          <p>Tijdige signalering en begeleiding bij groei- en houdingsafwijkingen bij kinderen.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
+        <div class="team-member-text">
+          <p class="eyebrow">Oprichtster &amp; hoofdbehandelaar</p>
+          <h2>Corine Voets</h2>
+          <p class="team-member-title">(Sport)podotherapeut &amp; acupuncturist</p>
+          <p>Corine studeerde in 1995 af aan Fontys Podotherapie in Eindhoven en opende direct daarna haar eigen praktijk in Schijndel. Aansluitend werkte zij een jaar in een revalidatiekliniek op Curaçao, waar zij zich voornamelijk bezighield met de behandeling van diabetische patiënten.</p>
+          <p>In 2006 specialiseerde Corine zich in biomechanica en het digitaal aanmeten van orthopedische schoenen. Zij volgde masterclasses in klinisch redeneren, drukmeetanalyse en in-shoe bewegingsanalyse. In 2017 rondde zij de post-HBO opleiding Sportpodotherapie af, en in mei 2023 behaalde zij haar diploma Acupunctuur — waarmee zij haar patiënten nóg breder kan behandelen.</p>
+          <p>Corine is geregistreerd bij de <strong>Nederlandse Vereniging van Podotherapeuten (NVVP)</strong> en heeft een AGB-code voor directe vergoeding via de zorgverzekeraar.</p>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ILLUSTRATION / ACCENT SECTION -->
-  <section class="accent-section container">
-    <div class="accent-grid">
-      <div class="accent-circle accent-circle--sage" aria-hidden="true"></div>
-      <div class="accent-text">
-        <h2>Bij ons bent u in goede handen</h2>
-        <p>Onze podotherapeuten werken nauw samen met huisartsen, fysiotherapeuten en orthopeden voor een compleet behandeltraject.</p>
-        <a class="btn btn-primary" href="#">Maak een afspraak</a>
+  <!-- CORINE STATS -->
+  <section class="team-stats">
+    <div class="container">
+      <div class="team-stats-grid">
+        <div class="team-stat">
+          <span class="team-stat-number">5.000+</span>
+          <span class="team-stat-label">Tevreden cliënten behandeld</span>
+        </div>
+        <div class="team-stat">
+          <span class="team-stat-number">40</span>
+          <span class="team-stat-label">Jaar studie &amp; vakinhoudelijke ontwikkeling</span>
+        </div>
+        <div class="team-stat">
+          <span class="team-stat-number">25</span>
+          <span class="team-stat-label">Jaar ervaring als podotherapeut</span>
+        </div>
       </div>
-      <div class="accent-circle accent-circle--orange" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- LONNEKE BOSELIE -->
+  <section class="team-member-section">
+    <div class="container">
+      <div class="team-member-grid">
+
+        <div class="team-member-text">
+          <p class="eyebrow">Student &amp; praktijkassistente</p>
+          <h2>Lonneke Boselie</h2>
+          <p class="team-member-title">Student Podotherapie — Fontys Hogeschool Eindhoven</p>
+          <p>Lonneke bevindt zich in het vierde en afrondende jaar van de Podotherapie opleiding aan Fontys Hogeschool Eindhoven. Naast haar studie werkt zij als praktijkassistente bij VoetSelect, waar ze al snel een vertrouwd gezicht is geworden voor onze patiënten.</p>
+          <p>Als echte duizendpoot combineert Lonneke studiewerk, patiëntenzorg en praktijkondersteuning soepel met elkaar. Leergierig en enthousiast — zij brengt frisse energie en een betrokken houding naar ons team.</p>
+          <p><em>Misschien tot ziens in de praktijk!</em></p>
+        </div>
+
+        <div class="team-member-photo">
+          <div class="team-photo-circle">
+            <img src="img/lonneke-boselie.jpg" alt="Lonneke Boselie — Student Podotherapie">
+          </div>
+          <div class="team-photo-deco team-photo-deco--blue" aria-hidden="true"></div>
+          <div class="team-photo-deco team-photo-deco--terracotta" aria-hidden="true"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LONNEKE STATS -->
+  <section class="team-stats team-stats--terracotta">
+    <div class="container">
+      <div class="team-stats-grid">
+        <div class="team-stat">
+          <span class="team-stat-number">5.000+</span>
+          <span class="team-stat-label">Stappen per dag in de praktijk</span>
+        </div>
+        <div class="team-stat">
+          <span class="team-stat-number">60</span>
+          <span class="team-stat-label">Uur per week — studie én werk gecombineerd</span>
+        </div>
+        <div class="team-stat">
+          <span class="team-stat-number">10</span>
+          <span class="team-stat-label">Taken die ze moeiteloos tegelijk aankan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAAROM VOETSELECT -->
+  <section class="waarom">
+    <div class="container">
+      <div class="waarom-intro">
+        <p class="eyebrow">Waarom VoetSelect</p>
+        <h2>Waarom kiest u voor ons?</h2>
+        <p>Bij VoetSelect Podotherapie bent u aan het juiste adres. Al meer dan 25 jaar specialist in podotherapie, met oog voor wat u écht nodig heeft.</p>
+      </div>
+      <div class="waarom-grid">
+
+        <div class="waarom-card">
+          <div class="waarom-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="16" r="12"/>
+              <polyline points="16,9 16,16 20,20"/>
+            </svg>
+          </div>
+          <h3>Snelle service</h3>
+          <p>Wachttijden houden wij zo kort mogelijk. Op maat gemaakte zolen kunnen wij zelfs dezelfde dag (binnen 24 uur) leveren.</p>
+        </div>
+
+        <div class="waarom-card">
+          <div class="waarom-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="14" width="22" height="10" rx="3"/>
+              <path d="M9 14 C9 10 12 8 16 8 C20 8 23 10 23 14"/>
+              <line x1="12" y1="19" x2="14" y2="19"/>
+              <line x1="18" y1="19" x2="20" y2="19"/>
+            </svg>
+          </div>
+          <h3>Geavanceerde drukmeting</h3>
+          <p>Wij beschikken over een geavanceerd in-shoe meetsysteem dat elke beweging van uw voet nauwkeurig vastlegt — voor een perfect behandelplan op maat.</p>
+        </div>
+
+        <div class="waarom-card">
+          <div class="waarom-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 22 C4 22 6 13 10 11 C13 9 16 9 18 10 L26 12 C28 13 28 16 26 17 L24 22 Z"/>
+              <path d="M4 22 L24 22"/>
+              <path d="M11 14 C12 13 14 13 16 14"/>
+            </svg>
+          </div>
+          <h3>Slippers op maat</h3>
+          <p>Naast reguliere inlegzolen bieden wij ook slippers volledig op maat aan — ideaal voor thuis of op vakantie, zonder in te leveren op ondersteuning.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BEHANDELT ONDER MEER -->
+  <section class="behandeling">
+    <div class="behandeling-deco behandeling-deco--green" aria-hidden="true"></div>
+    <div class="behandeling-deco behandeling-deco--terracotta" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow behandeling-eyebrow">Onze specialisaties</p>
+      <h2 class="behandeling-heading">Wij behandelen onder meer</h2>
+      <ul class="behandeling-list">
+        <li>Hielspoor en fasciitis plantaris</li>
+        <li>Knieklachten (runner's knee, patellofemorale pijn)</li>
+        <li>Platvoeten en holvoeten</li>
+        <li>Heupdysplasie en beenlengteverschil</li>
+        <li>Diabetische voet en ulcuspreventie</li>
+        <li>Sportletsels (enkelverzwikking, achillespees)</li>
+        <li>Hallux valgus (scheve grote teen)</li>
+        <li>Hoge drukplekken en eeltzones</li>
+        <li>Rugklachten door voetmechaniek</li>
+        <li>Kindervoeten en groeistoornissen</li>
+        <li>Ingroeiende teennagels</li>
+        <li>Reumatische voetklachten</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="overons-cta">
+    <div class="overons-cta-media">
+      <img src="img/mountain-sunset.jpg" alt="">
+    </div>
+    <div class="overons-cta-overlay" aria-hidden="true"></div>
+    <div class="container overons-cta-content">
+      <h2>Klaar om een afspraak te maken?</h2>
+      <p>Corine en Lonneke staan voor u klaar. Neem contact op of maak direct een afspraak.</p>
+      <a class="btn btn-primary" href="#">Maak een afspraak</a>
     </div>
   </section>
 
@@ -181,7 +243,7 @@
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-logo-wrap container">
-    <a href="/">
+    <a href="index.html">
       <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img logo-img--footer">
     </a>
   </div>
@@ -239,7 +301,6 @@
     <button type="button" class="quiz-close" id="quizClose" aria-label="Quiz sluiten">&times;</button>
     <div class="quiz-deco" aria-hidden="true"></div>
 
-    <!-- Vraag 1 -->
     <div class="quiz-step is-active" id="quizStep1">
       <div class="quiz-meta">
         <span class="quiz-counter">Vraag 1 van 3</span>
@@ -257,7 +318,6 @@
       </div>
     </div>
 
-    <!-- Vraag 2 -->
     <div class="quiz-step" id="quizStep2">
       <div class="quiz-meta">
         <span class="quiz-counter">Vraag 2 van 3</span>
@@ -276,7 +336,6 @@
       </div>
     </div>
 
-    <!-- Vraag 3 -->
     <div class="quiz-step" id="quizStep3">
       <div class="quiz-meta">
         <span class="quiz-counter">Vraag 3 van 3</span>
@@ -295,7 +354,6 @@
       </div>
     </div>
 
-    <!-- Afspraak form -->
     <div class="quiz-step" id="quizForm">
       <h3 class="quiz-question">Maak een afspraak</h3>
       <p class="quiz-form-intro">Op basis van uw antwoorden maken wij graag een afspraak voor u.</p>
@@ -339,7 +397,6 @@
       </form>
     </div>
 
-    <!-- Bevestiging -->
     <div class="quiz-step" id="quizSuccess">
       <div class="quiz-success-icon" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
@@ -360,7 +417,6 @@
     <button type="button" class="quiz-close" id="vergoedingClose" aria-label="Sluiten">&times;</button>
     <div class="quiz-deco quiz-deco--gold" aria-hidden="true"></div>
 
-    <!-- Stap 1: Kies verzekeraar -->
     <div class="quiz-step is-active" id="vergStep1">
       <h3 id="vergoedingHeading" class="quiz-question">Bij welke zorgverzekeraar bent u verzekerd?</h3>
       <div class="quiz-options">
@@ -378,7 +434,6 @@
       </div>
     </div>
 
-    <!-- Resultaat -->
     <div class="quiz-step" id="vergResult">
       <div class="verg-badge" aria-hidden="true">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,11 8,15 16,6"/></svg>

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.setAttribute('aria-expanded', open);
     document.body.classList.toggle('menu-open', open && window.innerWidth < 1000);
     if (label) {
-      const next = open ? '✕' : 'Menu';
+      const next = (open && window.innerWidth >= 1000) ? '✕' : 'Menu';
       if (label.textContent !== next) {
         label.classList.add('is-switching');
         const onEnd = (e) => {
@@ -233,4 +233,53 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('vergBackBtn').addEventListener('click', () => showStep('vergStep1'));
+}());
+
+// Contact form
+(function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  let captchaAnswer = 0;
+
+  function generateCaptcha() {
+    const a = Math.floor(Math.random() * 9) + 1;
+    const b = Math.floor(Math.random() * 9) + 1;
+    captchaAnswer = a + b;
+    document.getElementById('contactCaptchaQ').textContent = `Wat is ${a} + ${b}?`;
+    document.getElementById('contactCaptcha').value = '';
+    document.getElementById('contactCaptcha').classList.remove('is-invalid');
+  }
+
+  generateCaptcha();
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+
+    ['contactNaam', 'contactEmail', 'contactBericht'].forEach(id => {
+      const el = document.getElementById(id);
+      const ok = el.value.trim() !== '';
+      el.classList.toggle('is-invalid', !ok);
+      if (!ok) valid = false;
+    });
+
+    const captchaEl = document.getElementById('contactCaptcha');
+    const captchaOk = parseInt(captchaEl.value, 10) === captchaAnswer;
+    captchaEl.classList.toggle('is-invalid', !captchaOk);
+    if (!captchaOk) valid = false;
+
+    if (!valid) return;
+
+    const naam    = document.getElementById('contactNaam').value;
+    const email   = document.getElementById('contactEmail').value;
+    const tel     = document.getElementById('contactTel').value;
+    const bericht = document.getElementById('contactBericht').value;
+
+    const body = `Naam: ${naam}\nEmail: ${email}\nTelefoon: ${tel}\n\nBericht:\n${bericht}`;
+    window.location.href = `mailto:info@voetselect.nl?subject=${encodeURIComponent('Contactformulier – ' + naam)}&body=${encodeURIComponent(body)}`;
+
+    form.style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+  });
 }());

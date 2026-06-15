@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VoetSelect Podotherapie</title>
+<title>Behandelingen — VoetSelect Podotherapie</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
       <div class="primary-nav-circle" aria-hidden="true"></div>
       <div class="primary-nav-inner">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="behandelingen.html">Behandelingen</a></li>
           <li><a href="#">Aandoeningen</a></li>
           <li><a href="#">Ons onderzoek</a></li>
@@ -43,134 +43,252 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-media">
-      <img src="img/hero-wide.jpg" alt="Nike sneaker met gele markeringslijnen voor een voetmeting">
-      <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
-      </svg>
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--img">
+    <div class="page-hero-media">
+      <img src="img/hero-behandelingen.jpg" alt="Podotherapeut past een zooltje aan bij een patiënt">
     </div>
-
-    <div class="hero-content container">
-      <h1>Zorg voor uw voeten,<br>door specialisten die luisteren</h1>
-      <p>Bij VoetSelect Podotherapie staan persoonlijke aandacht en deskundige behandeling centraal. Van klachten tot preventie &mdash; wij denken met u mee.</p>
-      <div class="hero-actions">
-        <div class="hero-actions-primary">
-          <a class="btn btn-outline" href="#">Lees meer</a>
-          <a class="btn btn-primary" href="#">Maak een afspraak</a>
-        </div>
-        <div class="hero-actions-tools">
-          <button type="button" class="btn btn-quiz" data-open-quiz>Waar heeft u last van?</button>
-          <button type="button" class="btn btn-vergoeding" data-open-vergoeding>Check uw vergoeding</button>
-        </div>
-      </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow page-hero-eyebrow">Wat wij doen</p>
+      <h1>Onze<br>Behandelingen</h1>
+      <p class="page-hero-lead">Van 3D-geprinte zolen tot tapetherapie &mdash; wij bieden een breed scala aan behandelingen voor uw voet- en beenklachten.</p>
     </div>
+    <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+    </svg>
   </section>
 
-  <!-- INTRO -->
-  <section class="intro container">
-    <div class="intro-grid">
-      <div class="intro-icon" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-          <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
-        </svg>
-      </div>
-      <div class="intro-text">
-        <p class="eyebrow">Welkom bij VoetSelect</p>
-        <h2>Het lijkt me leuk om te werken met ge&iuml;llustreerde iconen</h2>
-        <p>En gekleurde blokken op de achtergrond, maar altijd ook afgewisseld met lekker veel wit zodat het ook clean en professioneel blijft.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- IN-SHOE STAPPENPLAN -->
-  <section class="stappenplan container">
-    <div class="stappenplan-grid">
-      <div class="stappenplan-media">
-        <img src="img/stappenplan.jpg" alt="We meten direct in je eigen schoen">
-      </div>
-      <div class="stappenplan-text">
-        <p class="eyebrow">In-shoe meting</p>
-        <h2>Wij meten direct in uw eigen schoen</h2>
-        <p>Met een in-shoe meting brengen we de druk onder uw voet in kaart, terwijl u uw eigen schoenen draagt. Zo zien we precies hoe uw voet beweegt in de praktijk &mdash; de basis voor een zool of advies dat echt aansluit op uw dagelijks leven.</p>
-        <ol class="stappenplan-steps">
-          <li>Intakegesprek en klachtenanalyse</li>
-          <li>In-shoe meting tijdens lopen en staan</li>
-          <li>Bespreking van de resultaten</li>
-          <li>Advies op maat of aanmeten van zolen</li>
-        </ol>
-        <a class="btn btn-primary" href="#">Maak een afspraak</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURE CARDS -->
-  <section class="features">
+  <!-- INTRO + CARDS -->
+  <section class="behandeling-cards-section">
     <div class="container">
-      <div class="features-grid">
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+      <div class="behandeling-cards-intro">
+        <p class="eyebrow">Onze aanpak</p>
+        <h2>Gerichte behandeling, op maat</h2>
+        <p>Het onderzoek start met een uitgebreide anamnese. Tijdens dit gesprek lichten we uw klacht(en) uit en informeren we u over het vervolg van het onderzoek en eventuele kosten. Op basis daarvan kiezen wij de meest geschikte behandeling.</p>
+      </div>
+
+      <!-- GAIT ANIMATION -->
+      <div class="gait-anim" aria-hidden="true">
+        <div class="gait-scene">
+
+          <!-- Walker track -->
+          <div class="gait-track">
+            <div class="gait-ground"></div>
+            <div class="gait-walker">
+              <div class="gait-walker-inner">
+                <svg viewBox="0 0 28 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="14" cy="6" r="5" fill="currentColor" stroke="none"/>
+                  <line x1="14" y1="11" x2="14" y2="30"/>
+                  <g class="w-arm-l"><line x1="14" y1="17" x2="5" y2="27"/></g>
+                  <g class="w-arm-r"><line x1="14" y1="17" x2="23" y2="27"/></g>
+                  <g class="w-thi-l">
+                    <line x1="14" y1="30" x2="9" y2="42"/>
+                    <g class="w-cal-l"><line x1="9" y1="42" x2="5" y2="52"/></g>
+                  </g>
+                  <g class="w-thi-r">
+                    <line x1="14" y1="30" x2="19" y2="42"/>
+                    <g class="w-cal-r"><line x1="19" y1="42" x2="23" y2="52"/></g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Therapist (right) -->
+          <div class="gait-right">
+            <div class="gait-beam"></div>
+            <svg viewBox="0 0 48 72" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="32" cy="7" r="6" fill="currentColor" stroke="none"/>
+              <path d="M25 14 C24 22 24 37 25 45 L39 45 C40 37 40 22 39 14 Z"/>
+              <path d="M29 14 L32 20 L35 14"/>
+              <line x1="25" y1="23" x2="14" y2="33"/>
+              <rect x="7" y="29" width="10" height="13" rx="2"/>
+              <line x1="9" y1="32" x2="15" y2="32"/>
+              <line x1="9" y1="35" x2="15" y2="35"/>
+              <line x1="9" y1="38" x2="13" y2="38"/>
+              <line x1="39" y1="23" x2="44" y2="33"/>
+              <line x1="29" y1="45" x2="27" y2="59"/>
+              <line x1="35" y1="45" x2="37" y2="59"/>
+              <line x1="27" y1="59" x2="23" y2="65"/>
+              <line x1="37" y1="59" x2="41" y2="65"/>
             </svg>
           </div>
-          <h3>Podotherapie</h3>
-          <p>Onderzoek en behandeling van voet- en houdingsklachten, afgestemd op uw situatie.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+        </div>
+        <p class="gait-label">In-shoe drukanalyse &nbsp;&middot;&nbsp; 3D voetscan &nbsp;&middot;&nbsp; Loopanalyse</p>
+      </div>
+
+      <div class="behandeling-cards-grid">
+
+        <!-- 1. Zolen -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 17 C4 14 6 11 10 10 L18 9 C20 9 21 10 21 12 L20 16 C20 18 18 19 16 19 L7 19 C5 19 4 18 4 17 Z"/>
+              <path d="M9 14 C11 12 15 12 17 14"/>
             </svg>
           </div>
-          <h3>Zooltherapie</h3>
-          <p>Op maat gemaakte zolen die klachten verminderen en uw houding ondersteunen.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
+          <h3>Podotherapeutische zolen op basis van 3D scan</h3>
+          <p>Zooltherapie voor een standscorrectie en/of voor een betere drukverdeling onder de voet. Met een 3D-voetscan worden de zolen computergestuurd gefreesd &mdash; zelfs dezelfde dag leverbaar.</p>
+        </div>
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+        <!-- 2. Tape -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="9" width="18" height="6" rx="3"/>
+              <line x1="9" y1="9" x2="9" y2="15"/>
+              <line x1="15" y1="9" x2="15" y2="15"/>
             </svg>
           </div>
-          <h3>Sportpodotherapie</h3>
-          <p>Specialistische zorg gericht op sporters, om klachten te verhelpen en te voorkomen.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
+          <h3>Tapetherapie</h3>
+          <p>Met het aanbrengen van tape wordt de spanning van spieren en pezen verminderd. Afhankelijk van de klacht wordt een andere soort tape gebruikt.</p>
+        </div>
 
-        <article class="feature-card">
-          <div class="feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 8c-4 0-6 4-6 8s2 6 1 10-4 8-2 14c1 4 4 6 8 6s6-3 7-7 0-8 2-12 5-5 5-11-3-9-7-9-5 3-5 6"/>
-              <path d="M44 26c-3 0-4.5 3-4.5 6s1.5 4.5 0.5 7.5-3 6-1 10.5c0.8 3 3 4.5 6 4.5s4.5-2.2 5.2-5.2 0-6 1.5-9 3.7-3.7 3.7-8.2-2.2-6.6-5.2-6.6-3.7 2.2-3.7 4.5"/>
+        <!-- 3. Schoenadvies -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--gold" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 16 C3 14 5 12 8 11 L14 9 C17 8 20 10 21 12 L21 16 C21 17 20 17 19 17 L4 17 C3 17 3 16.5 3 16 Z"/>
+              <path d="M8 11 L8 17"/>
+              <path d="M14 9 L14 17"/>
             </svg>
           </div>
-          <h3>Kindervoeten</h3>
-          <p>Tijdige signalering en begeleiding bij groei- en houdingsafwijkingen bij kinderen.</p>
-          <a class="btn btn-card" href="#">Lees meer</a>
-        </article>
+          <h3>Schoenadvies</h3>
+          <p>Onderzoek naar het type schoen, de pasvorm en het slijtagepatroon. Wij adviseren het beste schoeisel voor uw situatie en kunnen kleine schoenaanpassingen uitvoeren.</p>
+        </div>
+
+        <!-- 4. Orthonyxie -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--terra" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="9" width="12" height="7" rx="3.5"/>
+              <path d="M6 12.5 C6 10 8 9 12 9 C16 9 18 10 18 12.5"/>
+              <line x1="4" y1="14" x2="20" y2="14"/>
+            </svg>
+          </div>
+          <h3>Orthonyxie</h3>
+          <p>Een beugel van verchroomde draad wordt om de nagel geplaatst. Zo wordt de nagelvorm geleidelijk gecorrigeerd en wordt ingroeien voorkomen.</p>
+        </div>
+
+        <!-- 5. Siliconen orthese -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--sage" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="8" cy="13" rx="3" ry="5"/>
+              <ellipse cx="16" cy="13" rx="3" ry="5"/>
+              <ellipse cx="12" cy="13.5" rx="3.5" ry="4.5"/>
+              <line x1="5" y1="19" x2="19" y2="19"/>
+            </svg>
+          </div>
+          <h3>Siliconen orthese</h3>
+          <p>Afwijkende teenstanden worden gecorrigeerd en/of drukplekken worden voorkomen en ontlast met behulp van een op maat gemaakte siliconen orthese.</p>
+        </div>
+
+        <!-- 6. Vilttherapie -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--gold" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="8" width="7" height="7" rx="2"/>
+              <rect x="13" y="8" width="7" height="7" rx="2"/>
+              <rect x="8" y="13" width="8" height="5" rx="2"/>
+            </svg>
+          </div>
+          <h3>Vilttherapie</h3>
+          <p>Pijnlijke drukplekken of wondjes worden met vilt direct ontlast en beschermd. Vaak wordt ook tape gebruikt om het vilt op zijn plek te houden.</p>
+        </div>
+
+        <!-- 7. Instrumentele voetbehandeling -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--terra" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="8" r="3"/>
+              <circle cx="16" cy="8" r="3"/>
+              <line x1="10.2" y1="10.2" x2="17" y2="19"/>
+              <line x1="13.8" y1="10.2" x2="7" y2="19"/>
+            </svg>
+          </div>
+          <h3>Instrumentele voetbehandeling</h3>
+          <p>Behandeling van overmatige eelt- en likdoornvorming, ingegroeide nagels en wratten. Tevens wondverzorging bij diabetes mellitus.</p>
+        </div>
+
+        <!-- 8. Oefentherapie -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--green" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2.5"/>
+              <line x1="12" y1="7.5" x2="12" y2="14"/>
+              <line x1="9" y1="10" x2="15" y2="10"/>
+              <line x1="12" y1="14" x2="9.5" y2="20"/>
+              <line x1="12" y1="14" x2="14.5" y2="20"/>
+            </svg>
+          </div>
+          <h3>Oefentherapie</h3>
+          <p>Specifieke oefeningen voor balans herstel en vermindering van klachten. De oefeningen worden thuis uitgevoerd en begeleid door de podotherapeut.</p>
+        </div>
+
+        <!-- 9. Podo-manueeltherapie -->
+        <div class="behandeling-card">
+          <div class="behandeling-card-icon behandeling-card-icon--blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 8 L8 16 C8 17.1 8.9 18 10 18 L14 18 C15.1 18 16 17.1 16 16 L16 8"/>
+              <line x1="10" y1="5" x2="10" y2="9"/>
+              <line x1="12" y1="4" x2="12" y2="9"/>
+              <line x1="14" y1="5" x2="14" y2="9"/>
+              <path d="M6 9.5 C5 7.5 6.5 6 8 8"/>
+              <path d="M18 9.5 C19 7.5 17.5 6 16 8"/>
+            </svg>
+          </div>
+          <h3>Podo-manueeltherapie</h3>
+          <p>Een manipulatietechniek voor het opheffen van blokkades in de voet. Met een snelle, korte beweging wordt een vastgezet gewricht losgemaakt.</p>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ILLUSTRATION / ACCENT SECTION -->
+  <!-- AFFILIATIONS BAND -->
+  <section class="affiliaties-band">
+    <div class="container">
+      <div class="affiliaties-intro">
+        <h2>Aangesloten bij</h2>
+        <p>VoetSelect Podotherapie is lid van de volgende beroepsorganisaties en kwaliteitsregisters.</p>
+      </div>
+      <div class="affiliaties-grid">
+        <a class="affiliatie-badge" href="https://www.podotherapie.nl" target="_blank" rel="noopener">
+          <span class="affiliatie-badge-dot" aria-hidden="true"></span>
+          NVVP
+        </a>
+        <span class="affiliatie-badge">
+          <span class="affiliatie-badge-dot" aria-hidden="true"></span>
+          Kwaliteitsregister Paramedici
+        </span>
+        <a class="affiliatie-badge" href="https://www.scascertificering.nl" target="_blank" rel="noopener">
+          <span class="affiliatie-badge-dot" aria-hidden="true"></span>
+          SCAS Gecertificeerd
+        </a>
+        <a class="affiliatie-badge" href="https://www.acupunctuur.nl" target="_blank" rel="noopener">
+          <span class="affiliatie-badge-dot" aria-hidden="true"></span>
+          NVA
+        </a>
+        <a class="affiliatie-badge" href="https://www.kab-koepel.nl" target="_blank" rel="noopener">
+          <span class="affiliatie-badge-dot" aria-hidden="true"></span>
+          KAB
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA ACCENT -->
   <section class="accent-section container">
     <div class="accent-grid">
       <div class="accent-circle accent-circle--sage" aria-hidden="true"></div>
       <div class="accent-text">
-        <h2>Bij ons bent u in goede handen</h2>
-        <p>Onze podotherapeuten werken nauw samen met huisartsen, fysiotherapeuten en orthopeden voor een compleet behandeltraject.</p>
-        <a class="btn btn-primary" href="#">Maak een afspraak</a>
+        <h2>Wilt u weten welke behandeling bij u past?</h2>
+        <p>Na een uitgebreid onderzoek stelt onze podotherapeut een behandelplan op maat op. Maak een afspraak voor een eerste consult.</p>
+        <button class="btn btn-primary" data-open-quiz>Maak een afspraak</button>
       </div>
       <div class="accent-circle accent-circle--orange" aria-hidden="true"></div>
     </div>
@@ -239,7 +357,6 @@
     <button type="button" class="quiz-close" id="quizClose" aria-label="Quiz sluiten">&times;</button>
     <div class="quiz-deco" aria-hidden="true"></div>
 
-    <!-- Vraag 1 -->
     <div class="quiz-step is-active" id="quizStep1">
       <div class="quiz-meta">
         <span class="quiz-counter">Vraag 1 van 3</span>
@@ -257,7 +374,6 @@
       </div>
     </div>
 
-    <!-- Vraag 2 -->
     <div class="quiz-step" id="quizStep2">
       <div class="quiz-meta">
         <span class="quiz-counter">Vraag 2 van 3</span>
@@ -276,7 +392,6 @@
       </div>
     </div>
 
-    <!-- Vraag 3 -->
     <div class="quiz-step" id="quizStep3">
       <div class="quiz-meta">
         <span class="quiz-counter">Vraag 3 van 3</span>
@@ -295,7 +410,6 @@
       </div>
     </div>
 
-    <!-- Afspraak form -->
     <div class="quiz-step" id="quizForm">
       <h3 class="quiz-question">Maak een afspraak</h3>
       <p class="quiz-form-intro">Op basis van uw antwoorden maken wij graag een afspraak voor u.</p>
@@ -339,7 +453,6 @@
       </form>
     </div>
 
-    <!-- Bevestiging -->
     <div class="quiz-step" id="quizSuccess">
       <div class="quiz-success-icon" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
@@ -360,7 +473,6 @@
     <button type="button" class="quiz-close" id="vergoedingClose" aria-label="Sluiten">&times;</button>
     <div class="quiz-deco quiz-deco--gold" aria-hidden="true"></div>
 
-    <!-- Stap 1: Kies verzekeraar -->
     <div class="quiz-step is-active" id="vergStep1">
       <h3 id="vergoedingHeading" class="quiz-question">Bij welke zorgverzekeraar bent u verzekerd?</h3>
       <div class="quiz-options">
@@ -378,7 +490,6 @@
       </div>
     </div>
 
-    <!-- Resultaat -->
     <div class="quiz-step" id="vergResult">
       <div class="verg-badge" aria-hidden="true">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,11 8,15 16,6"/></svg>
