@@ -2433,7 +2433,7 @@ body.menu-open {
   display: block;
   width: 34px;
   height: auto;
-  color: var(--color-green);
+  color: #E8A020;
 }
 
 /* Limb swing — cross-body walking gait with knee bend */
@@ -2521,7 +2521,7 @@ body.menu-open {
   bottom: 22px;
   height: 2px;
   width: 0;
-  background: linear-gradient(to left, rgba(157, 193, 201, 0.95), rgba(157, 193, 201, 0));
+  background: linear-gradient(to left, rgba(217, 77, 26, 0.9), rgba(217, 77, 26, 0));
   border-radius: 1px;
   animation: gait-beam 18s linear infinite;
 }
@@ -2532,6 +2532,41 @@ body.menu-open {
   52%      { width: 90px; opacity: 1; }
   58%      { width: 0;    opacity: 0; }
   100%     { width: 0;    opacity: 0; }
+}
+
+/* Gait pressure curves — inspired by hero image wave lines */
+.gait-curves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 82px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.gc-gold, .gc-red, .gc-blue {
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-gc 18s linear infinite;
+}
+/* Stroke alpha baked in so per-curve depth works independently of animation opacity */
+.gc-gold { stroke: rgba(242, 165, 26, 0.95); }
+.gc-red  { stroke: rgba(217, 80, 28, 0.85); }
+.gc-blue { stroke: rgba(124, 196, 208, 0.75); }
+
+@keyframes draw-gc {
+  0%   { stroke-dashoffset: 1; opacity: 0;   animation-timing-function: ease-in-out; }
+  40%  { stroke-dashoffset: 0; opacity: 0.9; animation-timing-function: linear; }
+  55%  { stroke-dashoffset: 0; opacity: 0.9; animation-timing-function: ease-in; }
+  62%  { stroke-dashoffset: 0; opacity: 0; }
+  99%  { stroke-dashoffset: 1; opacity: 0; }
+  100% { stroke-dashoffset: 1; opacity: 0; }
 }
 
 /* Small label below */
@@ -2549,6 +2584,7 @@ body.menu-open {
 @media (prefers-reduced-motion: reduce) {
   .gait-walker, .gait-walker-inner,
   .w-arm-l, .w-arm-r, .w-thi-l, .w-thi-r, .w-cal-l, .w-cal-r,
-  .gait-beam { animation: none; }
+  .gait-beam, .gc-gold, .gc-red, .gc-blue { animation: none; }
   .gait-walker { left: 40%; }
+  .gc-gold, .gc-red, .gc-blue { stroke-dashoffset: 0; opacity: 0.7; }
 }

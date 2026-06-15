@@ -37,9 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     setOpen(!nav.classList.contains('is-open'));
   });
 
-  // Close the menu after choosing a link (mobile overlay)
+  // Close the menu after choosing a link
   navLinks.forEach((link) => {
-    link.addEventListener('click', () => setOpen(false));
+    link.addEventListener('click', (e) => {
+      // Desktop: shrink the circle first, then navigate after the transition
+      if (window.innerWidth >= 1000 && nav.classList.contains('is-open')) {
+        const href = link.getAttribute('href');
+        if (href && href !== '#' && !href.startsWith('#') && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+          e.preventDefault();
+          setOpen(false);
+          setTimeout(() => { window.location.href = href; }, 560);
+          return;
+        }
+      }
+      setOpen(false);
+    });
   });
 
   // Close on Escape
