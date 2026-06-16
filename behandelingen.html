@@ -41,16 +41,20 @@
         <p>Het onderzoek start met een uitgebreide anamnese. Tijdens dit gesprek lichten we uw klacht(en) uit en informeren we u over het vervolg van het onderzoek en eventuele kosten. Op basis daarvan kiezen wij de meest geschikte behandeling.</p>
       </div>
 
-      <!-- GAIT ANIMATION -->
+      <!-- GAIT ANIMATION — desktop only, never in DOM on mobile -->
+      <template id="gait-tpl">
       <div class="gait-anim" aria-hidden="true">
         <div class="gait-scene">
 
           <!-- Walker track -->
           <div class="gait-track">
             <svg class="gait-curves" viewBox="0 0 640 100" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <path class="gc-blue"  pathLength="1" d="M 0,88 C 110,88 155,36 275,36 C 435,36 572,88 612,88"/>
-              <path class="gc-red"   pathLength="1" d="M 0,88 C 95,88 125,22 240,22 C 400,22 555,88 602,88"/>
-              <path class="gc-gold"  pathLength="1" d="M 0,88 C 80,88 100,8 200,8 C 365,8 535,88 585,88"/>
+              <!-- shallow wide plateau — forefoot/pushoff -->
+              <path class="gc-blue"  pathLength="1" d="M 0,88 C 160,88 320,52 440,52 C 540,52 610,88 640,88"/>
+              <!-- symmetric bell — midfoot -->
+              <path class="gc-red"   pathLength="1" d="M 0,88 C 90,88 210,22 315,22 C 420,22 555,88 640,88"/>
+              <!-- sharp asymmetric spike — heel strike -->
+              <path class="gc-gold"  pathLength="1" d="M 0,88 C 35,88 85,4 155,4 C 245,4 430,84 640,88"/>
             </svg>
             <div class="gait-ground"></div>
             <div class="gait-walker">
@@ -76,26 +80,32 @@
           <!-- Therapist (right) -->
           <div class="gait-right">
             <div class="gait-beam"></div>
-            <svg viewBox="0 0 48 72" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="32" cy="7" r="6" fill="currentColor" stroke="none"/>
-              <path d="M25 14 C24 22 24 37 25 45 L39 45 C40 37 40 22 39 14 Z"/>
-              <path d="M29 14 L32 20 L35 14"/>
-              <line x1="25" y1="23" x2="14" y2="33"/>
-              <rect x="7" y="29" width="10" height="13" rx="2"/>
-              <line x1="9" y1="32" x2="15" y2="32"/>
-              <line x1="9" y1="35" x2="15" y2="35"/>
-              <line x1="9" y1="38" x2="13" y2="38"/>
-              <line x1="39" y1="23" x2="44" y2="33"/>
-              <line x1="29" y1="45" x2="27" y2="59"/>
-              <line x1="35" y1="45" x2="37" y2="59"/>
-              <line x1="27" y1="59" x2="23" y2="65"/>
-              <line x1="37" y1="59" x2="41" y2="65"/>
+            <svg viewBox="0 0 48 72" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="8" r="7" fill="currentColor" stroke="none"/>
+              <line x1="24" y1="15" x2="24" y2="42"/>
+              <line x1="24" y1="22" x2="11" y2="35"/>
+              <rect x="4" y="31" width="9" height="12" rx="1.5" stroke-width="1.8"/>
+              <line x1="6" y1="35" x2="11" y2="35" stroke-width="1.4"/>
+              <line x1="6" y1="39" x2="11" y2="39" stroke-width="1.4"/>
+              <line x1="24" y1="22" x2="35" y2="34"/>
+              <line x1="24" y1="42" x2="18" y2="57"/>
+              <line x1="18" y1="57" x2="15" y2="68"/>
+              <line x1="24" y1="42" x2="30" y2="57"/>
+              <line x1="30" y1="57" x2="33" y2="68"/>
             </svg>
           </div>
 
         </div>
         <p class="gait-label">In-shoe drukanalyse &nbsp;&middot;&nbsp; 3D voetscan &nbsp;&middot;&nbsp; Loopanalyse</p>
       </div>
+      </template>
+      <script>
+        if (window.matchMedia('(min-width: 1000px)').matches) {
+          var t = document.getElementById('gait-tpl');
+          t.parentNode.insertBefore(t.content, t);
+          t.remove();
+        }
+      </script>
 
       <div class="behandeling-cards-grid">
 
