@@ -69,8 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
 
 // Quiz
@@ -245,6 +243,137 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('vergBackBtn').addEventListener('click', () => showStep('vergStep1'));
+}());
+
+// Ailment appointment quiz (aandoening.html)
+(function () {
+  var overlay = document.getElementById('ailmentQuizOverlay');
+  if (!overlay) return;
+
+  var STEP_LABELS = {
+    ailmentStep1: 'Duur klachten',
+    ailmentStep2: 'Ernst klachten',
+    ailmentStep3: 'Ergst moment',
+  };
+
+  var state = { answers: {}, captchaAnswer: 0, ailmentNaam: '' };
+
+  function showStep(id) {
+    overlay.querySelectorAll('.quiz-step').forEach(function (s) { s.classList.remove('is-active'); });
+    document.getElementById(id).classList.add('is-active');
+    if (id === 'ailmentForm') { buildSummary(); generateCaptcha(); }
+    overlay.querySelector('.quiz-modal').scrollTop = 0;
+  }
+
+  function openQuiz(naam) {
+    state.answers = {};
+    state.ailmentNaam = naam || '';
+    overlay.querySelectorAll('.quiz-option').forEach(function (b) { b.classList.remove('is-selected'); });
+    overlay.querySelectorAll('.quiz-next').forEach(function (b) { b.disabled = true; });
+    var formEl = document.getElementById('ailmentAppointmentForm');
+    if (formEl) formEl.reset();
+    var badgeEl = document.getElementById('ailmentQuizNaam');
+    if (badgeEl && naam) badgeEl.textContent = naam;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    showStep('ailmentStep1');
+  }
+
+  function closeQuiz() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+  }
+
+  function generateCaptcha() {
+    var a = Math.floor(Math.random() * 9) + 1;
+    var b = Math.floor(Math.random() * 9) + 1;
+    state.captchaAnswer = a + b;
+    document.getElementById('ailmentCaptchaQ').textContent = 'Wat is ' + a + ' + ' + b + '?';
+    var ci = document.getElementById('ailmentCaptcha');
+    if (ci) { ci.value = ''; ci.classList.remove('is-invalid'); }
+  }
+
+  function buildSummary() {
+    var items = [{ label: 'Aandoening', value: state.ailmentNaam }].concat(
+      Object.entries(state.answers).map(function (e) { return { label: e[0], value: e[1] }; })
+    );
+    document.getElementById('ailmentQuizSummary').innerHTML = items.map(function (item) {
+      return '<div class="quiz-summary-item"><span class="quiz-summary-label">' + item.label + '</span><span class="quiz-summary-value">' + item.value + '</span></div>';
+    }).join('');
+  }
+
+  document.querySelectorAll('[data-open-ailment-quiz]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openQuiz(btn.dataset.ailmentNaam || '');
+    });
+  });
+
+  document.getElementById('ailmentQuizClose').addEventListener('click', closeQuiz);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeQuiz(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeQuiz();
+  });
+
+  overlay.querySelectorAll('.quiz-option').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var stepEl = btn.closest('.quiz-step');
+      stepEl.querySelectorAll('.quiz-option').forEach(function (b) { b.classList.remove('is-selected'); });
+      btn.classList.add('is-selected');
+      state.answers[STEP_LABELS[stepEl.id]] = btn.dataset.value;
+      stepEl.querySelector('.quiz-next').disabled = false;
+    });
+  });
+
+  overlay.querySelectorAll('.quiz-next').forEach(function (btn) {
+    btn.addEventListener('click', function () { showStep(btn.dataset.next); });
+  });
+
+  overlay.querySelectorAll('.quiz-back').forEach(function (btn) {
+    btn.addEventListener('click', function () { showStep(btn.dataset.prev); });
+  });
+
+  document.getElementById('ailmentQuizDoneBtn').addEventListener('click', closeQuiz);
+
+  document.getElementById('ailmentAppointmentForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var valid = true;
+
+    ['ailmentNaamInput', 'ailmentEmailInput'].forEach(function (id) {
+      var el = document.getElementById(id);
+      var ok = el.value.trim() !== '';
+      el.classList.toggle('is-invalid', !ok);
+      if (!ok) valid = false;
+    });
+
+    var captchaEl = document.getElementById('ailmentCaptcha');
+    var captchaOk = parseInt(captchaEl.value, 10) === state.captchaAnswer;
+    captchaEl.classList.toggle('is-invalid', !captchaOk);
+    if (!captchaOk) valid = false;
+
+    if (!valid) return;
+
+    var quizLines = ['Aandoening: ' + state.ailmentNaam].concat(
+      Object.entries(state.answers).map(function (e) { return e[0] + ': ' + e[1]; })
+    ).join('\n');
+
+    var body = [
+      'Naam: ' + document.getElementById('ailmentNaamInput').value,
+      'Email: ' + document.getElementById('ailmentEmailInput').value,
+      'Telefoon: ' + document.getElementById('ailmentTelInput').value,
+      'Gewenste datum: ' + document.getElementById('ailmentDatumInput').value,
+      '',
+      'Klachtenanalyse:',
+      quizLines,
+      '',
+      'Opmerkingen: ' + document.getElementById('ailmentOpmerkingen').value,
+    ].join('\n');
+
+    window.location.href = 'mailto:info@voetselect.nl?subject=' + encodeURIComponent('Afspraakverzoek – ' + state.ailmentNaam + ' – ' + document.getElementById('ailmentNaamInput').value) + '&body=' + encodeURIComponent(body);
+    showStep('ailmentSuccess');
+  });
 }());
 
 // Contact form

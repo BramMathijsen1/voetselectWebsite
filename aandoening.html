@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Aandoening — VoetSelect Podotherapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="aandoeningen-data.js"></script>
+</head>
+<body data-active-page="aandoeningen.html">
+
+<div id="header-placeholder"></div>
+
+<main>
+
+  <!-- PAGE HERO (populated by JS) -->
+  <section class="page-hero page-hero--solid" id="aandoeningHero">
+    <div class="container page-hero-content">
+      <p class="eyebrow page-hero-eyebrow">
+        <a href="aandoeningen.html" class="hero-breadcrumb-link">&#8592; Alle aandoeningen</a>
+      </p>
+      <h1 id="heroTitle">Aandoening</h1>
+    </div>
+    <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <!-- DETAIL CONTENT (populated by JS) -->
+  <section class="aandoening-detail-section" id="aandoeningDetailSection">
+    <div class="container">
+      <div class="aandoening-detail-grid">
+
+        <div class="aandoening-detail-body" id="aandoeningBody">
+          <!-- filled by JS -->
+        </div>
+
+        <aside>
+          <div class="aandoening-sidebar-card">
+            <div class="aandoening-sidebar-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4 C10 4 6 9 6 14 C6 20 12 26 16 28 C20 26 26 20 26 14 C26 9 22 4 16 4Z"/>
+                <line x1="16" y1="10" x2="16" y2="18"/><circle cx="16" cy="21" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <h3>Last van <span id="sidebarNaam">deze klacht</span>?</h3>
+            <p>Onze podotherapeut helpt u graag verder. Beantwoord een paar korte vragen en maak direct een afspraak.</p>
+            <button class="btn btn-primary" data-open-ailment-quiz data-ailment-naam="" id="sidebarQuizBtn">Ik heb hier last van</button>
+            <div class="aandoening-sidebar-divider"></div>
+            <p class="aandoening-sidebar-alt">Of bel ons direct:<br><a href="tel:+31628874712">+31 6 28874712</a></p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="aandoening-cta-band" id="aandoeningCtaBand">
+    <div class="container aandoening-cta-inner">
+      <div class="aandoening-cta-text">
+        <h2>Heeft u last van <span id="ctaNaam">deze aandoening</span>?</h2>
+        <p>Maak een afspraak voor een uitgebreid podotherapeutisch onderzoek. Wij stellen een behandelplan op maat op.</p>
+      </div>
+      <button class="btn btn-white btn-large" data-open-ailment-quiz data-ailment-naam="" id="ctaQuizBtn">Ik heb hier last van</button>
+    </div>
+  </section>
+
+  <!-- NOT FOUND (hidden until JS shows it) -->
+  <section class="aandoening-not-found" id="aandoeningNotFound" style="display:none" aria-live="polite">
+    <div class="container">
+      <div class="aandoening-not-found-inner">
+        <div class="aandoening-not-found-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="20"/>
+            <line x1="24" y1="14" x2="24" y2="26"/>
+            <circle cx="24" cy="32" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h1>Aandoening niet gevonden</h1>
+        <p>De aandoening die u zoekt bestaat niet of is verplaatst.</p>
+        <a href="aandoeningen.html" class="btn btn-primary">Bekijk alle aandoeningen</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<!-- WHATSAPP FLOAT -->
+
+<!-- AILMENT QUIZ MODAL -->
+<div class="quiz-overlay" id="ailmentQuizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="ailmentQuizHeading">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="ailmentQuizClose" aria-label="Sluiten">&times;</button>
+    <div class="quiz-deco" aria-hidden="true"></div>
+
+    <!-- Ailment badge shown in all steps -->
+    <div class="ailment-quiz-badge" id="ailmentQuizBadge" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><line x1="8" y1="5" x2="8" y2="9"/><circle cx="8" cy="11.5" r="0.75" fill="currentColor" stroke="none"/></svg>
+      <span id="ailmentQuizNaam">Aandoening</span>
+    </div>
+
+    <div class="quiz-step is-active" id="ailmentStep1">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 1 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--1"></div></div>
+      </div>
+      <h3 id="ailmentQuizHeading" class="quiz-question">Hoe lang heeft u al last?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Minder dan 1 week">Minder dan 1 week</button>
+        <button type="button" class="quiz-option" data-value="1 tot 4 weken">1 tot 4 weken</button>
+        <button type="button" class="quiz-option" data-value="1 tot 3 maanden">1 tot 3 maanden</button>
+        <button type="button" class="quiz-option" data-value="Langer dan 3 maanden">Langer dan 3 maanden</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-primary quiz-next" data-next="ailmentStep2" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="ailmentStep2">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 2 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--2"></div></div>
+      </div>
+      <h3 class="quiz-question">Hoe ernstig zijn de klachten?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Mild — weinig pijnlijk">Mild</button>
+        <button type="button" class="quiz-option" data-value="Matig — regelmatig pijn">Matig</button>
+        <button type="button" class="quiz-option" data-value="Ernstig — aanhoudend pijn">Ernstig</button>
+        <button type="button" class="quiz-option" data-value="Wisselend per dag">Wisselend</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="ailmentStep1">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="ailmentStep3" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="ailmentStep3">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 3 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--3"></div></div>
+      </div>
+      <h3 class="quiz-question">Wanneer zijn de klachten het ergst?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="'s Ochtends bij het opstaan">'s Ochtends bij het opstaan</button>
+        <button type="button" class="quiz-option" data-value="Na lang lopen of staan">Na lang lopen of staan</button>
+        <button type="button" class="quiz-option" data-value="Tijdens het sporten">Tijdens het sporten</button>
+        <button type="button" class="quiz-option" data-value="De hele dag door">De hele dag door</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="ailmentStep2">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="ailmentForm" disabled>Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="ailmentForm">
+      <h3 class="quiz-question">Maak een afspraak</h3>
+      <p class="quiz-form-intro">Vul uw gegevens in en wij nemen contact met u op.</p>
+      <div class="quiz-summary" id="ailmentQuizSummary" aria-live="polite"></div>
+      <form class="quiz-form" id="ailmentAppointmentForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ailmentNaamInput">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="ailmentNaamInput" name="naam" required autocomplete="name" placeholder="Uw volledige naam">
+          </div>
+          <div class="form-field">
+            <label for="ailmentEmailInput">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="ailmentEmailInput" name="email" required autocomplete="email" placeholder="uw@email.nl">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ailmentTelInput">Telefoonnummer</label>
+            <input type="tel" id="ailmentTelInput" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
+          </div>
+          <div class="form-field">
+            <label for="ailmentDatumInput">Gewenste datum</label>
+            <input type="date" id="ailmentDatumInput" name="datum">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="ailmentOpmerkingen">Opmerkingen</label>
+          <textarea id="ailmentOpmerkingen" name="opmerkingen" rows="3" placeholder="Eventuele extra informatie..."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="ailmentCaptcha">Beveiliging <span aria-hidden="true">*</span></label>
+          <div class="captcha-wrap">
+            <span class="captcha-question" id="ailmentCaptchaQ"></span>
+            <input type="text" id="ailmentCaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-prev="ailmentStep3">Terug</button>
+          <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="quiz-step" id="ailmentSuccess">
+      <div class="quiz-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="10,26 20,36 38,14"/>
+        </svg>
+      </div>
+      <h3 class="quiz-question">Aanvraag verstuurd!</h3>
+      <p>Bedankt voor uw aanvraag. Wij nemen zo snel mogelijk contact met u op om een afspraak in te plannen.</p>
+      <button type="button" class="btn btn-primary" id="ailmentQuizDoneBtn">Sluiten</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="partials.js"></script>
+<script src="script.js"></script>
+<script>
+(function () {
+  /* Load ailment from URL param */
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id');
+  var ailment = id ? AANDOENINGEN.find(function (a) { return a.id === id; }) : null;
+
+  var heroEl   = document.getElementById('aandoeningHero');
+  var detailEl = document.getElementById('aandoeningDetailSection');
+  var ctaBand  = document.getElementById('aandoeningCtaBand');
+  var notFound = document.getElementById('aandoeningNotFound');
+
+  if (!ailment) {
+    if (heroEl)   heroEl.style.display   = 'none';
+    if (detailEl) detailEl.style.display = 'none';
+    if (ctaBand)  ctaBand.style.display  = 'none';
+    if (notFound) notFound.style.display = 'block';
+    return;
+  }
+
+  /* Populate page */
+  document.title = ailment.naam + ' — VoetSelect Podotherapie';
+  document.getElementById('heroTitle').textContent = ailment.naam;
+  document.getElementById('aandoeningBody').innerHTML = ailment.body.map(function (p) {
+    return '<p>' + p + '</p>';
+  }).join('');
+  document.getElementById('sidebarNaam').textContent = ailment.naam;
+  document.getElementById('ctaNaam').textContent = ailment.naam;
+  document.getElementById('ailmentQuizNaam').textContent = ailment.naam;
+
+  /* Wire ailment name to every quiz trigger button */
+  document.querySelectorAll('[data-open-ailment-quiz]').forEach(function (btn) {
+    btn.dataset.ailmentNaam = ailment.naam;
+  });
+}());
+</script>
+</body>
+</html>

@@ -2588,3 +2588,479 @@ body.menu-open {
   .gait-walker { left: 40%; }
   .gc-gold, .gc-red, .gc-blue { stroke-dashoffset: 0; opacity: 0.7; }
 }
+
+/* ============================================
+   Extra button variants
+   ============================================ */
+
+.btn-white {
+  background: var(--color-white);
+  color: var(--color-green);
+}
+.btn-white:hover { background: rgba(255,255,255,0.9); }
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255,255,255,0.7);
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--color-white);
+}
+
+.btn-large {
+  padding: 16px 36px;
+  font-size: 16px;
+}
+
+/* ============================================
+   Nav active link
+   ============================================ */
+
+.primary-nav-inner ul li a.nav-active {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* ============================================
+   Page hero — solid color variant (no image)
+   ============================================ */
+
+.page-hero--solid {
+  background: linear-gradient(135deg, #195e47 0%, var(--color-green) 55%, #279070 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero--solid::before {
+  content: '';
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.06);
+  right: -160px;
+  top: -220px;
+  pointer-events: none;
+}
+
+.page-hero--solid::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  left: -80px;
+  bottom: 20px;
+  pointer-events: none;
+}
+
+.page-hero--solid .page-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 110px;
+}
+
+@media (min-width: 1000px) {
+  .page-hero--solid .page-hero-content {
+    padding-top: 100px;
+    padding-bottom: 130px;
+  }
+}
+
+/* Reuse .hero-curve from other pages */
+.page-hero--solid .hero-curve {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 18%;
+  min-height: 60px;
+  z-index: 3;
+}
+
+/* Breadcrumb link inside eyebrow on aandoening.html hero */
+.hero-breadcrumb-link {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.hero-breadcrumb-link:hover { color: var(--color-gold); }
+
+/* ============================================
+   Aandoeningen list page
+   ============================================ */
+
+.aandoeningen-search-section {
+  background: #f4f6f4;
+  padding: 48px 0 36px;
+}
+
+.aandoeningen-search-wrap {
+  max-width: 560px;
+  position: relative;
+}
+
+.aandoeningen-search-input {
+  width: 100%;
+  font-family: var(--font-base);
+  font-size: 15px;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 2px solid rgba(31, 125, 94, 0.18);
+  border-radius: 99px;
+  padding: 14px 52px 14px 22px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 14px rgba(31, 125, 94, 0.07);
+}
+
+.aandoeningen-search-input:focus {
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(31, 125, 94, 0.12);
+}
+
+/* clear button added by browsers for search type */
+.aandoeningen-search-input::-webkit-search-cancel-button { cursor: pointer; }
+
+.aandoeningen-search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-green);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.aandoeningen-search-count {
+  margin: 12px 0 0 4px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.aandoeningen-grid-section {
+  padding: 48px 0 80px;
+}
+
+.aandoeningen-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 580px) {
+  .aandoeningen-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .aandoeningen-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Ailment card */
+.aandoening-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.aandoening-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+
+.aandoening-card--green::before  { background: var(--color-green); }
+.aandoening-card--blue::before   { background: var(--color-blue); }
+.aandoening-card--terra::before  { background: var(--color-terracotta); }
+.aandoening-card--gold::before   { background: var(--color-gold); }
+.aandoening-card--sage::before   { background: var(--color-sage); }
+
+.aandoening-card:hover {
+  box-shadow: 0 8px 28px rgba(31, 125, 94, 0.13);
+  transform: translateY(-3px);
+}
+
+.aandoening-card-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-radius: 99px;
+  padding: 4px 11px;
+  width: fit-content;
+}
+
+.aandoening-card--green .aandoening-card-tag  { background: rgba(31,125,94,0.09);   color: var(--color-green); }
+.aandoening-card--blue  .aandoening-card-tag  { background: rgba(157,193,201,0.2);  color: #2a7a8a; }
+.aandoening-card--terra .aandoening-card-tag  { background: rgba(213,84,32,0.1);    color: var(--color-terracotta); }
+.aandoening-card--gold  .aandoening-card-tag  { background: rgba(239,178,43,0.12);  color: #9a6d00; }
+.aandoening-card--sage  .aandoening-card-tag  { background: rgba(182,192,171,0.22); color: #4e6040; }
+
+.aandoening-card-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.aandoening-card-excerpt {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.aandoening-card-cta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.aandoening-card-cta svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.aandoening-card:hover .aandoening-card-cta svg { transform: translateX(4px); }
+
+.aandoeningen-no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 20px;
+  color: var(--color-text-muted);
+}
+
+.aandoeningen-no-results p { font-size: 16px; margin: 0 0 8px; }
+
+/* ============================================
+   Aandoening detail page
+   ============================================ */
+
+.aandoening-detail-section {
+  padding: 64px 0 56px;
+}
+
+.aandoening-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .aandoening-detail-grid {
+    grid-template-columns: 1fr 320px;
+    gap: 56px;
+  }
+}
+
+.aandoening-detail-body p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin: 0 0 22px;
+}
+
+.aandoening-detail-body p:last-child { margin-bottom: 0; }
+
+/* Sidebar card */
+.aandoening-sidebar-card {
+  background: #f2f5f3;
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  position: sticky;
+  top: 100px;
+  border: 1px solid rgba(31,125,94,0.1);
+}
+
+.aandoening-sidebar-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: var(--color-white);
+}
+
+.aandoening-sidebar-icon svg { width: 24px; height: 24px; }
+
+.aandoening-sidebar-card h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.aandoening-sidebar-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 0 20px;
+}
+
+.aandoening-sidebar-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.aandoening-sidebar-divider {
+  height: 1px;
+  background: rgba(31,125,94,0.15);
+  margin: 20px 0;
+}
+
+.aandoening-sidebar-alt {
+  font-size: 13px !important;
+  text-align: center;
+  margin: 0 !important;
+}
+
+.aandoening-sidebar-alt a {
+  color: var(--color-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.aandoening-sidebar-alt a:hover { text-decoration: underline; }
+
+/* CTA band */
+.aandoening-cta-band {
+  background: var(--color-green);
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.aandoening-cta-band::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.07);
+  top: -210px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.aandoening-cta-band::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  bottom: -130px;
+  left: 8%;
+  pointer-events: none;
+}
+
+.aandoening-cta-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .aandoening-cta-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+}
+
+.aandoening-cta-text h2 { color: var(--color-white); margin-bottom: 10px; }
+.aandoening-cta-text p  { color: rgba(255,255,255,0.85); margin: 0; font-size: 16px; }
+
+/* Not-found section */
+.aandoening-not-found {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.aandoening-not-found-inner {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.aandoening-not-found-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(31,125,94,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  color: var(--color-green);
+}
+
+.aandoening-not-found-icon svg { width: 32px; height: 32px; }
+
+.aandoening-not-found h1 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.aandoening-not-found p {
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+}
+
+/* Ailment quiz modal — badge showing ailment name */
+.ailment-quiz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(31,125,94,0.1);
+  color: var(--color-green);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 99px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+}
+
+.ailment-quiz-badge svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
