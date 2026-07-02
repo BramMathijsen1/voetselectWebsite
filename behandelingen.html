@@ -269,16 +269,16 @@
   </section>
 
   <!-- CTA ACCENT -->
-  <section class="accent-section container">
-    <div class="accent-grid">
-      <div class="accent-circle accent-circle--sage" aria-hidden="true"></div>
+  <section class="accent-section">
+    <div class="accent-circle accent-circle--sage" aria-hidden="true"></div>
+    <div class="accent-grid container">
       <div class="accent-text">
         <h2>Wilt u weten welke behandeling bij u past?</h2>
         <p>Na een uitgebreid onderzoek stelt onze podotherapeut een behandelplan op maat op. Maak een afspraak voor een eerste consult.</p>
         <button class="btn btn-primary" data-open-quiz>Maak een afspraak</button>
       </div>
-      <div class="accent-circle accent-circle--orange" aria-hidden="true"></div>
     </div>
+    <div class="accent-circle accent-circle--orange" aria-hidden="true"></div>
   </section>
 
 </main>
@@ -381,6 +381,7 @@
             <input type="text" id="fcaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
           </div>
         </div>
+        <p class="form-error" id="appointmentFormError" hidden>Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons.</p>
         <div class="quiz-nav">
           <button type="button" class="quiz-back" data-prev="quizStep3">Terug</button>
           <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
@@ -425,13 +426,30 @@
       </div>
     </div>
 
+    <!-- Stap 2: Kies aanvullende verzekering -->
+    <div class="quiz-step" id="vergStep2">
+      <h3 class="quiz-question">Welke aanvullende verzekering heeft u bij <span id="vergStep2Insurer"></span>?</h3>
+      <div class="form-field">
+        <label for="vergPakketSelect">Pakket</label>
+        <select id="vergPakketSelect"></select>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" id="vergStep2BackBtn">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" id="vergStep2NextBtn">Bekijk resultaat</button>
+      </div>
+    </div>
+
     <div class="quiz-step" id="vergResult">
       <div class="verg-badge" aria-hidden="true">
         <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,11 8,15 16,6"/></svg>
         Mogelijk vergoed
       </div>
       <h3 class="quiz-question">Vergoeding bij <span id="vergResultInsurer"></span></h3>
-      <p>Podotherapie wordt in Nederland <strong>niet vergoed vanuit de basisverzekering</strong>, maar wel (gedeeltelijk) via een aanvullende verzekering. De exacte vergoeding hangt af van uw pakket &mdash; neem contact op met uw verzekeraar om dit te bevestigen.</p>
+      <div class="verg-amount" id="vergResultAmount">
+        <p class="verg-amount-plan"></p>
+        <p class="verg-amount-value"></p>
+      </div>
+      <p>Podotherapie wordt in Nederland <strong>niet vergoed vanuit de basisverzekering</strong>, maar wel (gedeeltelijk) via een aanvullende verzekering. Bovenstaande bedragen zijn een indicatie op basis van de meest recente informatie &mdash; neem voor de zekerheid contact op met uw verzekeraar om uw actuele vergoeding te bevestigen.</p>
       <div class="verg-tip">
         <p>Twijfelt u? Bel ons gerust. Wij helpen u graag uitzoeken of uw behandeling vergoed wordt.</p>
       </div>

@@ -1,0 +1,7 @@
+- Add webforms acces key for email
+Go to web3forms.com, enter info@voetselect.nl (or whichever inbox should receive submissions), and they'll email you a free access key instantly — no password/dashboard setup required.
+Open script.js:3 and replace 'YOUR_WEB3FORMS_ACCESS_KEY' with that key.
+
+(gratis is 250 mails per maand, genoeg?)
+
+- Maak automatische insurer ding voor elk jaar

@@ -1,3 +1,33 @@
+/* Form backend: https://web3forms.com — free, no server required.
+   Get your own access key at web3forms.com and paste it below. */
+const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+function submitForm(form, errorEl, fields, onSuccess) {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalLabel = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Bezig met verzenden...';
+  if (errorEl) errorEl.hidden = true;
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_ACCESS_KEY }, fields)),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) throw new Error(data.message || 'Verzenden mislukt');
+      onSuccess();
+    })
+    .catch(() => {
+      if (errorEl) errorEl.hidden = false;
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('primaryNav');
@@ -175,20 +205,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!valid) return;
 
     const quizLines = Object.entries(state.answers).map(([k, v]) => `${k}: ${v}`).join('\n');
-    const body = [
-      `Naam: ${form.naam.value}`,
-      `Email: ${form.email.value}`,
-      `Telefoon: ${form.telefoon.value}`,
-      `Gewenste datum: ${form.datum.value}`,
-      '',
-      'Klachtenanalyse:',
-      quizLines,
-      '',
-      `Opmerkingen: ${form.opmerkingen.value}`,
-    ].join('\n');
 
-    window.location.href = `mailto:info@voetselect.nl?subject=${encodeURIComponent('Afspraakverzoek – ' + form.naam.value)}&body=${encodeURIComponent(body)}`;
-    showStep('quizSuccess');
+    submitForm(form, document.getElementById('appointmentFormError'), {
+      subject: 'Afspraakverzoek – ' + form.naam.value,
+      naam: form.naam.value,
+      email: form.email.value,
+      telefoon: form.telefoon.value,
+      datum: form.datum.value,
+      klachtenanalyse: quizLines,
+      opmerkingen: form.opmerkingen.value,
+    }, () => showStep('quizSuccess'));
   });
 }());
 
@@ -197,7 +223,87 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('vergoedingOverlay');
   if (!overlay) return;
 
+  const GEEN_VERGOEDING = 'Geen vergoeding voor podotherapie of steunzolen vanuit dit pakket.';
+  const ALLEEN_BASISVERZEKERING = { naam: 'Ik heb alleen een basisverzekering (geen aanvullende verzekering)', bedrag: GEEN_VERGOEDING };
+
+  // Indicatieve bedragen voor 2026, o.b.v. de vergoedingenoverzichten van
+  // de verzekeraars zelf. Wijzigt jaarlijks — check bij twijfel de eigen
+  // polisvoorwaarden of het overzicht op podotherapie.nl/vergoedingen.
+  const VERGOEDING_PLANS = {
+    'Zilveren Kruis': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'Aanvullend 1 of 2 Sterren', bedrag: GEEN_VERGOEDING },
+      { naam: 'Aanvullend 3 Sterren', bedrag: 'Max. € 150,- per kalenderjaar (incl. maximaal 1 paar steunzolen).' },
+      { naam: 'Aanvullend 4 Sterren', bedrag: 'Max. € 200,- per kalenderjaar (incl. maximaal 1 paar steunzolen).' },
+    ],
+    'CZ': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'CZ Basis / Start', bedrag: GEEN_VERGOEDING },
+      { naam: 'CZ Jongeren', bedrag: 'Max. € 70,- podotherapie + € 60,- steunzolen per jaar.' },
+      { naam: 'CZ 50+', bedrag: 'Max. € 115,- podotherapie + € 60,- steunzolen per jaar.' },
+      { naam: 'CZ Plus of Top', bedrag: 'Max. € 115,- podotherapie + € 75,- steunzolen per jaar.' },
+    ],
+    'VGZ / IZA': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'VGZ Instap / Primair / Aanvullend Instap', bedrag: GEEN_VERGOEDING },
+      { naam: 'VGZ Goed / Werkt Goed / Zorgt Goed / Aanvullend Goed', bedrag: 'Max. € 100,- podotherapie + € 70,- steunzolen per jaar.' },
+      { naam: 'VGZ Beter / Werkt Beter / Zorgt Beter / Aanvullend Beter', bedrag: 'Max. € 300,- podotherapie + € 125,- steunzolen per jaar.' },
+      { naam: 'VGZ Best / Werkt Best / Zorgt Best / Aanvullend Best', bedrag: 'Max. € 500,- podotherapie + € 125,- tot € 180,- steunzolen per jaar.' },
+      { naam: 'IZA Extra Zorg 1', bedrag: 'Max. € 100,- per jaar (steunzolen apart budget van € 125,-).' },
+      { naam: 'IZA Extra Zorg 2', bedrag: 'Max. € 200,- per jaar (steunzolen apart budget van € 125,-).' },
+      { naam: 'IZA Extra Zorg 3', bedrag: 'Max. € 300,- per jaar (steunzolen apart budget van € 225,-).' },
+    ],
+    'Menzis': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'Aanvullend / Extra Aanvullend / JongerenVerzorgd / ExtraVerzorgd 1', bedrag: GEEN_VERGOEDING },
+      { naam: 'GarantVerzorgd 1', bedrag: 'Max. € 50,- per jaar.' },
+      { naam: 'Collectief Aanvullend 2', bedrag: 'Max. € 100,- per jaar.' },
+      { naam: 'ExtraVerzorgd 2 of Collectief Aanvullend 3', bedrag: 'Max. € 150,- per jaar.' },
+      { naam: 'GarantVerzorgd 2 of Collectief Aanvullend 4', bedrag: 'Max. € 200,- per jaar.' },
+      { naam: 'ExtraVerzorgd 3 of GarantVerzorgd 3', bedrag: 'Max. € 250,- per jaar.' },
+    ],
+    'DSW / Stad Holland': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'AV Compact (DSW) / Compact AV (Stad Holland)', bedrag: 'Max. € 27,50 per behandeling, tot 6 behandelingen per jaar.' },
+      { naam: 'AV Student (DSW) / Jongeren AV (Stad Holland)', bedrag: 'Podotherapie en steunzolen samen max. € 100,- per jaar.' },
+      { naam: 'AV Standaard (DSW) / Standaard AV (Stad Holland)', bedrag: 'Podotherapie en steunzolen samen max. € 125,- per jaar.' },
+      { naam: 'AV Top (DSW) / Uitgebreide of Extra Uitgebreide AV (Stad Holland)', bedrag: 'Podotherapie en steunzolen samen max. € 150,- per jaar.' },
+    ],
+    'ONVZ': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'Startfit / Benfit / Bewuste Keuze Start of Extra', bedrag: GEEN_VERGOEDING },
+      { naam: 'Optifit', bedrag: 'Max. € 200,- per jaar voor podotherapie en steunzolen samen.' },
+      { naam: 'Topfit', bedrag: 'Max. € 500,- per jaar voor podotherapie en steunzolen samen.' },
+      { naam: 'Superfit', bedrag: '100% vergoed (steunzolen tot max. € 500,- per jaar).' },
+    ],
+    'De Friesland': [
+      ALLEEN_BASISVERZEKERING,
+      { naam: 'AV Instap / AV Budget / AV Standaard', bedrag: GEEN_VERGOEDING },
+      { naam: 'AV Extra', bedrag: 'Max. € 150,- per kalenderjaar.' },
+      { naam: 'AV Optimaal of Frieso Compleet', bedrag: 'Max. € 250,- per kalenderjaar.' },
+    ],
+  };
+
+  // Officiële vergoedingenpagina's, gebruikt in het resultaat als iemand
+  // zijn/haar pakket niet weet.
+  const INSURER_LINKS = {
+    'Zilveren Kruis': [{ label: 'zilverenkruis.nl', url: 'https://www.zilverenkruis.nl/consumenten/vergoedingen/podoposturaaltherapie-podologie-en-steunzolen' }],
+    'CZ': [{ label: 'cz.nl', url: 'https://www.cz.nl/vergoedingen/voetzorg' }],
+    'VGZ / IZA': [
+      { label: 'vgz.nl', url: 'https://www.vgz.nl/vergoedingen/podotherapie' },
+      { label: 'iza.nl', url: 'https://www.iza.nl/vergoedingen' },
+    ],
+    'Menzis': [{ label: 'menzis.nl', url: 'https://www.menzis.nl/zorg-en-vergoedingen/p/podotherapie' }],
+    'DSW / Stad Holland': [
+      { label: 'dsw.nl', url: 'https://www.dsw.nl/consumenten/vergoedingen/steunzolen-en-podotherapie' },
+      { label: 'stadholland.nl', url: 'https://www.stadholland.nl/consumenten/vergoedingen/steunzolen-en-podotherapie' },
+    ],
+    'ONVZ': [{ label: 'onvz.nl', url: 'https://www.onvz.nl/vergoedingen/vergoedingen-a-z/podotherapie-en-podologie' }],
+    'De Friesland': [{ label: 'defriesland.nl', url: 'https://www.defriesland.nl/vergoedingen/podoposturaaltherapie-en-podologie' }],
+  };
+
   let selectedInsurer = '';
+  let cameFromStep2 = false;
 
   function showStep(id) {
     overlay.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('is-active'));
@@ -207,7 +313,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function open() {
     selectedInsurer = '';
-    overlay.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('is-selected'));
+    cameFromStep2 = false;
+    overlay.querySelectorAll('#vergStep1 .quiz-option').forEach(b => b.classList.remove('is-selected'));
     document.getElementById('vergNextBtn').disabled = true;
     overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden', 'false');
@@ -237,12 +344,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.getElementById('vergNextBtn').addEventListener('click', () => {
+  function showResult(plan) {
     document.getElementById('vergResultInsurer').textContent = selectedInsurer;
+    const planEl = document.querySelector('#vergResultAmount .verg-amount-plan');
+    const valueEl = document.querySelector('#vergResultAmount .verg-amount-value');
+
+    if (plan) {
+      planEl.textContent = plan.naam;
+      valueEl.textContent = plan.bedrag;
+    } else {
+      const links = INSURER_LINKS[selectedInsurer];
+      planEl.textContent = 'Pakket onbekend';
+      if (links && links.length) {
+        valueEl.innerHTML = 'Bel ons gerust, dan zoeken wij dit voor u uit. U kunt uw persoonlijke vergoeding ook bekijken op de website van uw verzekeraar: '
+          + links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join(' of ')
+          + '.';
+      } else {
+        valueEl.textContent = 'Bel ons gerust, dan zoeken wij dit graag voor u uit, of raadpleeg uw eigen zorgverzekeraar.';
+      }
+    }
     showStep('vergResult');
+  }
+
+  document.getElementById('vergNextBtn').addEventListener('click', () => {
+    const plans = VERGOEDING_PLANS[selectedInsurer];
+    if (plans && plans.length) {
+      cameFromStep2 = true;
+      document.getElementById('vergStep2Insurer').textContent = selectedInsurer;
+      const select = document.getElementById('vergPakketSelect');
+      select.innerHTML = plans.map((plan, i) => `<option value="${i}">${plan.naam}</option>`).join('')
+        + '<option value="weet-niet">Ik weet mijn pakket niet</option>';
+      showStep('vergStep2');
+    } else {
+      cameFromStep2 = false;
+      showResult(null);
+    }
   });
 
-  document.getElementById('vergBackBtn').addEventListener('click', () => showStep('vergStep1'));
+  document.getElementById('vergStep2BackBtn').addEventListener('click', () => showStep('vergStep1'));
+
+  document.getElementById('vergStep2NextBtn').addEventListener('click', () => {
+    const select = document.getElementById('vergPakketSelect');
+    const plans = VERGOEDING_PLANS[selectedInsurer] || [];
+    if (select.value === 'weet-niet') {
+      showResult(null);
+    } else {
+      showResult(plans[parseInt(select.value, 10)]);
+    }
+  });
+
+  document.getElementById('vergBackBtn').addEventListener('click', () => {
+    showStep(cameFromStep2 ? 'vergStep2' : 'vergStep1');
+  });
 }());
 
 // Ailment appointment quiz (aandoening.html)
@@ -359,20 +512,18 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.entries(state.answers).map(function (e) { return e[0] + ': ' + e[1]; })
     ).join('\n');
 
-    var body = [
-      'Naam: ' + document.getElementById('ailmentNaamInput').value,
-      'Email: ' + document.getElementById('ailmentEmailInput').value,
-      'Telefoon: ' + document.getElementById('ailmentTelInput').value,
-      'Gewenste datum: ' + document.getElementById('ailmentDatumInput').value,
-      '',
-      'Klachtenanalyse:',
-      quizLines,
-      '',
-      'Opmerkingen: ' + document.getElementById('ailmentOpmerkingen').value,
-    ].join('\n');
+    var naam = document.getElementById('ailmentNaamInput').value;
 
-    window.location.href = 'mailto:info@voetselect.nl?subject=' + encodeURIComponent('Afspraakverzoek – ' + state.ailmentNaam + ' – ' + document.getElementById('ailmentNaamInput').value) + '&body=' + encodeURIComponent(body);
-    showStep('ailmentSuccess');
+    submitForm(form, document.getElementById('ailmentFormError'), {
+      subject: 'Afspraakverzoek – ' + state.ailmentNaam + ' – ' + naam,
+      aandoening: state.ailmentNaam,
+      naam: naam,
+      email: document.getElementById('ailmentEmailInput').value,
+      telefoon: document.getElementById('ailmentTelInput').value,
+      datum: document.getElementById('ailmentDatumInput').value,
+      klachtenanalyse: quizLines,
+      opmerkingen: document.getElementById('ailmentOpmerkingen').value,
+    }, function () { showStep('ailmentSuccess'); });
   });
 }());
 
@@ -417,10 +568,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const tel     = document.getElementById('contactTel').value;
     const bericht = document.getElementById('contactBericht').value;
 
-    const body = `Naam: ${naam}\nEmail: ${email}\nTelefoon: ${tel}\n\nBericht:\n${bericht}`;
-    window.location.href = `mailto:info@voetselect.nl?subject=${encodeURIComponent('Contactformulier – ' + naam)}&body=${encodeURIComponent(body)}`;
-
-    form.style.display = 'none';
-    document.getElementById('contactSuccess').style.display = 'block';
+    submitForm(form, document.getElementById('contactFormError'), {
+      subject: 'Contactformulier – ' + naam,
+      naam: naam,
+      email: email,
+      telefoon: tel,
+      bericht: bericht,
+    }, () => {
+      form.style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    });
   });
 }());

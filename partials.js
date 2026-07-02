@@ -62,7 +62,7 @@
     <div class="footer-col">
       <h6>Adres Schijndel</h6>
       <p>
-        Akkerstraat 8<br>
+        Catharinaplein 36<br>
         5482 HJ Schijndel
       </p>
       <p class="footer-note">

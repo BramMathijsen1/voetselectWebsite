@@ -3,6 +3,15 @@
    Derived from the supplied design brief PDF
    ============================================ */
 
+/* Breakpoint scale — reuse these values only, don't invent new ones.
+   500  small phones: collapse 2-col quiz/form fields to 1 col
+   640  small: grids expand from 1 to 2/3 columns
+   768  tablet (PDF spec: type scale + container padding)
+   900  split layouts: content + sidebar/image
+   1000 desktop nav kicks in (must match the nav breakpoint in script.js);
+        grids expand to 3/4 columns
+   1200 desktop (PDF spec: type scale) */
+
 :root {
   /* Color palette (from PDF page 3) */
   --color-sage: #b6c0ab;     /* soft green */
@@ -632,7 +641,7 @@ body.menu-open {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   .features-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
@@ -674,7 +683,6 @@ body.menu-open {
 }
 
 .accent-grid {
-  position: relative;
   display: grid;
   gap: 32px;
   align-items: center;
@@ -698,32 +706,39 @@ body.menu-open {
   pointer-events: none;
 }
 
+/* Positioned relative to the full-bleed .accent-section (not the
+   max-width container), and offset by exactly half their own width,
+   so they bleed off the true page edge by the same proportion at
+   every viewport width instead of floating inside the container's
+   centering margin on very wide screens. */
 .accent-circle--sage {
-  width: 220px;
-  height: 220px;
-  min-width: 220px;
-  min-height: 220px;
+  width: 140px;
+  height: 140px;
+  min-width: 140px;
+  min-height: 140px;
   background: var(--color-sage);
   top: -60px;
-  left: -60px;
+  left: 0;
+  transform: translateX(-50%);
 }
 
 .accent-circle--orange {
-  width: 260px;
-  height: 260px;
-  min-width: 260px;
-  min-height: 260px;
+  width: 160px;
+  height: 160px;
+  min-width: 160px;
+  min-height: 160px;
   border-radius: 50%;
   border: 3px solid var(--color-terracotta);
   bottom: -80px;
-  right: -80px;
+  right: 0;
+  transform: translateX(50%);
   background: transparent;
   opacity: 0.7;
 }
 
-@media (max-width: 600px) {
-  .accent-circle--sage { width: 140px; height: 140px; }
-  .accent-circle--orange { width: 160px; height: 160px; }
+@media (min-width: 640px) {
+  .accent-circle--sage { width: 220px; height: 220px; min-width: 220px; min-height: 220px; }
+  .accent-circle--orange { width: 260px; height: 260px; min-width: 260px; min-height: 260px; }
 }
 
 /* ============================================
@@ -733,12 +748,12 @@ body.menu-open {
 .site-footer {
   background: var(--color-blue);
   color: var(--color-white);
-  padding-top: 56px;
+  padding-top: 40px;
 }
 
 .footer-logo-wrap {
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 28px;
 }
 
 .site-footer h6 {
@@ -754,12 +769,12 @@ body.menu-open {
   display: grid;
   gap: 40px;
   grid-template-columns: 1fr;
-  padding-bottom: 40px;
+  padding-bottom: 28px;
 }
 
 @media (min-width: 768px) {
   .footer-grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -777,7 +792,7 @@ body.menu-open {
 .logo-img--footer {
   height: 48px;
   width: auto;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .footer-hours {
@@ -800,8 +815,8 @@ body.menu-open {
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .footer-bottom p {
@@ -989,9 +1004,10 @@ body.menu-open {
   border-radius: var(--radius-card);
   padding: 18px 28px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: 6px;
   box-shadow: var(--shadow-card);
 }
 
@@ -1020,8 +1036,8 @@ body.menu-open {
   min-width: 200px;
 }
 
-@media (max-width: 600px) {
-  .tarief-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+@media (min-width: 640px) {
+  .tarief-item { flex-direction: row; align-items: center; gap: 24px; }
 }
 
 /* ============================================
@@ -1436,6 +1452,7 @@ body.menu-open {
 .form-field label span { color: var(--color-terracotta); }
 
 .form-field input,
+.form-field select,
 .form-field textarea {
   font-family: var(--font-base);
   font-size: 14px;
@@ -1450,6 +1467,7 @@ body.menu-open {
 }
 
 .form-field input:focus,
+.form-field select:focus,
 .form-field textarea:focus {
   border-color: var(--color-green);
   background: var(--color-white);
@@ -1478,6 +1496,18 @@ body.menu-open {
 
 .captcha-wrap input {
   max-width: 120px;
+}
+
+.form-error {
+  color: var(--color-terracotta);
+  font-size: 14px;
+  font-weight: 600;
+  margin: -8px 0 4px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Success screen */
@@ -1581,6 +1611,34 @@ body.menu-open {
   margin: 0;
   font-size: 14px;
   color: var(--color-text-muted);
+}
+
+.verg-amount {
+  background: #f2f5f3;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.verg-amount-plan {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.verg-amount-value {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.verg-amount-value a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /* ============================================
@@ -1713,13 +1771,13 @@ body.menu-open {
 .contact-form-card {
   background: var(--color-white);
   border-radius: 24px;
-  padding: 40px;
+  padding: 28px 20px;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(31, 125, 94, 0.08);
 }
 
-@media (max-width: 600px) {
-  .contact-form-card { padding: 28px 20px; }
+@media (min-width: 640px) {
+  .contact-form-card { padding: 40px; }
 }
 
 .contact-form-card h2 { margin-bottom: 4px; }
@@ -2140,7 +2198,7 @@ body.menu-open {
   text-align: center;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .team-stats-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -2260,7 +2318,7 @@ body.menu-open {
   gap: 20px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .behandeling-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
 }
 
@@ -2745,7 +2803,7 @@ body.menu-open {
   gap: 16px;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 640px) {
   .aandoeningen-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
