@@ -503,3 +503,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 }());
+
+// Maatslipper shelf lightbox
+(function () {
+  const lightbox = document.getElementById('slipperLightbox');
+  if (!lightbox) return;
+
+  const img = document.getElementById('slipperLightboxImg');
+  const closeBtn = document.getElementById('slipperLightboxClose');
+  let lastTrigger = null;
+
+  function open(trigger) {
+    lastTrigger = trigger;
+    img.src = trigger.dataset.full;
+    img.alt = trigger.dataset.alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+    closeBtn.focus();
+  }
+
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  document.querySelectorAll('.maatslipper-shelf-item[data-full]').forEach(btn => {
+    btn.addEventListener('click', () => open(btn));
+  });
+
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+  });
+}());
