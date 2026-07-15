@@ -20,6 +20,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="behandelingen.html">Behandelingen</a></li>
+          <li><a href="maatslippers.html">Maatslippers</a></li>
           <li><a href="aandoeningen.html">Aandoeningen</a></li>
           <li><a href="ons-onderzoek.html">Ons onderzoek</a></li>
           <li><a href="overons.html">Over ons</a></li>

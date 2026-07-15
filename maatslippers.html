@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maatslippers — VoetSelect Podotherapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-active-page="maatslippers.html">
+
+<div id="header-placeholder"></div>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero page-hero--img">
+    <div class="page-hero-media">
+      <img src="img/maatslipper-proces-1.jpg" alt="Handgemaakte afwerking van een maatslipper">
+    </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container page-hero-content">
+      <p class="eyebrow page-hero-eyebrow">Op maat gemaakt</p>
+      <h1>Maatslippers</h1>
+      <p class="page-hero-lead">Van uw eigen podotherapeutische zool maken wij een prachtige maatslipper &mdash; net zo therapeutisch als uw steunzool, maar dan voor op blote voeten.</p>
+    </div>
+    <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <!-- HOE MAKEN WIJ ZE -->
+  <section class="stappenplan container">
+    <div class="stappenplan-grid">
+      <div class="stappenplan-media">
+        <img src="img/maatslipper-proces-2.jpg" alt="Podotherapeut werkt een maatslipper af op de werkbank">
+      </div>
+      <div class="stappenplan-text">
+        <p class="eyebrow">Handwerk</p>
+        <h2>Hoe maken wij uw maatslipper?</h2>
+        <p>Uw maatslipper wordt gemaakt op basis van dezelfde 3D-scan die we ook voor uw podotherapeutische zolen gebruiken. Zo behoudt de slipper precies de drukverdeling en correctie die uw voet nodig heeft.</p>
+        <p>Elke slipper wordt vervolgens met de hand afgewerkt in onze eigen werkplaats: van het schuren van de zool tot het bevestigen van het bandje in de kleur en het materiaal van uw keuze.</p>
+        <button type="button" class="btn btn-primary" data-open-quiz>Maak een afspraak</button>
+      </div>
+    </div>
+
+    <div class="maatslippers-proces-grid">
+      <figure>
+        <img src="img/maatslipper-proces-3.jpg" alt="Een zool wordt op maat geschuurd voor de maatslipper">
+        <figcaption>De zool wordt nauwkeurig op maat geschuurd.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/maatslipper-proces-4.jpg" alt="Rollen bandmateriaal in verschillende kleuren en materialen">
+        <figcaption>Kies uw eigen kleur en materiaal voor het bandje.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- GALERIJ -->
+  <section class="waarom container">
+    <div class="waarom-intro">
+      <p class="eyebrow">Voorbeelden</p>
+      <h2>Een greep uit onze maatslippers</h2>
+      <p>Stijlvol en therapeutisch tegelijk &mdash; iedere maatslipper is uniek, net als de voet waarvoor hij gemaakt is.</p>
+    </div>
+
+    <div class="maatslippers-gallery">
+      <img src="img/maatslipper-2.jpg" alt="Lichtbruine suède maatslipper met gekruiste banden">
+      <img src="img/maatslipper-3.jpg" alt="Bruine suède maatslipper met kurken zool">
+      <img src="img/maatslipper-4.jpg" alt="Zwarte leren maatslipper, teenslipper model">
+      <img src="img/maatslipper-5.jpg" alt="Bruine suède maatslipper met klittenbandsluiting">
+      <img src="img/maatslipper-6.jpg" alt="Zwarte maatslipper met glinsterend bandje">
+      <img src="img/maatslipper-7.jpg" alt="Donkerbruine maatslipper met slangenprint bandje">
+      <img src="img/maatslipper-8.jpg" alt="Crèmekleurige maatslipper met zebraprint bandjes">
+      <img src="img/maatslipper-9.jpg" alt="Zwarte leren maatslipper met klittenbandsluiting en cognac accentzool, hoek">
+      <img src="img/maatslipper-10.jpg" alt="Zwarte leren maatslipper met klittenbandsluiting en cognac accentzool, bovenaanzicht">
+    </div>
+  </section>
+
+  <!-- CTA ACCENT -->
+  <section class="accent-section">
+    <div class="accent-circle accent-circle--sage" aria-hidden="true"></div>
+    <div class="accent-grid container">
+      <div class="accent-text">
+        <h2>Benieuwd wat wij voor u kunnen maken?</h2>
+        <p>Maak een afspraak en ontdek wat een maatslipper voor uw voeten kan betekenen.</p>
+        <button class="btn btn-primary" data-open-quiz>Maak een afspraak</button>
+      </div>
+    </div>
+    <div class="accent-circle accent-circle--orange" aria-hidden="true"></div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<!-- QUIZ MODAL -->
+<div class="quiz-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="quizHeading">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="quizClose" aria-label="Quiz sluiten">&times;</button>
+    <div class="quiz-deco" aria-hidden="true"></div>
+
+    <div class="quiz-step is-active" id="quizStep1">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 1 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--1"></div></div>
+      </div>
+      <h3 id="quizHeading" class="quiz-question">Waar heeft u pijn of klachten?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Voet">Voet</button>
+        <button type="button" class="quiz-option" data-value="Enkel">Enkel</button>
+        <button type="button" class="quiz-option" data-value="Knie">Knie</button>
+        <button type="button" class="quiz-option" data-value="Heup of rug">Heup of rug</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep2" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="quizStep2">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 2 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--2"></div></div>
+      </div>
+      <h3 class="quiz-question">Hoe lang heeft u deze klachten al?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Minder dan 2 weken">Minder dan 2 weken</button>
+        <button type="button" class="quiz-option" data-value="2 tot 6 weken">2 tot 6 weken</button>
+        <button type="button" class="quiz-option" data-value="Langer dan 6 weken">Langer dan 6 weken</button>
+        <button type="button" class="quiz-option" data-value="Al meer dan een jaar">Al meer dan een jaar</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="quizStep1">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep3" disabled>Volgende</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="quizStep3">
+      <div class="quiz-meta">
+        <span class="quiz-counter">Vraag 3 van 3</span>
+        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--3"></div></div>
+      </div>
+      <h3 class="quiz-question">Wanneer zijn de klachten het ergst?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="'s Ochtends bij het opstaan">'s Ochtends bij het opstaan</button>
+        <button type="button" class="quiz-option" data-value="Na lang lopen of staan">Na lang lopen of staan</button>
+        <button type="button" class="quiz-option" data-value="Tijdens het sporten">Tijdens het sporten</button>
+        <button type="button" class="quiz-option" data-value="De hele dag door">De hele dag door</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" data-prev="quizStep2">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" data-next="quizForm" disabled>Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="quizForm">
+      <h3 class="quiz-question">Maak een afspraak</h3>
+      <p class="quiz-form-intro">Op basis van uw antwoorden maken wij graag een afspraak voor u.</p>
+      <div class="quiz-summary" id="quizSummary" aria-live="polite"></div>
+      <form class="quiz-form" id="appointmentForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="fname" name="naam" required autocomplete="name" placeholder="Uw volledige naam">
+          </div>
+          <div class="form-field">
+            <label for="femail">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="femail" name="email" required autocomplete="email" placeholder="uw@email.nl">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fphone">Telefoonnummer</label>
+            <input type="tel" id="fphone" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
+          </div>
+          <div class="form-field">
+            <label for="fdate">Gewenste datum</label>
+            <input type="date" id="fdate" name="datum">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="fnotes">Opmerkingen</label>
+          <textarea id="fnotes" name="opmerkingen" rows="3" placeholder="Eventuele extra informatie..."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="fcaptcha">Beveiliging <span aria-hidden="true">*</span></label>
+          <div class="captcha-wrap">
+            <span class="captcha-question" id="captchaQuestion"></span>
+            <input type="text" id="fcaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
+          </div>
+        </div>
+        <p class="form-error" id="appointmentFormError" hidden>Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons.</p>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-prev="quizStep3">Terug</button>
+          <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="quiz-step" id="quizSuccess">
+      <div class="quiz-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="10,26 20,36 38,14"/>
+        </svg>
+      </div>
+      <h3 class="quiz-question">Aanvraag verstuurd!</h3>
+      <p>Bedankt voor uw aanvraag. Wij nemen zo snel mogelijk contact met u op om een afspraak in te plannen.</p>
+      <button type="button" class="btn btn-primary" id="quizDoneBtn">Sluiten</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="partials.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
