@@ -225,6 +225,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // VERGOEDING_PLANS en INSURER_LINKS komen uit verzekeraars-data.js
 
+  // Guards against a javascript:/data: URL ending up in an href — these values
+  // come from an LLM's web research, not a hand-typed source.
+  function isSafeHttpUrl(link) {
+    try {
+      const u = new URL(link.url, window.location.href);
+      return u.protocol === 'https:' || u.protocol === 'http:';
+    } catch (e) {
+      return false;
+    }
+  }
+
   let selectedInsurer = '';
   let cameFromStep2 = false;
 
@@ -276,12 +287,21 @@ document.addEventListener('DOMContentLoaded', () => {
       planEl.textContent = plan.naam;
       valueEl.textContent = plan.bedrag;
     } else {
-      const links = INSURER_LINKS[selectedInsurer];
+      const links = (INSURER_LINKS[selectedInsurer] || []).filter(isSafeHttpUrl);
       planEl.textContent = 'Pakket onbekend';
-      if (links && links.length) {
-        valueEl.innerHTML = 'Bel ons gerust, dan zoeken wij dit voor u uit. U kunt uw persoonlijke vergoeding ook bekijken op de website van uw verzekeraar: '
-          + links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join(' of ')
-          + '.';
+      if (links.length) {
+        valueEl.textContent = '';
+        valueEl.append('Bel ons gerust, dan zoeken wij dit voor u uit. U kunt uw persoonlijke vergoeding ook bekijken op de website van uw verzekeraar: ');
+        links.forEach((l, i) => {
+          if (i > 0) valueEl.append(' of ');
+          const a = document.createElement('a');
+          a.href = l.url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = l.label;
+          valueEl.append(a);
+        });
+        valueEl.append('.');
       } else {
         valueEl.textContent = 'Bel ons gerust, dan zoeken wij dit graag voor u uit, of raadpleeg uw eigen zorgverzekeraar.';
       }
@@ -295,8 +315,17 @@ document.addEventListener('DOMContentLoaded', () => {
       cameFromStep2 = true;
       document.getElementById('vergStep2Insurer').textContent = selectedInsurer;
       const select = document.getElementById('vergPakketSelect');
-      select.innerHTML = plans.map((plan, i) => `<option value="${i}">${plan.naam}</option>`).join('')
-        + '<option value="weet-niet">Ik weet mijn pakket niet</option>';
+      select.textContent = '';
+      plans.forEach((plan, i) => {
+        const opt = document.createElement('option');
+        opt.value = String(i);
+        opt.textContent = plan.naam;
+        select.appendChild(opt);
+      });
+      const unknownOpt = document.createElement('option');
+      unknownOpt.value = 'weet-niet';
+      unknownOpt.textContent = 'Ik weet mijn pakket niet';
+      select.appendChild(unknownOpt);
       showStep('vergStep2');
     } else {
       cameFromStep2 = false;

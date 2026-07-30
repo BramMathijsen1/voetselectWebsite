@@ -1,0 +1,9 @@
+# Admin tool secrets — never commit real credentials
+admin-tool/config.json
+
+# Python
+admin-tool/__pycache__/
+admin-tool/*.pyc
+admin-tool/build/
+admin-tool/dist/
+admin-tool/*.spec

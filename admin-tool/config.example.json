@@ -1,0 +1,13 @@
+{
+  "test_mode": false,
+  "test_data_path": "verzekeraars-data-test.json",
+
+  "anthropic_api_key": "YOUR_ANTHROPIC_API_KEY",
+
+  "ftp_host": "YOUR_FTP_HOST",
+  "ftp_port": 21,
+  "ftp_username": "YOUR_FTP_USERNAME",
+  "ftp_password": "YOUR_FTP_PASSWORD",
+  "ftp_use_tls": true,
+  "ftp_remote_path": "/verzekeraars-data.js"
+}
