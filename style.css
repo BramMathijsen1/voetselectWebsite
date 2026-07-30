@@ -1216,6 +1216,26 @@ body.menu-open {
   z-index: 2;
 }
 
+/* Label for a shelf within the cabinet — sits on the bare wood between shelves */
+.vitrine-zone-label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 0 10px 6px;
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-btn);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.maatslippers-shelf + .vitrine-zone-label {
+  margin-top: 22px;
+}
+
 .maatslippers-shelf {
   position: relative;
   z-index: 1;
