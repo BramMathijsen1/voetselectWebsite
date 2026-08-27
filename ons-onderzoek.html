@@ -48,6 +48,72 @@
         <button type="button" class="btn btn-primary" data-open-quiz>Maak een afspraak</button>
       </div>
     </div>
+
+    <!-- GAIT ANIMATION — desktop only, never in DOM on mobile -->
+    <template id="gait-tpl">
+    <div class="gait-anim" aria-hidden="true">
+      <div class="gait-scene">
+
+        <!-- Walker track -->
+        <div class="gait-track">
+          <svg class="gait-curves" viewBox="0 0 640 100" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <!-- shallow wide plateau — forefoot/pushoff -->
+            <path class="gc-blue"  pathLength="1" d="M 0,88 C 160,88 320,52 440,52 C 540,52 610,88 640,88"/>
+            <!-- symmetric bell — midfoot -->
+            <path class="gc-red"   pathLength="1" d="M 0,88 C 90,88 210,22 315,22 C 420,22 555,88 640,88"/>
+            <!-- sharp asymmetric spike — heel strike -->
+            <path class="gc-gold"  pathLength="1" d="M 0,88 C 35,88 85,4 155,4 C 245,4 430,84 640,88"/>
+          </svg>
+          <div class="gait-ground"></div>
+          <div class="gait-walker">
+            <div class="gait-walker-inner">
+              <svg viewBox="0 0 28 56" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="14" cy="6" r="5" fill="currentColor" stroke="none"/>
+                <line x1="14" y1="11" x2="14" y2="30"/>
+                <g class="w-arm-l"><line x1="14" y1="17" x2="5" y2="27"/></g>
+                <g class="w-arm-r"><line x1="14" y1="17" x2="23" y2="27"/></g>
+                <g class="w-thi-l">
+                  <line x1="14" y1="30" x2="9" y2="42"/>
+                  <g class="w-cal-l"><line x1="9" y1="42" x2="5" y2="52"/></g>
+                </g>
+                <g class="w-thi-r">
+                  <line x1="14" y1="30" x2="19" y2="42"/>
+                  <g class="w-cal-r"><line x1="19" y1="42" x2="23" y2="52"/></g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Therapist (right) -->
+        <div class="gait-right">
+          <div class="gait-beam"></div>
+          <svg viewBox="0 0 48 72" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="8" r="7" fill="currentColor" stroke="none"/>
+            <line x1="24" y1="15" x2="24" y2="42"/>
+            <line x1="24" y1="22" x2="11" y2="35"/>
+            <rect x="4" y="31" width="9" height="12" rx="1.5" stroke-width="1.8"/>
+            <line x1="6" y1="35" x2="11" y2="35" stroke-width="1.4"/>
+            <line x1="6" y1="39" x2="11" y2="39" stroke-width="1.4"/>
+            <line x1="24" y1="22" x2="35" y2="34"/>
+            <line x1="24" y1="42" x2="18" y2="57"/>
+            <line x1="18" y1="57" x2="15" y2="68"/>
+            <line x1="24" y1="42" x2="30" y2="57"/>
+            <line x1="30" y1="57" x2="33" y2="68"/>
+          </svg>
+        </div>
+
+      </div>
+      <p class="gait-label">In-shoe drukanalyse &nbsp;&middot;&nbsp; 3D voetscan &nbsp;&middot;&nbsp; Loopanalyse</p>
+    </div>
+    </template>
+    <script>
+      if (window.matchMedia('(min-width: 1000px)').matches) {
+        var t = document.getElementById('gait-tpl');
+        t.parentNode.insertBefore(t.content, t);
+        t.remove();
+      }
+    </script>
   </section>
 
   <!-- TWEE UITGELICHTE TECHNIEKEN -->
@@ -143,118 +209,7 @@
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>
 
-<!-- QUIZ MODAL -->
-<div class="quiz-overlay" id="quizOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="quizHeading">
-  <div class="quiz-modal">
-    <button type="button" class="quiz-close" id="quizClose" aria-label="Quiz sluiten">&times;</button>
-    <div class="quiz-deco" aria-hidden="true"></div>
-
-    <div class="quiz-step is-active" id="quizStep1">
-      <div class="quiz-meta">
-        <span class="quiz-counter">Vraag 1 van 3</span>
-        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--1"></div></div>
-      </div>
-      <h3 id="quizHeading" class="quiz-question">Waar heeft u pijn of klachten?</h3>
-      <div class="quiz-options">
-        <button type="button" class="quiz-option" data-value="Voet">Voet</button>
-        <button type="button" class="quiz-option" data-value="Enkel">Enkel</button>
-        <button type="button" class="quiz-option" data-value="Knie">Knie</button>
-        <button type="button" class="quiz-option" data-value="Heup of rug">Heup of rug</button>
-      </div>
-      <div class="quiz-nav">
-        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep2" disabled>Volgende</button>
-      </div>
-    </div>
-
-    <div class="quiz-step" id="quizStep2">
-      <div class="quiz-meta">
-        <span class="quiz-counter">Vraag 2 van 3</span>
-        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--2"></div></div>
-      </div>
-      <h3 class="quiz-question">Hoe lang heeft u deze klachten al?</h3>
-      <div class="quiz-options">
-        <button type="button" class="quiz-option" data-value="Minder dan 2 weken">Minder dan 2 weken</button>
-        <button type="button" class="quiz-option" data-value="2 tot 6 weken">2 tot 6 weken</button>
-        <button type="button" class="quiz-option" data-value="Langer dan 6 weken">Langer dan 6 weken</button>
-        <button type="button" class="quiz-option" data-value="Al meer dan een jaar">Al meer dan een jaar</button>
-      </div>
-      <div class="quiz-nav">
-        <button type="button" class="quiz-back" data-prev="quizStep1">Terug</button>
-        <button type="button" class="btn btn-primary quiz-next" data-next="quizStep3" disabled>Volgende</button>
-      </div>
-    </div>
-
-    <div class="quiz-step" id="quizStep3">
-      <div class="quiz-meta">
-        <span class="quiz-counter">Vraag 3 van 3</span>
-        <div class="quiz-progress-track"><div class="quiz-progress-fill quiz-progress-fill--3"></div></div>
-      </div>
-      <h3 class="quiz-question">Wanneer zijn de klachten het ergst?</h3>
-      <div class="quiz-options">
-        <button type="button" class="quiz-option" data-value="'s Ochtends bij het opstaan">'s Ochtends bij het opstaan</button>
-        <button type="button" class="quiz-option" data-value="Na lang lopen of staan">Na lang lopen of staan</button>
-        <button type="button" class="quiz-option" data-value="Tijdens het sporten">Tijdens het sporten</button>
-        <button type="button" class="quiz-option" data-value="De hele dag door">De hele dag door</button>
-      </div>
-      <div class="quiz-nav">
-        <button type="button" class="quiz-back" data-prev="quizStep2">Terug</button>
-        <button type="button" class="btn btn-primary quiz-next" data-next="quizForm" disabled>Bekijk resultaat</button>
-      </div>
-    </div>
-
-    <div class="quiz-step" id="quizForm">
-      <h3 class="quiz-question">Maak een afspraak</h3>
-      <p class="quiz-form-intro">Op basis van uw antwoorden maken wij graag een afspraak voor u.</p>
-      <div class="quiz-summary" id="quizSummary" aria-live="polite"></div>
-      <form class="quiz-form" id="appointmentForm" novalidate>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fname">Naam <span aria-hidden="true">*</span></label>
-            <input type="text" id="fname" name="naam" required autocomplete="name" placeholder="Uw volledige naam">
-          </div>
-          <div class="form-field">
-            <label for="femail">E-mail <span aria-hidden="true">*</span></label>
-            <input type="email" id="femail" name="email" required autocomplete="email" placeholder="uw@email.nl">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fphone">Telefoonnummer</label>
-            <input type="tel" id="fphone" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
-          </div>
-          <div class="form-field">
-            <label for="fdate">Gewenste datum</label>
-            <input type="date" id="fdate" name="datum">
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="fnotes">Opmerkingen</label>
-          <textarea id="fnotes" name="opmerkingen" rows="3" placeholder="Eventuele extra informatie..."></textarea>
-        </div>
-        <div class="form-field">
-          <div class="h-captcha" data-captcha="true"></div>
-        </div>
-        <p class="form-error" id="appointmentFormError" hidden>Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons.</p>
-        <div class="quiz-nav">
-          <button type="button" class="quiz-back" data-prev="quizStep3">Terug</button>
-          <button type="submit" class="btn btn-primary">Afspraak aanvragen</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="quiz-step" id="quizSuccess">
-      <div class="quiz-success-icon" aria-hidden="true">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="10,26 20,36 38,14"/>
-        </svg>
-      </div>
-      <h3 class="quiz-question">Aanvraag verstuurd!</h3>
-      <p>Bedankt voor uw aanvraag. Wij nemen zo snel mogelijk contact met u op om een afspraak in te plannen.</p>
-      <button type="button" class="btn btn-primary" id="quizDoneBtn">Sluiten</button>
-    </div>
-
-  </div>
-</div>
+<div id="quiz-modal-placeholder"></div>
 
 <script src="partials.js"></script>
 <script src="cookie-consent.js"></script>
