@@ -153,6 +153,7 @@
         <button type="button" class="quiz-option" data-value="2 tot 6 weken">2 tot 6 weken</button>
         <button type="button" class="quiz-option" data-value="Langer dan 6 weken">Langer dan 6 weken</button>
         <button type="button" class="quiz-option" data-value="Al meer dan een jaar">Al meer dan een jaar</button>
+        <button type="button" class="quiz-option" data-value="Geen klachten / Anders">Geen klachten / Anders</button>
       </div>
       <div class="quiz-nav">
         <button type="button" class="quiz-back" data-prev="quizStep1">Terug</button>
@@ -172,6 +173,7 @@
         <button type="button" class="quiz-option" data-value="Na lang lopen of staan">Na lang lopen of staan</button>
         <button type="button" class="quiz-option" data-value="Tijdens het sporten">Tijdens het sporten</button>
         <button type="button" class="quiz-option" data-value="De hele dag door">De hele dag door</button>
+        <button type="button" class="quiz-option" data-value="Geen klachten / Anders">Geen klachten / Anders</button>
       </div>
       <div class="quiz-nav">
         <button type="button" class="quiz-back" data-prev="quizStep2">Terug</button>
