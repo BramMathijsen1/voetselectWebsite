@@ -1,0 +1,25 @@
+# Security headers — safe defaults that don't break normal site functionality.
+# Requires mod_headers (standard on virtually all Apache hosting).
+<IfModule mod_headers.c>
+  # Prevent this site from ever being embedded in an iframe (clickjacking protection).
+  Header always set X-Frame-Options "DENY"
+
+  # Stop browsers from guessing/re-interpreting file types (e.g. treating an
+  # uploaded file as executable script based on sniffed content).
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Only send the full referring URL to same-origin requests; third parties
+  # (Google Fonts, Web3Forms, hCaptcha, etc.) only see the origin, not the path.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Disable browser features this site never uses.
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # Force HTTPS for a short period first — raise max-age once you've confirmed
+  # HTTPS works correctly on every page (a broken HTTPS setup + a long max-age
+  # here would lock visitors out of the site over HTTP for a long time).
+  Header always set Strict-Transport-Security "max-age=3600"
+</IfModule>
+
+# Don't let visitors browse raw folder contents (e.g. /img/) when there's no index file.
+Options -Indexes

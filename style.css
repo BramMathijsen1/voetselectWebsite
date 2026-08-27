@@ -3482,3 +3482,48 @@ body.menu-open {
   height: 100%;
   object-fit: contain;
 }
+
+/* ============================================
+   Cookie consent banner
+   ============================================ */
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 600;
+  background: var(--color-text);
+  color: var(--color-white);
+  padding: 18px 20px;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1 1 420px;
+}
+
+.cookie-banner a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
