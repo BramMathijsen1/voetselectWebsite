@@ -112,12 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
     quizStep3: 'Ergst moment',
   };
 
-  const state = { answers: {}, captchaAnswer: 0 };
+  const state = { answers: {} };
 
   function showStep(id) {
     overlay.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('is-active'));
     document.getElementById(id).classList.add('is-active');
-    if (id === 'quizForm') { buildSummary(); generateCaptcha(); }
+    if (id === 'quizForm') { buildSummary(); }
     overlay.querySelector('.quiz-modal').scrollTop = 0;
   }
 
@@ -136,15 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('menu-open');
-  }
-
-  function generateCaptcha() {
-    const a = Math.floor(Math.random() * 9) + 1;
-    const b = Math.floor(Math.random() * 9) + 1;
-    state.captchaAnswer = a + b;
-    document.getElementById('captchaQuestion').textContent = `Wat is ${a} + ${b}?`;
-    document.getElementById('fcaptcha').value = '';
-    document.getElementById('fcaptcha').classList.remove('is-invalid');
   }
 
   function buildSummary() {
@@ -201,11 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.toggle('is-invalid', !filled);
       if (!filled) valid = false;
     });
-
-    const captchaEl = document.getElementById('fcaptcha');
-    const captchaCorrect = parseInt(captchaEl.value, 10) === state.captchaAnswer;
-    captchaEl.classList.toggle('is-invalid', !captchaCorrect);
-    if (!captchaCorrect) valid = false;
 
     if (!valid) return;
 
@@ -379,12 +365,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ailmentStep3: 'Ergst moment',
   };
 
-  var state = { answers: {}, captchaAnswer: 0, ailmentNaam: '' };
+  var state = { answers: {}, ailmentNaam: '' };
 
   function showStep(id) {
     overlay.querySelectorAll('.quiz-step').forEach(function (s) { s.classList.remove('is-active'); });
     document.getElementById(id).classList.add('is-active');
-    if (id === 'ailmentForm') { buildSummary(); generateCaptcha(); }
+    if (id === 'ailmentForm') { buildSummary(); }
     overlay.querySelector('.quiz-modal').scrollTop = 0;
   }
 
@@ -407,15 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('menu-open');
-  }
-
-  function generateCaptcha() {
-    var a = Math.floor(Math.random() * 9) + 1;
-    var b = Math.floor(Math.random() * 9) + 1;
-    state.captchaAnswer = a + b;
-    document.getElementById('ailmentCaptchaQ').textContent = 'Wat is ' + a + ' + ' + b + '?';
-    var ci = document.getElementById('ailmentCaptcha');
-    if (ci) { ci.value = ''; ci.classList.remove('is-invalid'); }
   }
 
   function buildSummary() {
@@ -471,11 +448,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!ok) valid = false;
     });
 
-    var captchaEl = document.getElementById('ailmentCaptcha');
-    var captchaOk = parseInt(captchaEl.value, 10) === state.captchaAnswer;
-    captchaEl.classList.toggle('is-invalid', !captchaOk);
-    if (!captchaOk) valid = false;
-
     if (!valid) return;
 
     var quizLines = ['Aandoening: ' + state.ailmentNaam].concat(
@@ -502,19 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  let captchaAnswer = 0;
-
-  function generateCaptcha() {
-    const a = Math.floor(Math.random() * 9) + 1;
-    const b = Math.floor(Math.random() * 9) + 1;
-    captchaAnswer = a + b;
-    document.getElementById('contactCaptchaQ').textContent = `Wat is ${a} + ${b}?`;
-    document.getElementById('contactCaptcha').value = '';
-    document.getElementById('contactCaptcha').classList.remove('is-invalid');
-  }
-
-  generateCaptcha();
-
   form.addEventListener('submit', e => {
     e.preventDefault();
     let valid = true;
@@ -525,11 +484,6 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.toggle('is-invalid', !ok);
       if (!ok) valid = false;
     });
-
-    const captchaEl = document.getElementById('contactCaptcha');
-    const captchaOk = parseInt(captchaEl.value, 10) === captchaAnswer;
-    captchaEl.classList.toggle('is-invalid', !captchaOk);
-    if (!captchaOk) valid = false;
 
     if (!valid) return;
 
