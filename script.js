@@ -1,6 +1,6 @@
 /* Form backend: https://web3forms.com — free, no server required.
    Get your own access key at web3forms.com and paste it below. */
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_ACCESS_KEY = '74847e07-cee5-4c28-8f48-51ee8bfa46b7';
 
 function submitForm(form, errorEl, fields, onSuccess) {
   const submitBtn = form.querySelector('button[type="submit"]');
