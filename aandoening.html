@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" id="pageDescription" content="Uitleg over veelvoorkomende voet-, been- en houdingsklachten en hoe VoetSelect Podotherapie deze behandelt.">
 <title id="pageTitle">Aandoening — VoetSelect Podotherapie</title>
+<link rel="icon" href="img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="img/favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
@@ -196,6 +199,9 @@
             <input type="text" id="ailmentCaptcha" name="captcha" inputmode="numeric" autocomplete="off" placeholder="Uw antwoord">
           </div>
         </div>
+        <div class="form-field">
+          <div class="h-captcha" data-captcha="true"></div>
+        </div>
         <p class="form-error" id="ailmentFormError" hidden>Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons.</p>
         <div class="quiz-nav">
           <button type="button" class="quiz-back" data-prev="ailmentStep3">Terug</button>
@@ -220,6 +226,7 @@
 
 <script src="partials.js"></script>
 <script src="script.js"></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
 <script>
 (function () {
   /* Load ailment from URL param */
