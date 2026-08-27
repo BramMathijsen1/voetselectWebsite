@@ -2,6 +2,11 @@
    Get your own access key at web3forms.com and paste it below. */
 const WEB3FORMS_ACCESS_KEY = '74847e07-cee5-4c28-8f48-51ee8bfa46b7';
 
+function hasCaptchaResponse(form) {
+  const el = form.querySelector('textarea[name="h-captcha-response"]');
+  return !!(el && el.value);
+}
+
 function submitForm(form, errorEl, fields, onSuccess) {
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalLabel = submitBtn.textContent;
@@ -9,10 +14,19 @@ function submitForm(form, errorEl, fields, onSuccess) {
   submitBtn.textContent = 'Bezig met verzenden...';
   if (errorEl) errorEl.hidden = true;
 
+  // Built from the real <form> (not a plain object) so it automatically picks
+  // up hCaptcha's hidden response-token field, which only exists as an actual
+  // form field injected into the DOM once the checkbox is solved — Web3Forms
+  // rejects the submission without it. FormData (not JSON) also means this is
+  // a CORS "simple request", skipping a preflight roundtrip.
+  const formData = new FormData(form);
+  formData.set('access_key', WEB3FORMS_ACCESS_KEY);
+  Object.entries(fields).forEach(([key, value]) => formData.set(key, value));
+
   fetch('https://api.web3forms.com/submit', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify(Object.assign({ access_key: WEB3FORMS_ACCESS_KEY }, fields)),
+    headers: { Accept: 'application/json' },
+    body: formData,
   })
     .then(res => res.json())
     .then(data => {
@@ -20,7 +34,10 @@ function submitForm(form, errorEl, fields, onSuccess) {
       onSuccess();
     })
     .catch(() => {
-      if (errorEl) errorEl.hidden = false;
+      if (errorEl) {
+        errorEl.textContent = 'Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons.';
+        errorEl.hidden = false;
+      }
     })
     .finally(() => {
       submitBtn.disabled = false;
@@ -184,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('appointmentForm').addEventListener('submit', e => {
     e.preventDefault();
     const form = e.target;
+    const errorEl = document.getElementById('appointmentFormError');
     let valid = true;
 
     ['naam', 'email'].forEach(name => {
@@ -193,11 +211,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!filled) valid = false;
     });
 
+    if (!hasCaptchaResponse(form)) {
+      errorEl.textContent = 'Vink het beveiligingsvakje (captcha) aan voordat u verzendt.';
+      errorEl.hidden = false;
+      valid = false;
+    }
+
     if (!valid) return;
 
     const quizLines = Object.entries(state.answers).map(([k, v]) => `${k}: ${v}`).join('\n');
 
-    submitForm(form, document.getElementById('appointmentFormError'), {
+    submitForm(form, errorEl, {
       subject: 'Afspraakverzoek – ' + form.naam.value,
       naam: form.naam.value,
       email: form.email.value,
@@ -439,6 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('ailmentAppointmentForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var form = e.target;
+    var errorEl = document.getElementById('ailmentFormError');
     var valid = true;
 
     ['ailmentNaamInput', 'ailmentEmailInput'].forEach(function (id) {
@@ -448,6 +473,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!ok) valid = false;
     });
 
+    if (!hasCaptchaResponse(form)) {
+      errorEl.textContent = 'Vink het beveiligingsvakje (captcha) aan voordat u verzendt.';
+      errorEl.hidden = false;
+      valid = false;
+    }
+
     if (!valid) return;
 
     var quizLines = ['Aandoening: ' + state.ailmentNaam].concat(
@@ -456,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var naam = document.getElementById('ailmentNaamInput').value;
 
-    submitForm(form, document.getElementById('ailmentFormError'), {
+    submitForm(form, errorEl, {
       subject: 'Afspraakverzoek – ' + state.ailmentNaam + ' – ' + naam,
       aandoening: state.ailmentNaam,
       naam: naam,
@@ -476,6 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', e => {
     e.preventDefault();
+    const errorEl = document.getElementById('contactFormError');
     let valid = true;
 
     ['contactNaam', 'contactEmail', 'contactBericht'].forEach(id => {
@@ -485,6 +517,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!ok) valid = false;
     });
 
+    if (!hasCaptchaResponse(form)) {
+      errorEl.textContent = 'Vink het beveiligingsvakje (captcha) aan voordat u verzendt.';
+      errorEl.hidden = false;
+      valid = false;
+    }
+
     if (!valid) return;
 
     const naam    = document.getElementById('contactNaam').value;
@@ -492,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tel     = document.getElementById('contactTel').value;
     const bericht = document.getElementById('contactBericht').value;
 
-    submitForm(form, document.getElementById('contactFormError'), {
+    submitForm(form, errorEl, {
       subject: 'Contactformulier – ' + naam,
       naam: naam,
       email: email,
