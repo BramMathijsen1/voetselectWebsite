@@ -158,6 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.querySelectorAll('[data-open-quiz]').forEach(btn => btn.addEventListener('click', openQuiz));
+  // Lets other features (e.g. the vergoeding-check result screen) open this
+  // quiz after first closing their own overlay, instead of both being open
+  // at once (which silently stacks two same-z-index overlays on top of
+  // each other and makes the newly-opened one unreachable).
+  document.addEventListener('openAppointmentQuiz', openQuiz);
 
   document.getElementById('quizClose').addEventListener('click', closeQuiz);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeQuiz(); });
@@ -348,6 +353,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('vergBackBtn').addEventListener('click', () => {
     showStep(cameFromStep2 ? 'vergStep2' : 'vergStep1');
   });
+
+  // The result screen's own "Maak een afspraak" link must close this overlay
+  // before opening the appointment quiz — both overlays share the same
+  // z-index, so leaving this one open makes the quiz open invisibly
+  // underneath it, and the button looks like it does nothing.
+  const vergResultAfspraakBtn = document.getElementById('vergResultAfspraakBtn');
+  if (vergResultAfspraakBtn) {
+    vergResultAfspraakBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      close();
+      document.dispatchEvent(new Event('openAppointmentQuiz'));
+    });
+  }
 }());
 
 // Ailment appointment quiz (aandoening.html)
@@ -567,5 +585,41 @@ document.addEventListener('DOMContentLoaded', () => {
   lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+  });
+}());
+
+// FAQ answer bubble modal
+(function () {
+  const overlay = document.getElementById('faqOverlay');
+  if (!overlay) return;
+
+  const questionEl = document.getElementById('faqModalQuestion');
+  const answerEl = document.getElementById('faqModalAnswer');
+  let lastTrigger = null;
+
+  function open(btn) {
+    lastTrigger = btn;
+    questionEl.textContent = btn.textContent.trim();
+    answerEl.textContent = btn.dataset.answer || '';
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+  }
+
+  function close() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => open(btn));
+  });
+
+  document.getElementById('faqClose').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
   });
 }());

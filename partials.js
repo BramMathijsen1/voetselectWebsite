@@ -34,6 +34,27 @@
 `;
 
   var FOOTER_HTML = `
+<section class="affiliations">
+  <h3>Wij zijn aangesloten bij:</h3>
+  <div class="affiliations-row">
+    <a href="https://www.podotherapie.nl/" target="_blank" rel="noopener" aria-label="NVvP — Nederlandse Vereniging van Podotherapeuten">
+      <img src="img/logo-nvvp.svg" alt="NVvP — Nederlandse Vereniging van Podotherapeuten">
+    </a>
+    <a href="https://www.kwaliteitsregisterparamedici.nl/" target="_blank" rel="noopener" aria-label="Kwaliteitsregister Paramedici">
+      <img src="img/logo-kp-kwaliteitsregister.jpg" alt="Kwaliteitsgeregistreerd — Kwaliteitsregister Paramedici">
+    </a>
+    <a href="https://www.scascertificering.nl/" target="_blank" rel="noopener" aria-label="SCAS gecertificeerd">
+      <img src="img/logo-scas.jpeg" alt="SCAS gecertificeerd">
+    </a>
+    <a href="https://www.acupunctuur.nl/" target="_blank" rel="noopener" aria-label="Nederlandse Vereniging voor Acupunctuur">
+      <img src="img/logo-nva-acupunctuur.jpeg" alt="Nederlandse Vereniging voor Acupunctuur">
+    </a>
+    <a href="https://www.kab-koepel.nl/" target="_blank" rel="noopener" aria-label="KAB Koepel">
+      <img src="img/logo-kab-koepel.png" alt="KAB Koepel">
+    </a>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="footer-logo-wrap container">
     <a href="index.html">
@@ -74,10 +95,10 @@
     <div class="footer-col">
       <h6>Informatie</h6>
       <ul class="footer-links">
-        <li><a href="#">Veel gestelde vragen</a></li>
-        <li><a href="#">Privacyverklaring</a></li>
-        <li><a href="#">Algemene voorwaarden</a></li>
-        <li><a href="#">MDR-Conformiteit verklaring</a></li>
+        <li><a href="veelgestelde-vragen.html">Veel gestelde vragen</a></li>
+        <li><a href="privacyverklaring.html">Privacyverklaring</a></li>
+        <li><a href="algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+        <li><a href="mdr-verklaring.html">MDR-Conformiteit verklaring</a></li>
       </ul>
     </div>
 

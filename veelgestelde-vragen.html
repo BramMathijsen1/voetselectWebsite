@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Veelgestelde vragen over behandelingen, steunzolen, vergoedingen en meer bij VoetSelect Podotherapie.">
+<title>Veelgestelde vragen — VoetSelect Podotherapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-active-page="veelgestelde-vragen.html">
+
+<div id="header-placeholder"></div>
+
+<main>
+
+  <section class="page-hero page-hero--solid">
+    <div class="container page-hero-content">
+      <p class="eyebrow page-hero-eyebrow">Informatie</p>
+      <h1>Veelgestelde vragen</h1>
+    </div>
+    <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C 480,120 960,120 1440,0 L1440,120 L0,120 Z" fill="#ffffff"></path>
+    </svg>
+  </section>
+
+  <section class="container">
+    <div class="faq-section">
+
+      <div class="faq-category">
+        <h2>Behandelingen</h2>
+        <button type="button" class="faq-question" data-answer="Een podotherapeut is een specialist op het gebied van voetbehandelingen. Echter behandelen zij niet vanuit cosmetisch oogpunt. Een voetbehandeling bij de podotherapeut vindt vaak plaats wanneer de pedicure niet meer kan of mag handelen.">Voert een podotherapeut ook pedicure-behandelingen uit?</button>
+        <button type="button" class="faq-question" data-answer="Naast vaktechnische verschillen zijn er wettelijke verschillen tussen de beroepsgroepen. Podotherapie is in tegenstelling tot de andere disciplines een beschermde beroepstitel en daarmee wettelijk erkend. Vaak hebben alle disciplines een gedegen opleiding gevolgd, echter is dit moeilijk te controleren zonder erkende titel. Podotherapeuten hebben altijd een volledige HBO-opleiding gevolgd en zijn verplicht regelmatig bijscholingen te volgen.">Wat is het verschil tussen een podotherapeut en een podoloog, podoposturaaltherapeut, podokinesioloog of pedicure?</button>
+        <button type="button" class="faq-question" data-answer="Garantie geven op gezondheid is niet mogelijk. Uiteraard staan wij voor een goede kwaliteit van onze therapieën en bieden daarop een beperkte periode service.">Heb ik garantie op de therapie?</button>
+      </div>
+
+      <div class="faq-category">
+        <h2>Zolen</h2>
+        <button type="button" class="faq-question" data-answer="Vaak is dan te zien dat de bekleding slijtage vertoont. Bovendien kunt u slijtage opmerken door opkomst van (oude) klachten of 'niet prettig dragen' van de zolen. Soms kunnen we de zolen eenvoudig opknappen.">Hoe weet ik of mijn podotherapeutische zolen versleten zijn?</button>
+        <button type="button" class="faq-question" data-answer="De levensduur van de zolen is afhankelijk van verschillende factoren. Denk bijvoorbeeld aan werk, sport, schoenen en transpiratie. Bovendien kan de stand van de voet regelmatig veranderen waardoor de zolen niet meer passend zijn. Gemiddeld zijn de zolen 2-3 jaar adequaat.">Wat is de levensduur van een podotherapeutische zool?</button>
+      </div>
+
+      <div class="faq-category">
+        <h2>Administratie</h2>
+        <button type="button" class="faq-question" data-answer="Onze rekeningen worden verzorgd via betalingskantoor Infomedics. Indien gewenst kan de factuur voldaan worden per pin.">Wat zijn de betalingsmogelijkheden bij VoetSelect Podotherapie?</button>
+      </div>
+
+      <div class="faq-category">
+        <h2>Verwijsbrief</h2>
+        <button type="button" class="faq-question" data-answer="Per 1 oktober 2011 is de podotherapeut direct toegankelijk. Dit betekent dat een verwijsbrief niet meer nodig is. Mocht u een bijzondere medische geschiedenis, diabetes, reuma of bijvoorbeeld oncologisch patiënt zijn, dan is een verwijsbrief wél noodzakelijk.">Is een verwijsbrief noodzakelijk?</button>
+      </div>
+
+      <div class="faq-category">
+        <h2>Vergoedingen</h2>
+        <button type="button" class="faq-question" data-answer="De vergoeding van een podotherapeutisch consult of therapie is afhankelijk van uw persoonlijke aanvullende verzekering. Kosten worden niet doorberekend vanuit het eigen risico. Voor meer informatie kunt u contact opnemen met uw verzekeraar of de website van onze beroepsvereniging raadplegen.">Wordt een behandeling door de podotherapeut vergoed?</button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<!-- FAQ ANSWER MODAL -->
+<div class="quiz-overlay" id="faqOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="faqModalQuestion">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="faqClose" aria-label="Sluiten">&times;</button>
+    <div class="quiz-deco" aria-hidden="true"></div>
+    <h3 class="quiz-question" id="faqModalQuestion"></h3>
+    <p id="faqModalAnswer"></p>
+  </div>
+</div>
+
+<script src="partials.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
