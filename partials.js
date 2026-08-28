@@ -151,8 +151,9 @@
       <div class="quiz-options">
         <button type="button" class="quiz-option" data-value="Minder dan 2 weken">Minder dan 2 weken</button>
         <button type="button" class="quiz-option" data-value="2 tot 6 weken">2 tot 6 weken</button>
-        <button type="button" class="quiz-option" data-value="Langer dan 6 weken">Langer dan 6 weken</button>
-        <button type="button" class="quiz-option" data-value="Al meer dan een jaar">Al meer dan een jaar</button>
+        <button type="button" class="quiz-option" data-value="6 weken tot 3 maanden">6 weken tot 3 maanden</button>
+        <button type="button" class="quiz-option" data-value="3 maanden tot 6 maanden">3 maanden tot 6 maanden</button>
+        <button type="button" class="quiz-option" data-value="Langer dan 6 maanden">Langer dan 6 maanden</button>
         <button type="button" class="quiz-option" data-value="Geen klachten / Anders">Geen klachten / Anders</button>
       </div>
       <div class="quiz-nav">
@@ -238,6 +239,66 @@
 </div>
 `;
 
+  var VERGOEDING_MODAL_HTML = `
+<div class="quiz-overlay" id="vergoedingOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vergoedingHeading">
+  <div class="quiz-modal">
+    <button type="button" class="quiz-close" id="vergoedingClose" aria-label="Sluiten">&times;</button>
+    <div class="quiz-deco quiz-deco--gold" aria-hidden="true"></div>
+
+    <div class="quiz-step is-active" id="vergStep1">
+      <h3 id="vergoedingHeading" class="quiz-question">Bij welke zorgverzekeraar bent u verzekerd?</h3>
+      <div class="quiz-options">
+        <button type="button" class="quiz-option" data-value="Zilveren Kruis">Zilveren Kruis</button>
+        <button type="button" class="quiz-option" data-value="CZ">CZ</button>
+        <button type="button" class="quiz-option" data-value="VGZ / IZA">VGZ / IZA</button>
+        <button type="button" class="quiz-option" data-value="Menzis">Menzis</button>
+        <button type="button" class="quiz-option" data-value="DSW / Stad Holland">DSW / Stad Holland</button>
+        <button type="button" class="quiz-option" data-value="ONVZ">ONVZ</button>
+        <button type="button" class="quiz-option" data-value="De Friesland">De Friesland</button>
+        <button type="button" class="quiz-option" data-value="Andere verzekeraar">Andere verzekeraar</button>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-primary quiz-next" id="vergNextBtn" disabled>Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <!-- Stap 2: Kies aanvullende verzekering -->
+    <div class="quiz-step" id="vergStep2">
+      <h3 class="quiz-question">Welke aanvullende verzekering heeft u bij <span id="vergStep2Insurer"></span>?</h3>
+      <div class="form-field">
+        <label for="vergPakketSelect">Pakket</label>
+        <select id="vergPakketSelect"></select>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" id="vergStep2BackBtn">Terug</button>
+        <button type="button" class="btn btn-primary quiz-next" id="vergStep2NextBtn">Bekijk resultaat</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" id="vergResult">
+      <div class="verg-badge" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,11 8,15 16,6"/></svg>
+        Mogelijk vergoed
+      </div>
+      <h3 class="quiz-question">Vergoeding bij <span id="vergResultInsurer"></span></h3>
+      <div class="verg-amount" id="vergResultAmount">
+        <p class="verg-amount-plan"></p>
+        <p class="verg-amount-value"></p>
+      </div>
+      <p>Podotherapie wordt in Nederland <strong>niet vergoed vanuit de basisverzekering</strong>, maar wel (gedeeltelijk) via een aanvullende verzekering. Bovenstaande bedragen zijn een indicatie op basis van de meest recente informatie &mdash; neem voor de zekerheid contact op met uw verzekeraar om uw actuele vergoeding te bevestigen.</p>
+      <div class="verg-tip">
+        <p>Twijfelt u? Bel ons gerust. Wij helpen u graag uitzoeken of uw behandeling vergoed wordt.</p>
+      </div>
+      <div class="quiz-nav">
+        <button type="button" class="quiz-back" id="vergBackBtn">Terug</button>
+        <a class="btn btn-primary" href="#" id="vergResultAfspraakBtn">Maak een afspraak</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+`;
+
   function inject(html, placeholderId) {
     var el = document.getElementById(placeholderId);
     if (!el) return;
@@ -249,6 +310,7 @@
   inject(HEADER_HTML, 'header-placeholder');
   inject(FOOTER_HTML, 'footer-placeholder');
   inject(QUIZ_MODAL_HTML, 'quiz-modal-placeholder');
+  inject(VERGOEDING_MODAL_HTML, 'vergoeding-modal-placeholder');
 
   /* Mark the active nav link */
   var activePage = document.body.dataset.activePage

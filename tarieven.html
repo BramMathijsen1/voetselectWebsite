@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="verzekeraars-data.js"></script>
 </head>
 <body data-active-page="tarieven.html">
 
@@ -44,7 +45,10 @@
       <p>Podotherapie wordt door de meeste verzekeraars vergoed in een aanvullend pakket. Kijk voor een overzicht van de vergoedingen per verzekeraar op de website van onze beroepsvereniging <a href="https://www.podotherapie.nl" target="_blank" rel="noopener">www.podotherapie.nl</a>.</p>
       <p>Voor diabetici gelden soms aparte vergoedingen. Meer informatie vindt u op <a href="https://www.diabetespodotherapeut.nl" target="_blank" rel="noopener">www.diabetespodotherapeut.nl</a>.</p>
       <p>Bij twijfel kunt u contact opnemen met uw verzekeraar of de podotherapeut.</p>
-      <a class="btn btn-primary" href="#" data-open-quiz>Maak een afspraak</a>
+      <div class="quiz-cta-actions">
+        <a class="btn btn-primary" href="#" data-open-quiz>Maak een afspraak</a>
+        <button type="button" class="btn btn-vergoeding" data-open-vergoeding>Check uw vergoeding</button>
+      </div>
     </div>
   </section>
 
@@ -189,6 +193,8 @@
 <div id="footer-placeholder"></div>
 
 <div id="quiz-modal-placeholder"></div>
+
+<div id="vergoeding-modal-placeholder"></div>
 
 <script src="partials.js"></script>
 <script src="cookie-consent.js"></script>

@@ -23,3 +23,20 @@
 
 # Don't let visitors browse raw folder contents (e.g. /img/) when there's no index file.
 Options -Indexes
+
+# The hosting panel applies a 7-day browser cache to .js/.css by default. That's
+# fine for a stable production site, but while this site is still being actively
+# updated via SFTP it means visitors (and you, outside incognito) silently keep
+# running an old cached script.js/partials.js for up to a week after every
+# re-upload. Force revalidation on every load until launch is fully settled.
+<IfModule mod_expires.c>
+  <FilesMatch "\.(js|css)$">
+    ExpiresActive Off
+  </FilesMatch>
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header unset Expires
+  </FilesMatch>
+</IfModule>
