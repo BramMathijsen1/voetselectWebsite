@@ -475,7 +475,7 @@ body.menu-open {
 .hero-scroll-btn {
   position: absolute;
   left: 50%;
-  bottom: 22%;
+  bottom: 16%;
   transform: translateX(-50%);
   z-index: 4;
   width: 48px;
