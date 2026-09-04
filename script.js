@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="quiz-summary-value">${value}</span>
           </div>`)
           .join('')
-      : `<p class="quiz-summary-empty">Geen voorkeuren opgegeven. U kunt dit eventueel toelichten bij de opmerkingen.</p>`;
+      : `<p class="quiz-summary-empty">Vragen overgeslagen. U kunt uw klachten eventueel toelichten bij de opmerkingen.</p>`;
   }
 
   function skipQuestions() {
@@ -251,10 +251,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('heroScrollBtn');
   if (!btn) return;
 
+  // Native scrollIntoView's "smooth" behavior is quick and not adjustable, so
+  // this animates the scroll manually with a longer, eased duration.
+  function smoothScrollTo(targetY, duration) {
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    const startTime = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+      window.scrollTo(0, startY + diff * eased);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
   btn.addEventListener('click', () => {
-    const hero = btn.closest('.hero');
-    const next = hero && hero.nextElementSibling;
-    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const heroContent = document.querySelector('.hero-content');
+    if (!heroContent) return;
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const targetY = heroContent.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+    smoothScrollTo(Math.max(targetY, 0), 1400);
   });
 }());
 
