@@ -139,6 +139,7 @@
       <div class="quiz-nav">
         <button type="button" class="btn btn-primary quiz-next" data-next="quizStep2" disabled>Volgende</button>
       </div>
+      <button type="button" class="quiz-skip" data-skip>Vragen overslaan &amp; direct afspraak maken</button>
     </div>
 
     <!-- Vraag 2 -->
@@ -160,6 +161,7 @@
         <button type="button" class="quiz-back" data-prev="quizStep1">Terug</button>
         <button type="button" class="btn btn-primary quiz-next" data-next="quizStep3" disabled>Volgende</button>
       </div>
+      <button type="button" class="quiz-skip" data-skip>Vragen overslaan &amp; direct afspraak maken</button>
     </div>
 
     <!-- Vraag 3 -->
@@ -180,6 +182,7 @@
         <button type="button" class="quiz-back" data-prev="quizStep2">Terug</button>
         <button type="button" class="btn btn-primary quiz-next" data-next="quizForm" disabled>Bekijk resultaat</button>
       </div>
+      <button type="button" class="quiz-skip" data-skip>Vragen overslaan &amp; direct afspraak maken</button>
     </div>
 
     <!-- Afspraak form -->

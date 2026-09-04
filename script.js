@@ -156,13 +156,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function buildSummary() {
-    document.getElementById('quizSummary').innerHTML = Object.entries(state.answers)
-      .map(([label, value]) =>
-        `<div class="quiz-summary-item">
-          <span class="quiz-summary-label">${label}</span>
-          <span class="quiz-summary-value">${value}</span>
-        </div>`)
-      .join('');
+    const entries = Object.entries(state.answers);
+    document.getElementById('quizSummary').innerHTML = entries.length
+      ? entries.map(([label, value]) =>
+          `<div class="quiz-summary-item">
+            <span class="quiz-summary-label">${label}</span>
+            <span class="quiz-summary-value">${value}</span>
+          </div>`)
+          .join('')
+      : `<p class="quiz-summary-empty">Geen voorkeuren opgegeven. U kunt dit eventueel toelichten bij de opmerkingen.</p>`;
+  }
+
+  function skipQuestions() {
+    state.answers = {};
+    overlay.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('is-selected'));
+    overlay.querySelectorAll('.quiz-next').forEach(b => { b.disabled = true; });
+    showStep('quizForm');
   }
 
   document.querySelectorAll('[data-open-quiz]').forEach(btn => btn.addEventListener('click', openQuiz));
@@ -194,6 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   overlay.querySelectorAll('.quiz-back').forEach(btn => {
     btn.addEventListener('click', () => showStep(btn.dataset.prev));
+  });
+
+  overlay.querySelectorAll('[data-skip]').forEach(btn => {
+    btn.addEventListener('click', skipQuestions);
   });
 
   document.getElementById('quizDoneBtn').addEventListener('click', closeQuiz);
@@ -230,6 +243,18 @@ document.addEventListener('DOMContentLoaded', () => {
       klachtenanalyse: quizLines,
       opmerkingen: form.opmerkingen.value,
     }, () => showStep('quizSuccess'));
+  });
+}());
+
+// Hero scroll-down arrow (homepage only)
+(function () {
+  const btn = document.getElementById('heroScrollBtn');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const hero = btn.closest('.hero');
+    const next = hero && hero.nextElementSibling;
+    if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }());
 
