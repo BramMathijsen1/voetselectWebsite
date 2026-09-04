@@ -475,7 +475,7 @@ body.menu-open {
 .hero-scroll-btn {
   position: absolute;
   left: 50%;
-  bottom: 16%;
+  bottom: 10%;
   transform: translateX(-50%);
   z-index: 4;
   width: 48px;
@@ -504,6 +504,11 @@ body.menu-open {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-scroll-btn { animation: none; }
+}
+
+/* Hidden on phones — not enough clearance from the curve at small heights */
+@media (max-width: 999px) {
+  .hero-scroll-btn { display: none; }
 }
 
 .hero-content {
