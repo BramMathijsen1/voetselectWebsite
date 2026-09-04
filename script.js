@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!btn) return;
 
   // Native scrollIntoView's "smooth" behavior is quick and not adjustable, so
-  // this animates the scroll manually with a longer, eased duration.
+  // this animates the scroll manually with a longer, constant-speed duration
+  // (no easing curve — that made it look like it sped up partway through).
   function smoothScrollTo(targetY, duration) {
     const startY = window.scrollY;
     const diff = targetY - startY;
@@ -260,10 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function step(now) {
       const progress = Math.min((now - startTime) / duration, 1);
-      const eased = progress < 0.5
-        ? 2 * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-      window.scrollTo(0, startY + diff * eased);
+      window.scrollTo(0, startY + diff * progress);
       if (progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
