@@ -261,7 +261,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function step(now) {
       const progress = Math.min((now - startTime) / duration, 1);
-      window.scrollTo(0, startY + diff * progress);
+      // { behavior: 'instant' } is essential here: the site sets CSS
+      // `scroll-behavior: smooth` globally, so a plain scrollTo() on every
+      // animation frame would each get smooth-animated by the browser too —
+      // dozens of overlapping native animations fighting this loop's own
+      // steps, which is what caused the erratic slow/fast motion.
+      window.scrollTo({ top: startY + diff * progress, left: 0, behavior: 'instant' });
       if (progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
