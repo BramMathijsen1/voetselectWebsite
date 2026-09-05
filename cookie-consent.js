@@ -1,4 +1,4 @@
-/* Cookie consent — gates Google Analytics until the visitor actually accepts.
+/* Cookie consent: gates Google Analytics until the visitor actually accepts.
    Required under AVG/GDPR + the Dutch Cookiewet: non-essential (statistics)
    cookies may not be set before consent is given, and declining must be as
    easy as accepting. */

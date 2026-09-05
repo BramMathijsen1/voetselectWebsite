@@ -1,6 +1,6 @@
-/* VoetSelect — vergoedingengegevens voor de "Check uw vergoeding" modal.
+/* VoetSelect: vergoedingengegevens voor de "Check uw vergoeding" modal.
    Indicatieve bedragen voor 2026, o.b.v. de vergoedingenoverzichten van
-   de verzekeraars zelf. Wijzigt jaarlijks — check bij twijfel de eigen
+   de verzekeraars zelf. Wijzigt jaarlijks, check bij twijfel de eigen
    polisvoorwaarden of het overzicht op podotherapie.nl/vergoedingen. */
 
 const GEEN_VERGOEDING = 'Geen vergoeding voor podotherapie of steunzolen vanuit dit pakket.';

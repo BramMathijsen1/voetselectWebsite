@@ -511,9 +511,24 @@ body.menu-open {
   .hero-scroll-btn { display: none; }
 }
 
-.hero-content {
+.hero-content-section {
+  position: relative;
+  overflow: hidden;
   padding-top: 32px;
   padding-bottom: 64px;
+}
+
+/* Only the right edge (page edge) should clip this circle here — unlike the
+   reference section, nothing below shares a color seam that needs hiding, so
+   keep the full circle within the vertical bounds instead of also bleeding
+   off the bottom (which turned it into a quarter-circle instead of a half). */
+.hero-content-section .accent-circle--orange {
+  bottom: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 760px;
 }
 
@@ -545,9 +560,12 @@ body.menu-open {
 @media (min-width: 1000px) {
   .hero-media { height: 70vh; min-height: 520px; }
 
-  .hero-content {
+  .hero-content-section {
     padding-top: 48px;
     padding-bottom: 72px;
+  }
+
+  .hero-content {
     max-width: 820px;
   }
 }

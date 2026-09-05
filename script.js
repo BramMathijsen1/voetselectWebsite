@@ -1,4 +1,4 @@
-/* Form backend: https://web3forms.com — free, no server required.
+/* Form backend: https://web3forms.com, free, no server required.
    Get your own access key at web3forms.com and paste it below. */
 const WEB3FORMS_ACCESS_KEY = '74847e07-cee5-4c28-8f48-51ee8bfa46b7';
 
@@ -16,7 +16,7 @@ function submitForm(form, errorEl, fields, onSuccess) {
 
   // Built from the real <form> (not a plain object) so it automatically picks
   // up hCaptcha's hidden response-token field, which only exists as an actual
-  // form field injected into the DOM once the checkbox is solved — Web3Forms
+  // form field injected into the DOM once the checkbox is solved. Web3Forms
   // rejects the submission without it. FormData (not JSON) also means this is
   // a CORS "simple request", skipping a preflight roundtrip.
   const formData = new FormData(form);
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Native scrollIntoView's "smooth" behavior is quick and not adjustable, so
   // this animates the scroll manually with a longer, constant-speed duration
-  // (no easing curve — that made it look like it sped up partway through).
+  // (no easing curve, that made it look like it sped up partway through).
   function smoothScrollTo(targetY, duration) {
     const startY = window.scrollY;
     const diff = targetY - startY;
@@ -263,8 +263,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const progress = Math.min((now - startTime) / duration, 1);
       // { behavior: 'instant' } is essential here: the site sets CSS
       // `scroll-behavior: smooth` globally, so a plain scrollTo() on every
-      // animation frame would each get smooth-animated by the browser too —
-      // dozens of overlapping native animations fighting this loop's own
+      // animation frame would each get smooth-animated by the browser too,
+      // causing dozens of overlapping native animations to fight this loop's own
       // steps, which is what caused the erratic slow/fast motion.
       window.scrollTo({ top: startY + diff * progress, left: 0, behavior: 'instant' });
       if (progress < 1) requestAnimationFrame(step);
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // VERGOEDING_PLANS en INSURER_LINKS komen uit verzekeraars-data.js
 
-  // Guards against a javascript:/data: URL ending up in an href — these values
+  // Guards against a javascript:/data: URL ending up in an href. These values
   // come from an LLM's web research, not a hand-typed source.
   function isSafeHttpUrl(link) {
     try {
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // The result screen's own "Maak een afspraak" link must close this overlay
-  // before opening the appointment quiz — both overlays share the same
+  // before opening the appointment quiz, since both overlays share the same
   // z-index, so leaving this one open makes the quiz open invisibly
   // underneath it, and the button looks like it does nothing.
   const vergResultAfspraakBtn = document.getElementById('vergResultAfspraakBtn');

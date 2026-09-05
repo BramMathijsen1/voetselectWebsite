@@ -1,4 +1,4 @@
-/* VoetSelect — ailment data used by aandoeningen.html and aandoening.html */
+/* VoetSelect: ailment data used by aandoeningen.html and aandoening.html */
 const AANDOENINGEN = [
   {
     id: 'polyneuropathie',

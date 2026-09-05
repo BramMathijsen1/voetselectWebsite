@@ -1,4 +1,4 @@
-/* Shared header and footer — edit the HTML strings below to update every page */
+/* Shared header and footer: edit the HTML strings below to update every page */
 (function () {
   var HEADER_HTML = `
 <header class="site-header">
@@ -37,11 +37,11 @@
 <section class="affiliations">
   <h3>Wij zijn aangesloten bij:</h3>
   <div class="affiliations-row">
-    <a href="https://www.podotherapie.nl/" target="_blank" rel="noopener" aria-label="NVvP — Nederlandse Vereniging van Podotherapeuten">
-      <img src="img/logo-nvvp.svg" alt="NVvP — Nederlandse Vereniging van Podotherapeuten">
+    <a href="https://www.podotherapie.nl/" target="_blank" rel="noopener" aria-label="NVvP: Nederlandse Vereniging van Podotherapeuten">
+      <img src="img/logo-nvvp.svg" alt="NVvP: Nederlandse Vereniging van Podotherapeuten">
     </a>
     <a href="https://www.kwaliteitsregisterparamedici.nl/" target="_blank" rel="noopener" aria-label="Kwaliteitsregister Paramedici">
-      <img src="img/logo-kp-kwaliteitsregister.jpg" alt="Kwaliteitsgeregistreerd — Kwaliteitsregister Paramedici">
+      <img src="img/logo-kp-kwaliteitsregister.jpg" alt="Kwaliteitsgeregistreerd: Kwaliteitsregister Paramedici">
     </a>
     <a href="https://www.scascertificering.nl/" target="_blank" rel="noopener" aria-label="SCAS gecertificeerd">
       <img src="img/logo-scas.jpeg" alt="SCAS gecertificeerd">
@@ -288,7 +288,7 @@
         <p class="verg-amount-plan"></p>
         <p class="verg-amount-value"></p>
       </div>
-      <p>Podotherapie wordt in Nederland <strong>niet vergoed vanuit de basisverzekering</strong>, maar wel (gedeeltelijk) via een aanvullende verzekering. Bovenstaande bedragen zijn een indicatie op basis van de meest recente informatie &mdash; neem voor de zekerheid contact op met uw verzekeraar om uw actuele vergoeding te bevestigen.</p>
+      <p>Podotherapie wordt in Nederland <strong>niet vergoed vanuit de basisverzekering</strong>, maar wel (gedeeltelijk) via een aanvullende verzekering. Bovenstaande bedragen zijn een indicatie op basis van de meest recente informatie, dus neem voor de zekerheid contact op met uw verzekeraar om uw actuele vergoeding te bevestigen.</p>
       <div class="verg-tip">
         <p>Twijfelt u? Bel ons gerust. Wij helpen u graag uitzoeken of uw behandeling vergoed wordt.</p>
       </div>
