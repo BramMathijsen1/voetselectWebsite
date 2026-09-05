@@ -240,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
       email: form.email.value,
       telefoon: form.telefoon.value,
       datum: form.datum.value,
+      dagdeel: form.dagdeel.value,
       klachtenanalyse: quizLines,
       opmerkingen: form.opmerkingen.value,
     }, () => showStep('quizSuccess'));

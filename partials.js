@@ -201,14 +201,22 @@
             <input type="email" id="femail" name="email" required autocomplete="email" placeholder="uw@email.nl">
           </div>
         </div>
+        <div class="form-field">
+          <label for="fphone">Telefoonnummer</label>
+          <input type="tel" id="fphone" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
+        </div>
         <div class="form-row">
-          <div class="form-field">
-            <label for="fphone">Telefoonnummer</label>
-            <input type="tel" id="fphone" name="telefoon" autocomplete="tel" placeholder="06 00 00 00 00">
-          </div>
           <div class="form-field">
             <label for="fdate">Gewenste datum</label>
             <input type="date" id="fdate" name="datum">
+          </div>
+          <div class="form-field">
+            <label for="fdaypart">Dagdeel</label>
+            <select id="fdaypart" name="dagdeel">
+              <option value="">Geen voorkeur</option>
+              <option value="Ochtend">Ochtend</option>
+              <option value="Middag">Middag</option>
+            </select>
           </div>
         </div>
         <div class="form-field">
