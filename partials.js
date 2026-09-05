@@ -38,19 +38,19 @@
   <h3>Wij zijn aangesloten bij:</h3>
   <div class="affiliations-row">
     <a href="https://www.podotherapie.nl/" target="_blank" rel="noopener" aria-label="NVvP: Nederlandse Vereniging van Podotherapeuten">
-      <img src="img/logo-nvvp.svg" alt="NVvP: Nederlandse Vereniging van Podotherapeuten">
+      <img src="img/logo-nvvp.svg" alt="NVvP: Nederlandse Vereniging van Podotherapeuten" loading="lazy">
     </a>
     <a href="https://www.kwaliteitsregisterparamedici.nl/" target="_blank" rel="noopener" aria-label="Kwaliteitsregister Paramedici">
-      <img src="img/logo-kp-kwaliteitsregister.jpg" alt="Kwaliteitsgeregistreerd: Kwaliteitsregister Paramedici">
+      <img src="img/logo-kp-kwaliteitsregister.jpg" alt="Kwaliteitsgeregistreerd: Kwaliteitsregister Paramedici" loading="lazy">
     </a>
     <a href="https://www.scascertificering.nl/" target="_blank" rel="noopener" aria-label="SCAS gecertificeerd">
-      <img src="img/logo-scas.jpeg" alt="SCAS gecertificeerd">
+      <img src="img/logo-scas.jpeg" alt="SCAS gecertificeerd" loading="lazy">
     </a>
     <a href="https://www.acupunctuur.nl/" target="_blank" rel="noopener" aria-label="Nederlandse Vereniging voor Acupunctuur">
-      <img src="img/logo-nva-acupunctuur.jpeg" alt="Nederlandse Vereniging voor Acupunctuur">
+      <img src="img/logo-nva-acupunctuur.jpeg" alt="Nederlandse Vereniging voor Acupunctuur" loading="lazy">
     </a>
     <a href="https://www.kab-koepel.nl/" target="_blank" rel="noopener" aria-label="KAB Koepel">
-      <img src="img/logo-kab-koepel.png" alt="KAB Koepel">
+      <img src="img/logo-kab-koepel.png" alt="KAB Koepel" loading="lazy">
     </a>
   </div>
 </section>
@@ -58,7 +58,7 @@
 <footer class="site-footer">
   <div class="footer-logo-wrap container">
     <a href="index.html">
-      <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img logo-img--footer">
+      <img src="img/logo-white.png" alt="VoetSelect Podotherapie" class="logo-img logo-img--footer" loading="lazy">
     </a>
   </div>
 
